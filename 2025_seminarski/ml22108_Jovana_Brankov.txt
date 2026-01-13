@@ -1,0 +1,231 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[serbian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\geometry{margin=2.5cm}
+\onehalfspacing
+\titleformat{\section}{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}{\bfseries\large}{\thesubsection.}{1em}{}
+
+\title{\textbf{Računarske mreže i serversko veb-programiranje}}
+\author{
+Jovana Brankov
+108/2022
+}
+\date{26.01.2026.}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+\section{Računarske mreže}
+Računarska mreža je sistem koji se sastoji od skupa hardverskih uređaja međusobno povezanih komunikacionom opremom, snabdevenih odgovarajućim komunikacionim softverom, kojim se ostvaruje kontrola sistema tako da je omogućen prenos podataka između povezanih uređaja.
+
+\subsection{Računarske mreže i internet}
+ Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računata} ili model \textbf{klijent-server}   
+ 
+ \textbf{klijent-server}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl1.png}
+\caption{Modeli računarskih mreža}
+\end{figure}
+\paragraph{} U klijent-server modelu server je sistem koji pruža svoje resurse (podatke, softver, hardver), dok je klijent sistem koji inicira kontakt sa serverom da bi koristio resurse koje server pruža.Većina internet servisa uglavnom koristi model klijent–server. Na primer, digitalni uređaj na kojem pregledate sadržaj veba je klijent. Kada unesete adresu u pregledač, vaš uređaj se obraća nekom veb-serveru – udaljenom računaru na kome se nalaze veb-strane koje zahtevate (ili programi koji ih generišu). Server klijentu šalje dokumente (veb-stranice, slike itd.) i klijent ih prikazuje korisniku.
+
+\subsection{Mrežni uređaji}
+
+Da bi računar ili neki drugi digitalni uređaj mogao da učestvuje u računarskoj mreži i da se poveže na internet, neophodno je da poseduje mrežnu karticu, odnosno mrežni kontroler. Mrežni kontroleri mogu biti namenjeni za žično ili bežično povezivanje. Kod žičnog povezivanja najčešće se koristi UTP kabl sa RJ45 priključkom, dok se za bežično povezivanje koriste kontroleri zasnovani na radio-talasma.Većina stonih računara ima ugrađenu mrežnu karticu, dok prenosni računari, pored žične, poseduju i karticu za bežično povezivanje. Mobilni telefoni i tableti uglavnom koriste isključivo bežičnu mrežu, dok savremeni televizori često podržavaju obe vrste povezivanja.
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl2.jpg}
+\caption{UTP kablovi sa konektorima RJ45,mrežna kartica za povezivanje UTP kablom, mrežna kartica za bežično povezivanje (sa antenom)}
+\end{figure}
+
+
+U računarskim mrežama važnu ulogu imaju i uređaji koji posreduju u komunikaciji.
+
+
+\textbf{Pojačivači} (repetitori) služe za jačanje signala kako bi se omogućila komunikacija na većim udaljenostima. 
+\textbf{Habovi} prosleđuju sve primljene podatke svim povezanim uređajima, zbog čega su danas gotovo u potpunosti zamenjeni savremenijim uređajima.
+
+
+
+\textbf{Svičevi} povezuju više uređaja i podatke prosleđuju samo onom uređaju kome su namenjeni, čime se smanjuje opterećenje mreže i povećava efikasnost. Oni rade na nižim mrežnim slojevima i koriste fizičke (MAC) adrese. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl3.jpg}
+\caption{Hab i svič}
+\end{figure}
+
+\newpage
+\textbf{Ruteri} su složeniji uređaji koji povezuju različite mreže i omogućavaju pristup internetu. Oni rade na mrežnom sloju, analiziraju IP adrese i određuju najbolji put kojim će podaci stići do odredišta. Zbog toga su veoma rasprostranjeni u domaćinstvima i malim mrežama.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl4.jpg}
+\caption{Ruter}
+\end{figure}
+
+Pored mrežnih uređaja, važan deo mreže čine i komunikacioni kanali, odnosno medijumi za prenos podataka. Najčešće se koriste \textbf{upredene parice}  (UTP/STP kablovi), \textbf{koaksijalni kablovi} i \textbf{optički kablovi}. UTP kablovi su najrasprostranjeniji u lokalnim mrežama, dok se optički kablovi koriste za prenos velikih količina podataka na velikim brzinama i na većim udaljenostima, naročito u okosnici interneta, a koaksijalni kablovi obično se koriste za prenos radio i televizijskog signala .
+
+
+
+Kod bežične komunikacije koriste se radio-talasi, mikrotalasi ili infracrveni zraci. \textbf{Bluetooth} tehnologija namenjena je komunikaciji na malim udaljenostima, dok se \textbf{WiFi} mreže koriste za povezivanje uređaja u lokalnim mrežama. Za pokrivanje većih područja koriste se naprednije bežične tehnologije, kao i  \textbf{satelitske veze} i \textbf{mobilne mreže} , koje omogućavaju komunikaciju na velikim razdaljinama.
+
+\newpage
+\subsection{Adrese}
+Postoji nekoliko različitih sistema adresa koji se koriste u mrežnoj komunikaciji. U današnjim mrežama se obično koriste:
+\begin{itemize}
+\item MAC adrese
+\item IP adrese
+\item DNS adrese i URL-ovi
+\end{itemize}
+
+\paragraph{Fizičke (MAC) adrese}
+MAC adresa (Media Access Control) je jedinstveni, trajni fizički identifikator mrežnog uređaja (kartice) koji dodeljuje proizvođač, zapisan u ROM memoriji. Obično su 48-bitne ili 64-bitne, prikazuju se kao 12 heksadecimalnih znakova (npr. 00:1B:44:11:3A:B7). Koristi se za komunikaciju na lokalnoj mreži (LAN). 
+\paragraph{IP adrese}
+IP adresa (Internet Protocol Address) je jedinstveni numerički identifikator (npr. 192.168.1.1) koji omogućava uređajima (računarima, telefonima) da komuniciraju na mreži, poput digitalne poštanske adrese koja usmerava podatke, a dele se na javne (vidljive na internetu) i privatne (za lokalnu mrežu), sa dve glavne verzije: stariji IPv4 (četiri broja) i noviji IPv6 (duži niz).
+
+One mogu biti dodeljene \textbf{statički} , tako da uređaj ima fiksnu IP adresu kada god se priključi na internet. Primer: adresa servera nikad ne menja kako bi klijenti mogli da mu uvek pristupaju na isti način, štampač koji se koristi u poslovnom prostoru i koji mora imati statičku IP adresu tako da svi u kancelariji mogu lako da se povezuju sa njim.
+
+Češća varijanta je \textbf{dinamička} dodela IP adresa, kada se uređaju dodeljuje neka slobodna IP adresa svaki put kada se priključuje na internet. Prednosti dinamičkih adresa su bezbednost i manja mogućnost da dodje do greške. Na primer, jednom laptopu koji se poveže na internet može se dodeliti određena IP adresa, a kada se odvoji, ta adresa se onda može slobodno koristiti za drugi uređaj koji se kasnije poveže.
+
+\paragraph{Domeni i URL} Krajnji korisnik najčešće ima dodira sa URL adresama (engl. Uniform Resource Locator). Recimo i da se nekada javlja i pojam URI (engl. Uniform Resource Identifier) i da postoji suptilna razlika između pojmova URL i URI, međutim, ona je prilično tehnička i nema potrebe da je objašnjavamo. URL-ovi su tzv. veb-adrese.
+Na primer: http://info.cern.ch/hypertext/WWW/TheProject.html, https://www.wikipedia.org/,  http://www.matf.bg.ac.rs/
+Šta sve sadrži prvi URL kod?
+\begin{itemize}
+\item http- Oznaka protokola koji se koristi za pristup resursu 
+\item info.cern.ch- Naziv servera na kom se resurs nalazi
+\item hypertext/WWW/TheProject.html- Putanja do resursa unutar tog servera
+\end{itemize}
+
+Važan deo URL-a je adresa servera, to su na primer:www.uns.ac.rs, raf.edu.rs i info.cern.ch. Njih nazivamo \textbf{domenima}, oni se koriste u sklopu URL-ova i adresa elektronskih pošti (petar.petrovic@uns.ac.rs).
+Domeni su pijerarhijski organizovani, na primer:matf.bg.ac.rs
+\begin{itemize}
+\item rs--> nalazi se u Srbiji
+\item ac.rs--> deo je akademske mreže
+\item bg.ac.rs--> nalazi se na univerzitetu u Beogradu
+\item matf.be.ac.rs--> nalazi se na Matematičkom fakultetu
+\end{itemize}
+Domeni nisu uvek vezani za zemlju, na primer:
+\begin{itemize}
+\item .com je komercijalni domen koji može svako da zakupi
+\item .org uglavnom koriste neprofitne organizacije
+\item .edu koriste obrazovne institucije
+\item .aero koriste avioprevoznici i aerodromi
+\end{itemize}
+Pošto su za interno funkcionisanje mrežne komunikacije neophodne numeričke IP adrese, a ne tekstualne adrese, svakom imenu domena pridružena je IP adresa odgovarajućeg uređaja registrovanog za taj domen (na primer, imenu servera www.pmf.uns.ac.rs pridružena je IP adresa 147.91.177.44). Ovo pridruživanje beleži se na posebnim serverima, koji se nazivaju serveri za imena domena (engl. Domain Name Server, DNS). \textbf{DNS} se često naziva telefonskim imenikom interneta. Pre započinjanja mrežne komunikacije, softver koji podržava imena domena (na primer, pregledač u koji korisnik unosi veb-adresu) obraća se DNS serveru i od njega traži IP adresu na osnovu imena domena koje mu pošalje. 
+
+
+\subsection{Mrežni slojevi i protokoli}
+Računarske mreže su složeni sistemi jer uključuju veliki broj hardverskih i softverskih komponenti. Da bi se ta složenost pojednostavila, mreže su organizovane po principu slojevitosti, gde svaki sloj ima jasno definisanu ulogu i koristi određene protokole komunikacije. Protokoli predstavljaju skup pravila koja omogućavaju razmenu podataka između uređaja u mreži.
+
+
+
+Internet je organizovan prema TCP/IP modelu koji se sastoji od četiri osnovna sloja: veznog (sloj mrežnog interfejsa), mrežnog (internet sloj), transportnog i aplikativnog. \textbf{Vezni sloj} se bavi fizičkim prenosom podataka i pouzdanošću komunikacije između uređaja.
+Protokoli na ovom sloju su:
+\begin{itemize}
+\item protokol IP (engl. Internet Protocol) - za slanje poruka
+\item protokol ICMP (engl. Internet Control Message Protocol) - za slanje kontrolnih poruka
+\item protokol ARP (engl. Address Resolution Protocol) - za razrešenje adresa
+\item ARP – prevođenje IP adrese u MAC adresu
+\item RARP – prevođenje MAC adrese u IP adresu
+\end{itemize}
+
+ \textbf{Mrežni sloj} omogućava adresiranje i rutiranje podataka kroz širu mrežu, odnosno određivanje putanje kojom paketi stižu do odredišta.
+
+  \textbf{Transportni sloj} obezbeđuje prenos podataka između aplikacija i koristi \textbf{portove} za njihovo razlikovanje. Najvažniji protokoli ovog sloja su TCP i UDP. \textbf{TCP} omogućava pouzdanu komunikaciju uz kontrolu grešaka, dok je \textbf{UDP} brži, ali manje pouzdan i koristi se u aplikacijama u realnom vremenu.
+ \textbf{Aplikativni sloj} obuhvata protokole koji su namenjeni konkretnim internet servisima,neki od njih su:
+ \begin{itemize}
+\item HTTP i HTTPS (za preuzimanje sa veb)
+\item POP3 i IMAP (za preuzimanje elektronske pošte)
+\item SMTP (za slanje elektronske pošte)
+\item ETP (za prenos fajlova)
+\end{itemize}
+Veb funkcioniše po modelu \textbf{klijent-server} , gde klijent šalje zahteve, a server na njih odgovara. Komunikacija se odvija putem HTTP ili HTTPS protokola, pri čemu HTTPS obezbeđuje veću sigurnost šifrovanjem podataka. Ovaj način rada predstavlja osnovu savremenog interneta i veb-aplikacija.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl5.png}
+\caption{Klijent-server}
+\end{figure}
+
+
+
+\subsection{Statičke veb-strane HTML/CSS}
+Na početku razvoja veba, većina veb-strana je bila \textbf{statiča}, što znači da je njihov sadržaj bio unapred pripremljen i isti za sve korisnike. Takve stranice su služile isključivo za pregled informacija, bez mogućnosti značajnije interakcije. Uloge klijenta i servera u ovom slučaju su jednostavne: klijent šalje zahtev, a server pronalazi odgovarajuću HTML datoteku i šalje je nazad klijentu, bez ikakve dodatne obrade.
+Za izradu statičkih veb-strana koriste se osnovne veb-tehnologije – HTML i CSS. HTML je jezik za obeležavanje koji definiše strukturu i sadržaj veb-strane, dok se CSS koristi za njen vizuelni izgled. HTML dokumenti su tekstualne datoteke koje mogu da se pišu u bilo kom editoru teksta i koje svaki veb-pregledač može da prikaže.
+
+
+
+HTML stranica se sastoji od elemenata koji su označeni tagovima. Tagovi se najčešće javljaju u parovima (otvoreni i zatvoreni tag), a zajedno sa sadržajem koji okružuju čine HTML element. Pomoću ovih elemenata mogu se definisati naslovi, pasusi teksta, liste, slike i drugi delovi stranice.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl7.png}
+\caption{Osnovni tagovi}
+\end{figure}
+
+
+Za oblikovanje teksta koriste se različite oznake, kao što su tagovi za naslove različitih nivoa, pasuse, kao i tagovi za podebljan, iskošen ili podvučen tekst. Liste mogu biti uređene ili neuređene, u zavisnosti od načina prikaza njihovih elemenata.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl6.png}
+\caption{Oblikovanje teksta}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl8.jpg}
+\caption{Liste}
+\end{figure}
+
+Slike se u HTML dokument ubacuju pomoću posebnog elementa koji kao atribut ima putanju do slike. Sama slika se obično čuva kao zasebna datoteka, a HTML dokument samo ukazuje na njenu lokaciju.
+<img src="images/stara.jpg" alt="Stara arhitektura">
+
+
+Nakon svake izmene HTML dokumenta, fajl je potrebno sačuvati i ponovo učitati u veb-pregledaču kako bi promene bile vidljive. Na ovaj način se kreiraju jednostavne statičke veb-strane koje predstavljaju osnovu daljeg razvoja veb-aplikacija.
+
+
+
+\subsection{Dizajn veb-strane-CSS}
+
+\subsection{Kreiranje veb-sajta}
+
+\section{Serversko veb-programiranje}
+
+\subsection{Veb-aplikacije – uvod}
+
+\subsection{HTTP protokol}
+
+\section{Flask biblioteka}
+
+\subsection{Osnovni pojmovi}
+
+\subsection{Prva Flask veb-aplikacija}
+
+\subsection{Šabloni}
+
+\subsection{Statičke datoteke i linkovi}
+
+\section{Zaključak}
+
+\section{Literatura}
+\begin{itemize}
+\item 
+\item 
+\item 
+\end{itemize}
+
+\end{document}
