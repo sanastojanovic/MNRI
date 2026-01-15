@@ -490,6 +490,80 @@ Funkcije koje obrađuju HTTP zahteve u Flask-u kao povratnu vrednost vraćaju ni
 
 
 \subsection{Šabloni}
+Veb-aplikacije kao odgovor klijentu najčešće šalju HTML dokumente. Direktno pisanje većih HTML sadržaja unutar programskog koda u vidu tekstualnih niski brzo postaje nepregledno i otežava održavanje aplikacije. Zbog toga savremeni veb-okviri, uključujući Flask, omogućavaju izdvajanje HTML koda u posebne datoteke koje se nazivaju \textbf{šabloni}.
+
+
+
+U praksi se često koriste već postojeći primeri programskog koda koji se zatim prilagođavaju konkretnim potrebama aplikacije, umesto pisanja celokupnog rešenja od početka. U početnim primerima, odgovor koji aplikacija vraća klijentu predstavlja običan tekst, a ne ispravan HTML dokument. Da bi se generisala pravilna HTML stranica, potrebno je izmeniti funkciju koja obrađuje HTTP zahtev tako da vraća kompletan HTML sadržaj.
+
+
+
+U najjednostavnijem slučaju, HTML se može vratiti kao višelinijska tekstualna niska, pri čemu se koriste trostruki navodnici kako bi se omogućilo pisanje koda u više redova. Iako je ovakav pristup funkcionalan, mešanje Python i HTML koda u istoj datoteci nije preporučljivo zbog loše preglednosti i teškog održavanja.
+
+
+
+Zbog toga Flask koristi biblioteku \textbf{Jinja}(\url{https://jinja.palletsprojects.com/)}), koja omogućava rad sa šablonima. Jinja omogućava da se HTML kod čuva u posebnim datotekama, dok se u Python programu vrši njihova obrada i generisanje konačne HTML strane koja se prosleđuje klijentu. Flask podrazumeva da se svi šabloni nalaze u posebnom direktorijumu pod nazivom templates. U tom slučaju, aplikacija se sastoji od glavne Python datoteke i odgovarajućih HTML šablona koji se nalaze u pomenutom direktorijumu.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{sl33.png}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{sl34.png}
+\end{figure}
+
+
+
+
+Za prikaz HTML stranice koristi se funkcija render\_template, koja učitava šablon, obrađuje ga i vraća gotov HTML sadržaj kao odgovor klijentu. Pored samog naziva šablona, ovoj funkciji se mogu proslediti dodatni podaci koji se zatim koriste unutar šablona.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl35.png}
+\caption{Datoteka app.py}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl36.png}
+\caption{Datoteka templates/index.html}
+\end{figure}
+
+
+Posebna prednost Jinja šablona jeste mogućnost korišćenja šablonskih direktiva, koje omogućavaju dinamičko generisanje sadržaja. U okviru HTML koda mogu se koristiti promenljive, uslovi i petlje, čija je sintaksa slična programskom jeziku Python. Izrazi zapisani između {{ }} zamenjuju se svojim vrednostima, dok se direktive poput {% if %} i {% for %} koriste za kontrolu toka izvršavanja unutar šablona.
+
+
+
+Na ovaj način moguće je, na primer, prikazati liste podataka, tabele ili složenije strukture, pri čemu se konkretni podaci prosleđuju iz Python koda. Šabloni se često koriste za prikaz podataka koji potiču iz baza podataka, iako se u jednostavnijim primerima mogu koristiti i unapred definisane liste ili rečnici.
+
+
+
+Šabloni omogućavaju i generisanje složenijih struktura, kao što su HTML tabele, pa čak i izvođenje jednostavnih proračuna pomoću ugnežđenih petlji. Time se značajan deo logike prikaza može premestiti iz programskog koda u šablon, čime se poboljšava čitljivost i organizacija aplikacije.
+
+Vežbe radi, definišimo jednostavnu aplikaciju koja na osnovu liste parova (ime, prezime) gradi i prikazuje tabelu koja sadrži imena i prezimena.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl37.png}
+\caption{Datoteka app.py}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl38.png}
+\caption{Šablon templates/ucenici.html}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.4\textwidth]{sl39.png}
+\caption{Izgled strane unutar pregledača veba}
+\end{figure}
+
+\newpage
+U aplikacijama koje se sastoje od više veb-strana često dolazi do ponavljanja istih delova HTML koda, poput zaglavlja, navigacije ili uključenja CSS i JavaScript biblioteka. Kako bi se ovo izbeglo, Jinja podržava \textbf{nasleđivanje} šablona. Zajednički delovi stranica izdvajaju se u osnovni šablon, dok ostali šabloni nasleđuju njegov sadržaj i definišu samo delove koji se razlikuju.
+Nasleđivanje šablona predstavlja važnu tehniku u razvoju veb-aplikacija, jer omogućava centralizovano održavanje zajedničkog sadržaja i značajno smanjuje ponavljanje koda. Time se aplikacija čini preglednijom, modularnijom i lakšom za dalji razvoj i održavanje.
+
+
 
 \subsection{Statičke datoteke i linkovi}
 
