@@ -32,13 +32,13 @@ Računarska mreža je sistem koji se sastoji od skupa hardverskih uređaja među
 
 \subsection{Računarske mreže i internet}
  Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računata} ili model \textbf{klijent-server}   
- 
- \textbf{klijent-server}
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl1.png}
 \caption{Modeli računarskih mreža}
 \end{figure}
+
 \paragraph{} U klijent-server modelu server je sistem koji pruža svoje resurse (podatke, softver, hardver), dok je klijent sistem koji inicira kontakt sa serverom da bi koristio resurse koje server pruža.Većina internet servisa uglavnom koristi model klijent–server. Na primer, digitalni uređaj na kojem pregledate sadržaj veba je klijent. Kada unesete adresu u pregledač, vaš uređaj se obraća nekom veb-serveru – udaljenom računaru na kome se nalaze veb-strane koje zahtevate (ili programi koji ih generišu). Server klijentu šalje dokumente (veb-stranice, slike itd.) i klijent ih prikazuje korisniku.
 
 \subsection{Mrežni uređaji}
@@ -50,7 +50,7 @@ Da bi računar ili neki drugi digitalni uređaj mogao da učestvuje u računarsk
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl2.jpg}
-\caption{UTP kablovi sa konektorima RJ45,mrežna kartica za povezivanje UTP kablom, mrežna kartica za bežično povezivanje (sa antenom)}
+\caption{UTP kablovi sa konektorima RJ45, mrežna kartica za povezivanje UTP kablom, mrežna kartica za bežično povezivanje (sa antenom)}
 \end{figure}
 
 
@@ -76,7 +76,7 @@ U računarskim mrežama važnu ulogu imaju i uređaji koji posreduju u komunikac
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{sl4.jpg}
+\includegraphics[width=0.4\textwidth]{sl4.jpg}
 \caption{Ruter}
 \end{figure}
 
@@ -95,17 +95,15 @@ Postoji nekoliko različitih sistema adresa koji se koriste u mrežnoj komunikac
 \item DNS adrese i URL-ovi
 \end{itemize}
 
-\paragraph{Fizičke (MAC) adrese}
-MAC adresa (Media Access Control) je jedinstveni, trajni fizički identifikator mrežnog uređaja (kartice) koji dodeljuje proizvođač, zapisan u ROM memoriji. Obično su 48-bitne ili 64-bitne, prikazuju se kao 12 heksadecimalnih znakova (npr. 00:1B:44:11:3A:B7). Koristi se za komunikaciju na lokalnoj mreži (LAN). 
-\paragraph{IP adrese}
-IP adresa (Internet Protocol Address) je jedinstveni numerički identifikator (npr. 192.168.1.1) koji omogućava uređajima (računarima, telefonima) da komuniciraju na mreži, poput digitalne poštanske adrese koja usmerava podatke, a dele se na javne (vidljive na internetu) i privatne (za lokalnu mrežu), sa dve glavne verzije: stariji IPv4 (četiri broja) i noviji IPv6 (duži niz).
+\paragraph{Fizičke (MAC) adrese}-MAC adresa (Media Access Control) je jedinstveni, trajni fizički identifikator mrežnog uređaja (kartice) koji dodeljuje proizvođač, zapisan u ROM memoriji. Obično su 48-bitne ili 64-bitne, prikazuju se kao 12 heksadecimalnih znakova (npr. 00:1B:44:11:3A:B7). Koristi se za komunikaciju na lokalnoj mreži (LAN). 
+\paragraph{IP adrese}-IP adresa (Internet Protocol Address) je jedinstveni numerički identifikator (npr. 192.168.1.1) koji omogućava uređajima (računarima, telefonima) da komuniciraju na mreži, poput digitalne poštanske adrese koja usmerava podatke, a dele se na javne (vidljive na internetu) i privatne (za lokalnu mrežu), sa dve glavne verzije: stariji IPv4 (četiri broja) i noviji IPv6 (duži niz, 32 cifre).
 
-One mogu biti dodeljene \textbf{statički} , tako da uređaj ima fiksnu IP adresu kada god se priključi na internet. Primer: adresa servera nikad ne menja kako bi klijenti mogli da mu uvek pristupaju na isti način, štampač koji se koristi u poslovnom prostoru i koji mora imati statičku IP adresu tako da svi u kancelariji mogu lako da se povezuju sa njim.
+Adrese mogu biti dodeljene \textbf{statički} , tako da uređaj ima fiksnu IP adresu kada god se priključi na internet. Primer: adresa servera nikada se ne menja kako bi klijenti mogli da mu uvek pristupaju na isti način, štampač koji se koristi u poslovnom prostoru i mora imati statičku IP adresu tako da svi u kancelariji mogu lako da se povezuju sa njim.
 
-Češća varijanta je \textbf{dinamička} dodela IP adresa, kada se uređaju dodeljuje neka slobodna IP adresa svaki put kada se priključuje na internet. Prednosti dinamičkih adresa su bezbednost i manja mogućnost da dodje do greške. Na primer, jednom laptopu koji se poveže na internet može se dodeliti određena IP adresa, a kada se odvoji, ta adresa se onda može slobodno koristiti za drugi uređaj koji se kasnije poveže.
+Veoma česta dodela je \textbf{dinamička} dodela IP adresa, kada se uređaju dodeljuje neka slobodna IP adresa svaki put kada se priključuje na internet. Prednosti dinamičkih adresa su bezbednost i manja mogućnost da dodje do greške. Na primer, jednom laptopu koji se poveže na internet može se dodeliti određena IP adresa, a kada se odvoji, ta adresa se onda može slobodno koristiti za drugi uređaj koji se kasnije povezuje.
 
-\paragraph{Domeni i URL} Krajnji korisnik najčešće ima dodira sa URL adresama (engl. Uniform Resource Locator). Recimo i da se nekada javlja i pojam URI (engl. Uniform Resource Identifier) i da postoji suptilna razlika između pojmova URL i URI, međutim, ona je prilično tehnička i nema potrebe da je objašnjavamo. URL-ovi su tzv. veb-adrese.
-Na primer: http://info.cern.ch/hypertext/WWW/TheProject.html, https://www.wikipedia.org/,  http://www.matf.bg.ac.rs/
+\paragraph{Domeni i URL}-Krajnji korisnik najčešće ima dodira sa URL adresama (engl. \textit{Uniform Resource Locator}). Nekada se javlja i pojam URI (engl.\textit{Uniform Resource Identifier}). URL je specifična vrsta URI-ja koja pored identifikacije resursa daje i putanju kako do njega doći, dok URI generalno samo identifikuje resurs bez nužnog načina pristupa. U praksi URL-ovi su veb-adrese.
+Na primer: \url{http://info.cern.ch/hypertext/WWW/TheProject.html}, https://www.wikipedia.org/,  http://www.matf.bg.ac.rs/
 Šta sve sadrži prvi URL kod?
 \begin{itemize}
 \item http- Oznaka protokola koji se koristi za pristup resursu 
@@ -114,12 +112,12 @@ Na primer: http://info.cern.ch/hypertext/WWW/TheProject.html, https://www.wikipe
 \end{itemize}
 
 Važan deo URL-a je adresa servera, to su na primer:www.uns.ac.rs, raf.edu.rs i info.cern.ch. Njih nazivamo \textbf{domenima}, oni se koriste u sklopu URL-ova i adresa elektronskih pošti (petar.petrovic@uns.ac.rs).
-Domeni su pijerarhijski organizovani, na primer:matf.bg.ac.rs
+Domeni su hijerarhijski organizovani, na primer:matf.bg.ac.rs
 \begin{itemize}
 \item rs--> nalazi se u Srbiji
 \item ac.rs--> deo je akademske mreže
 \item bg.ac.rs--> nalazi se na univerzitetu u Beogradu
-\item matf.be.ac.rs--> nalazi se na Matematičkom fakultetu
+\item matf.bg.ac.rs--> nalazi se na Matematičkom fakultetu
 \end{itemize}
 Domeni nisu uvek vezani za zemlju, na primer:
 \begin{itemize}
@@ -128,7 +126,7 @@ Domeni nisu uvek vezani za zemlju, na primer:
 \item .edu koriste obrazovne institucije
 \item .aero koriste avioprevoznici i aerodromi
 \end{itemize}
-Pošto su za interno funkcionisanje mrežne komunikacije neophodne numeričke IP adrese, a ne tekstualne adrese, svakom imenu domena pridružena je IP adresa odgovarajućeg uređaja registrovanog za taj domen (na primer, imenu servera www.pmf.uns.ac.rs pridružena je IP adresa 147.91.177.44). Ovo pridruživanje beleži se na posebnim serverima, koji se nazivaju serveri za imena domena (engl. Domain Name Server, DNS). \textbf{DNS} se često naziva telefonskim imenikom interneta. Pre započinjanja mrežne komunikacije, softver koji podržava imena domena (na primer, pregledač u koji korisnik unosi veb-adresu) obraća se DNS serveru i od njega traži IP adresu na osnovu imena domena koje mu pošalje. 
+Pošto su za interno funkcionisanje mrežne komunikacije neophodne numeričke IP adrese, a ne tekstualne adrese, svakom imenu domena pridružena je IP adresa odgovarajućeg uređaja registrovanog za taj domen (na primer, imenu servera \url{}www.pmf.uns.ac.rs pridružena je IP adresa 147.91.177.44). Ovo pridruživanje beleži se na posebnim serverima, koji se nazivaju serveri za imena domena (engl. \textit{Domain Name Server}, DNS). \textbf{DNS} se često naziva telefonskim imenikom interneta. Pre započinjanja mrežne komunikacije, softver koji podržava imena domena (na primer, pregledač u koji korisnik unosi veb-adresu) obraća se DNS serveru i od njega traži IP adresu na osnovu imena domena koje mu pošalje. 
 
 
 \subsection{Mrežni slojevi i protokoli}
@@ -139,9 +137,9 @@ Računarske mreže su složeni sistemi jer uključuju veliki broj hardverskih i 
 Internet je organizovan prema TCP/IP modelu koji se sastoji od četiri osnovna sloja: veznog (sloj mrežnog interfejsa), mrežnog (internet sloj), transportnog i aplikativnog. \textbf{Vezni sloj} se bavi fizičkim prenosom podataka i pouzdanošću komunikacije između uređaja.
 Protokoli na ovom sloju su:
 \begin{itemize}
-\item protokol IP (engl. Internet Protocol) - za slanje poruka
-\item protokol ICMP (engl. Internet Control Message Protocol) - za slanje kontrolnih poruka
-\item protokol ARP (engl. Address Resolution Protocol) - za razrešenje adresa
+\item protokol IP (engl.\textit{Internet Protocol}) - za slanje poruka
+\item protokol ICMP (engl.  \textit{Internet Control Message Protocol}) - za slanje kontrolnih poruka
+\item protokol ARP (engl. \textit{Address Resolution Protocol}) - za razrešenje adresa
 \item ARP – prevođenje IP adrese u MAC adresu
 \item RARP – prevođenje MAC adrese u IP adresu
 \end{itemize}
@@ -166,15 +164,15 @@ Veb funkcioniše po modelu \textbf{klijent-server} , gde klijent šalje zahteve,
 
 
 \subsection{Statičke veb-strane HTML/CSS}
-Na početku razvoja veba, većina veb-strana je bila \textbf{statiča}, što znači da je njihov sadržaj bio unapred pripremljen i isti za sve korisnike. Takve stranice su služile isključivo za pregled informacija, bez mogućnosti značajnije interakcije. Uloge klijenta i servera u ovom slučaju su jednostavne: klijent šalje zahtev, a server pronalazi odgovarajuću HTML datoteku i šalje je nazad klijentu, bez ikakve dodatne obrade.
-Za izradu statičkih veb-strana koriste se osnovne veb-tehnologije – HTML i CSS. HTML je jezik za obeležavanje koji definiše strukturu i sadržaj veb-strane, dok se CSS koristi za njen vizuelni izgled. HTML dokumenti su tekstualne datoteke koje mogu da se pišu u bilo kom editoru teksta i koje svaki veb-pregledač može da prikaže.
+Na početku razvoja veba, većina veb-strana je bila \textbf{statička}, što znači da je njihov sadržaj bio unapred pripremljen i isti za sve korisnike. Takve stranice su služile isključivo za pregled informacija, bez mogućnosti značajnije interakcije. Uloge klijenta i servera u ovom slučaju su jednostavne: klijent šalje zahtev, a server pronalazi odgovarajuću HTML datoteku i šalje je nazad klijentu, bez ikakve dodatne obrade.
+Za izradu statičkih veb-strana koriste se osnovne veb-tehnologije – HTML i CSS. \textbf{HTML} je jezik za obeležavanje koji definiše strukturu i sadržaj veb-strane, dok se \textbf{CSS} koristi za njen vizuelni izgled. HTML dokumenti su tekstualne datoteke koje mogu da se pišu u bilo kom editoru teksta i koje svaki veb-pregledač može da prikaže.
 
 
 
 HTML stranica se sastoji od elemenata koji su označeni tagovima. Tagovi se najčešće javljaju u parovima (otvoreni i zatvoreni tag), a zajedno sa sadržajem koji okružuju čine HTML element. Pomoću ovih elemenata mogu se definisati naslovi, pasusi teksta, liste, slike i drugi delovi stranice.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{sl7.png}
+\includegraphics[width=1\textwidth]{sl7.png}
 \caption{Osnovni tagovi}
 \end{figure}
 
@@ -182,15 +180,16 @@ HTML stranica se sastoji od elemenata koji su označeni tagovima. Tagovi se naj�
 Za oblikovanje teksta koriste se različite oznake, kao što su tagovi za naslove različitih nivoa, pasuse, kao i tagovi za podebljan, iskošen ili podvučen tekst. Liste mogu biti uređene ili neuređene, u zavisnosti od načina prikaza njihovih elemenata.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{sl6.png}
+\includegraphics[width=1\textwidth]{sl6.png}
 \caption{Oblikovanje teksta}
 \end{figure}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{sl8.jpg}
+\includegraphics[width=1\textwidth]{sl8.jpg}
 \caption{Liste}
 \end{figure}
 
+\newpage
 Slike se u HTML dokument ubacuju pomoću posebnog elementa koji kao atribut ima putanju do slike. Sama slika se obično čuva kao zasebna datoteka, a HTML dokument samo ukazuje na njenu lokaciju.
 <img src="images/stara.jpg" alt="Stara arhitektura">
 
@@ -200,14 +199,129 @@ Nakon svake izmene HTML dokumenta, fajl je potrebno sačuvati i ponovo učitati 
 
 
 \subsection{Dizajn veb-strane-CSS}
+Prilikom izrade veb-stranica, HTML elementi se bez dodatnog oblikovanja prikazuju u pregledaču jedan ispod drugog, koristeći podrazumevane stilove kao što su boje, veličina teksta i razmak između elemenata. Međutim, da bi veb-stranica bila pregledna i funkcionalna, neophodno je prilagoditi izgled i raspored elemenata njenoj nameni.
+
+
+
+\textbf{Veb dizajn} predstavlja proces oblikovanja vizuelnog izgleda veb-stranice i načina na koji su njeni elementi raspoređeni. On je tesno povezan sa organizacijom sadržaja i korisničkim iskustvom, koje ima za cilj da korišćenje sajta bude jednostavno i intuitivno za korisnike.
+
+HTML jezik služi za definisanje strukture i sadržaja veb-stranice, dok se za uređivanje njenog izgleda koristi \textbf{CSS} (Cascading Style Sheets). Pomoću CSS-a se zadaju pravila koja određuju boje, fontove, poravnanje, razmake i druge vizuelne karakteristike elemenata na stranici. CSS pravila se zapisuju u posebnim fajlovima sa ekstenzijom .css, koji se mogu kreirati u bilo kom editoru teksta.
+U CSS dokumentu se navode pravila koja se odnose na pojedinačne HTML elemente ili na više njih istovremeno. Za svaki element mogu se definisati različita stilska svojstva, kao što su boja pozadine, boja teksta ili poravnanje. Na taj način se postiže jedinstven i usklađen izgled cele veb-stranice.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl9.png}
+\caption{Primer CSS koda}
+\end{figure}
+
+
+\newpage
+Da bi se stilovi primenili, potrebno je povezati CSS dokument sa HTML stranicom pomoću odgovarajuće oznake unutar dela dokumenta namenjenog za podešavanja. Nakon toga, prilikom učitavanja stranice u internet pregledaču, vidljive su promene u izgledu, kao što su drugačije boje, formatiranje teksta i način prikaza listi.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{sl10.png}
+\caption{Element a omogućava da klikne na teks}
+\end{figure}
+
+
+Na kraju, kreirana veb-stranica se proverava u internet pregledaču, a ukoliko se uoči da postoje određeni nedostaci, vrše se dodatne izmene u HTML i CSS dokumentima kako bi se postigao željeni i kvalitetan vizuelni izgled stranice.
+
 
 \subsection{Kreiranje veb-sajta}
+Veb-sajt se najčešće sastoji od više međusobno povezanih veb-stranica koje su smeštene u zajednički folder. Jedna od tih stranica ima posebnu ulogu i predstavlja početnu stranicu sajta. Radi lakšeg snalaženja korisnika, na svakoj veb-stranici je poželjno postaviti navigacione linkove koji omogućavaju prelazak na ostale stranice sajta.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl11.png}
+\caption{Povezivanje CSS dokumenta sa HTML stranicom}
+\end{figure}
+
+
+Povezivanje veb-stranica se ostvaruje pomoću HTML elementa za linkove, koji omogućava korisniku da jednostavnim klikom pređe sa jedne stranice na drugu. Na ovaj način se obezbeđuje funkcionalna i pregledna struktura veb-sajta.
+
+
+
+Da bi sve stranice imale ujednačen izgled, koristi se jedan zajednički CSS dokument koji definiše dizajn celog sajta. Ovaj dokument se povezuje sa svakom veb-stranicom pojedinačno, čime se postiže vizuelna doslednost i jasno pokazuje da sve stranice pripadaju istom veb-sajtu.
+
+
+
+Slike koje se koriste na veb-sajtu poželjno je organizovati u poseban podfolder, što olakšava preglednost i upravljanje fajlovima. Prilikom dodavanja slika u HTML dokumente, neophodno je navesti i putanju do foldera u kome se one nalaze, kako bi se pravilno prikazale u internet pregledaču.
+
+
 
 \section{Serversko veb-programiranje}
 
 \subsection{Veb-aplikacije – uvod}
 
+
+Na početku razvoja veba, veb-stranice su bile uglavnom statičke, što znači da su sadržale unapred pripremljen tekst i slike koje su svi korisnici videli na isti način. Korisnici su mogli samo da čitaju sadržaj i da se kreću između stranica pomoću linkova, bez ikakve naprednije interakcije.
+
+
+
+Kako je veb brzo napredovao, javila se potreba za većom interakcijom sa korisnicima. Zbog toga su, pored HTML-a i CSS-a, počeli da se koriste i programski jezici koji omogućavaju dinamičko ponašanje veb-stranica. U zavisnosti od toga gde se programski kod izvršava, razlikujemo klijentske i serverske veb-tehnologije.
+\paragraph{Aktivne strane(klijentski skriptovi)} -Klijentske veb-tehnologije se izvršavaju u internet pregledaču korisnika. Najpoznatiji jezik za ovu namenu je \textbf{JavaScript}. On omogućava da veb-stranice postanu interaktivne, odnosno da reaguju na akcije korisnika, kao što su klikovi mišem, unos teksta ili izbor određenih opcija. Klijentski skriptovi se šalju sa servera zajedno sa veb-stranicom i izvršavaju se na računaru korisnika. Ove stranice se često nazivaju aktivne ili interaktivne veb-stranice.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl12.jpeg}
+\caption{Klijentski skriptovi}
+\end{figure}
+
+
+\paragraph{Dinamičke strane(serverski skriptovi)}
+  -S druge strane, serverske veb-tehnologije se izvršavaju na serveru. Serverski skriptovi, napisani na jezicima kao što su PHP, Python ili ASP.NET, obrađuju podatke, najčešće iz baza podataka, i na osnovu toga generišu HTML stranicu koja se šalje klijentu. Korisnik nikada nema uvid u sam programski kod serverskog skripta, već vidi samo rezultat njegovog izvršavanja. Ovakve stranice nazivaju se dinamičke veb-stranice.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl13.jpeg}
+\caption{Serverski skriptovi}
+\end{figure}
+
+
+  Savremene veb-aplikacije najčešće kombinuju klijentske i serverske skriptove. Deo aplikacije koji se izvršava u pregledaču naziva se \textbf{prednja strana} (\textit{fronted} ), dok se deo koji radi na serveru naziva \textbf{zadnja strana} (\textit{backed}). Postoje programeri koji se specijalizuju samo za jednu od ovih oblasti, ali i oni koji se bave obema, takozvani \textbf{full-stack} programeri.
+
+  \paragraph{Ajax} 
+  -Posebno važan koncept u savremenim veb-aplikacijama je Ajax. On omogućava da veb-stranica komunicira sa serverom i razmenjuje podatke bez ponovnog učitavanja cele stranice. Na ovaj način je moguće, na primer, automatsko dopunjavanje pojmova pri pretrazi, ažuriranje poruka u čet aplikacijama ili učitavanje delova digitalnih mapa dok se korisnik kreće po njima.
+
+
+
+Ajax koristi JavaScript za slanje zahteva serveru i obradu podataka koji stižu sa servera, najčešće u JSON (\textit{JavaScriptObjectNotation})formatu. Ovaj pristup omogućava brži i efikasniji rad veb-aplikacija i bolje korisničko iskustvo. Zahvaljujući Ajax-u razvijen je i koncept \textbf{jednostraničnih aplikacija}, kod kojih se ceo sadržaj aplikacije prikazuje na jednoj veb-stranici, a menja se dinamički.
+
 \subsection{HTTP protokol}
+
+Razmena podataka između klijenta (veb-pregledača) i servera na internetu obavlja se pomoću protokola HTTP (HyperText Transfer Protocol) ili njegove sigurnije varijante HTTPS (HyperText Transfer Protocol Secure). Osnovna razlika između ova dva protokola je u tome što HTTPS koristi šifrovanje podataka, čime se obezbeđuje zaštita informacija tokom njihovog prenosa kroz mrežu.
+
+
+
+Kada korisnik u veb-pregledač unese URL adresu ili klikne na neku vezu, pregledač najpre analizira unetu adresu i razdvaja je na njene delove: protokol, naziv servera, putanju do resursa i eventualne parametre. Na osnovu ovih informacija, pregledač zna kojim protokolom i sa kojim serverom treba da ostvari komunikaciju.
+Na primer:http://www.moja-prodavnica.com/site/products?page=3
+\begin{itemize}
+\item http – oznaka protokola koji se koristi za komunikaciju
+\item www.moja-prodavnica.com – naziv veb-servera
+\item /site/products – putanja do veb-strane na serveru
+\item page=3-dodatni parametri
+\end{itemize}
+
+
+Sledeći korak je dobijanje IP adrese servera, što se postiže slanjem upita DNS serveru. Nakon toga, pregledač šalje serveru HTTP zahtev, u kome se navodi koja se veb-strana ili resurs traži, kao i dodatni parametri ako postoje. Server zatim obrađuje zahtev i, ukoliko traženi resurs postoji, šalje klijentu HTTP odgovor koji sadrži status zahteva i podatke koji se prikazuju u pregledaču.
+
+
+
+Kada klijent primi HTML dokument, on ga analizira i prikazuje. Ukoliko se unutar HTML koda nalaze slike, stilovi ili multimedijalni sadržaji, pregledač šalje dodatne HTTP zahteve za te resurse. Zbog toga se na sporijim internet vezama najpre prikazuje tekst, a zatim se postepeno učitavaju slike i ostali elementi.
+
+
+
+Svaki HTTP odgovor sadrži statusni kod koji obaveštava klijenta o ishodu zahteva. Najčešći status je \textbf{200 OK}, koji označava uspešno obrađen zahtev, dok kod \textbf{404 Not Found} označava da tražena stranica ne postoji. Pored statusne linije, odgovor sadrži i zaglavlja sa informacijama kao što su datum slanja odgovora, tip sadržaja i njegova veličina.
+
+
+
+HTTP komunikaciju je moguće pratiti korišćenjem alata za programere koji su ugrađeni u savremene veb-pregledače. Na kartici Network mogu se videti svi zahtevi i odgovori, njihovi statusi i detalji komunikacije između klijenta i servera.
+
+
+
+Iako se danas uglavnom koriste grafički alati u pregledačima, HTTP protokol se može koristiti i iz komandne linije, na primer uz pomoć alata \textbf{telnet} za HTTP ili \textbf{openssl} za HTTPS komunikaciju. Ovakvim pristupom jasno se vidi struktura HTTP zahteva i odgovora, kao i način na koji server reaguje na različite zahteve.
+
+
+
+HTTPS protokol se sve više koristi jer obezbeđuje poverljivost i sigurnost podataka. On sprečava da treća lica čitaju ili menjaju podatke tokom njihovog prenosa i zato je danas standard za većinu savremenih veb-sajtova.
 
 \section{Flask biblioteka}
 
