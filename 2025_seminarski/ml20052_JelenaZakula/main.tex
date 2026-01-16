@@ -1,0 +1,216 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[serbian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{float}
+\geometry{margin=2.5cm}
+\onehalfspacing
+\titleformat{\section}{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}{\bfseries\large}{\thesubsection.}{1em}{}
+
+\begin{document}
+\thispagestyle{empty}
+
+\vspace*{6cm}
+
+\begin{center}
+{\Huge \textbf{BAZE PODATAKA}} \\[1.5cm]
+{\Large Jelena Žakula}
+\end{center}
+
+\vfill
+
+\begin{center}
+{\large Matematički fakultet, Beograd, Januar 2026.}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Rad sa tabelama i veze između njih}
+Podsećanja radi: Tabele predstavljaju osnovnu komponentu u relacionim bazama podataka. One omogućavaju organizaciju i skladištenje podataka na način koji olakšava upravljanje podacima i dobijanje korisnih informacija. 
+
+\subsection{Uređenje polja i slogova u relaciji}
+\subsection{Formatiranje podataka u tabeli}
+\subsection{Opis referencijalnog integriteta}
+\subsection{Izmene veze između tabela}
+
+\section{Forme (obrasci)}
+\subsection{Kreiranje formi (obrazaca) sa i bez čarobnjaka}
+\subsection{Unos podataka pomoću formi}
+\subsection{Dodavanje specijalnih kontrola formi (list-boksevi, kombo-boksevi, komandna dugmad i dr.)}
+\subsection{Kreiranje multitabularnih formi}
+
+\section{Pretraživanje i sortiranje}
+\subsection{Traženje informacija u tabeli}
+\subsection{Sortiranje, filtriranje i indeksiranje}
+
+\section{Upiti}
+
+Upiti predstavljaju osnovni način komunikacije sa bazom podataka, omogućavajući korisnicima da pregledaju, dodaju, menjaju i brišu podatke prema svojim potrebama. \\
+
+Upitni jezik SQL omogućava korisnicima da izvrše sve potrebne operacije nad bazom podataka, 
+od kreiranja same baze i tabela u njoj, upisivanja, menjanja i pretraživanja podataka, 
+do brisanja nekih podataka, tabela ili cele baze.
+
+\subsection{Osnovne SQL komande (definicione, kontrolne i manipulacione)}
+
+Komande jezika SQL se tradicionalno nazivaju upitima. Prva reč u svakom SQL upitu 
+određuje vrstu akcije koju korisnik zahteva od sistema. Najčešće korišćeni upiti su:
+
+\begin{itemize}
+    \item \textbf{Upiti SELECT}, koji služe da se iz baze pročitaju željeni podaci,
+    \item \textbf{Upiti INSERT}, koji služe da se u bazu upišu novi podaci,
+    \item \textbf{Upiti DELETE}, koji služe da se iz baze obrišu neki podaci, i
+    \item \textbf{Upiti UPDATE}, koji služe da se neki podaci u bazi ažuriraju (izmene).
+\end{itemize}
+
+Od svih pomenutih tipova upita, za nas je najznačajniji upit \textbf{SELECT}, pomoću kojeg veoma brzo možemo da dođemo do podataka \textit{(data)} koji su nam potrebni. \\[10pt]
+
+\subsection{Kreiranje upita (sa i bez čarobnjaka)}
+
+Kreiranje upita u SQL-u može se obaviti ručno pisanjem upita ili korišćenjem alata poznatog kao čarobnjak (wizard). 
+Čarobnjak pojednostavljuje formulisanje složenih upita, posebno kada je potrebno povezati više tabela ili primeniti filtere i sortiranja. 
+Za naprednije korisnike, ručno pisanje upita omogućava veću fleksibilnost i preciznost u radu sa podacima.
+
+
+\subsection{Pregled rezultata upita}
+
+Rezultati izvršenih upita prikazuju se u tabelarnom obliku, što omogućava korisnicima da brzo analiziraju i interpretiraju podatke. 
+Pregled rezultata može uključivati sortiranje, filtriranje i grupisanje podataka, što pomaže u identifikaciji važnih informacija i donošenju odluka. \\
+
+S obzirom da je upravo \textbf{SELECT} upit osnovni način za čitanje podataka iz baze, sledeći primer prirodno ilustruje ovaj proces. 
+SELECT upit određuje koje kolone i iz kojih tabela želimo da dobijemo podatke, a izvršavanjem upita dobijamo tabelarni prikaz koji možemo analizirati. 
+Na ovaj način, veza između pisanja upita i pregleda rezultata postaje jasna i praktično primenljiva. \\
+
+Svaki, pa i najjednostavniji upit \textbf{SELECT} mora da sadrži sledeće elemente:
+\begin{quote}
+\begin{verbatim}
+SELECT kolone
+FROM tabele;
+\end{verbatim}
+\end{quote}
+
+Ovim se sistemu nalaže da nam iz navedene tabele (ili više tabela) izdvoji sve podatke koji su dati u navedenim kolonama. 
+Jezik nije osetljiv na razliku između velikih i malih slova (moguće je pisati i \texttt{select} i \texttt{from}), 
+ali ćemo mi u skladu sa ustaljenom praksom, u nastavku sve ključne reči pisati velikim slovima. 
+Sve beline u upitu se zanemaruju, pa samim tim nije bitno da li se upit piše u jednom ili više redova. 
+Preglednosti radi, mi ćemo sve upite pisati u više redova.
+
+Za početak ćemo uvek čitati podatke samo iz jedne tabele. Najjednostavniji slučaj je onaj u kome se želi čitanje svih podataka iz jedne tabele. 
+Tada se umesto imena svih kolona može navesti samo simbol \texttt{*}. Razmotrimo sledeći primer. 
+Tačka-zarez (\texttt{;}) može i ne mora da se doda na kraj upita.
+
+Prikazati sve podatke o učenicima koji su upisani u bazi:
+
+\begin{verbatim}
+SELECT *
+FROM ucenik;
+\end{verbatim}
+
+Izvršavanjem upita dobija se sledeći rezultat:
+
+\begin{center}
+\begin{tabular}{|c|l|l|c|c|c|c|}
+\hline
+id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
+\hline
+1 & Petar & Petrović & m & 2006-07-01 & 1 & 1 \\
+2 & Milica & Jovanović & ž & 2006-04-03 & 1 & 1 \\
+3 & Lidija & Petrović & ž & 2006-12-14 & 1 & 1 \\
+4 & Petar & Milovanović & m & 2005-12-08 & 2 & 1 \\
+5 & Ana & Pekić & ž & 2005-02-23 & 2 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+Ovaj upit znači:
+
+\begin{quote}
+ODABERI sve kolone \\
+IZ REDOVA tabele \texttt{ucenik}
+\end{quote}
+
+On je funkcionalno ekvivalentan sledećem upitu, ali je od njega jednostavniji za pisanje:
+
+\begin{verbatim}
+SELECT id, ime, prezime, pol, datum_rodjenja, razred, odeljenje
+FROM ucenik;
+\end{verbatim}
+
+Izvršavanjem upita dobija se sledeći rezultat:
+
+\begin{center}
+\begin{tabular}{|c|l|l|c|c|c|c|}
+\hline
+id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
+\hline
+1 & Petar & Petrović & m & 2006-07-01 & 1 & 1 \\
+2 & Milica & Jovanović & ž & 2006-04-03 & 1 & 1 \\
+3 & Lidija & Petrović & ž & 2006-12-14 & 1 & 1 \\
+4 & Petar & Milovanović & m & 2005-12-08 & 2 & 1 \\
+5 & Ana & Pekić & ž & 2005-02-23 & 2 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+Oblik upita \textbf{SELECT} koji smo upravo upoznali sadrži samo obavezne delove, pa je to najkraći mogući oblik ovog upita. 
+Obradićemo različite složenije oblike upita \textbf{SELECT}, koji nam omogućavaju da od postojećih podataka odaberemo samo neke, da ih prebrojimo, da nađemo najmanji ili najveći podatak koji ispunjava neki uslov, da prikažemo jednostavne statistike po grupama podataka i slično. \\
+
+U sistemu \textbf{SQLite Studio} se upiti pišu nakon što se klikne na kreiranu bazu \textbf{dnevnik} u prozoru 
+\textbf{Databases} i potom izabere komanda menija \textbf{Tools → Open SQL Editor}. 
+Kada se napiše upit, klikne se na dugme \textbf{Execute query (F9)} (plavi trouglić). 
+Ukoliko se u prostoru za pisanje upita nalazi više njih, potrebno je obeležiti onaj koji želimo da pokrenemo. 
+Ukoliko imamo više baza podataka, obavezno proveri da li je pored ovog dugmeta naziv baze u kojoj želiš da vršiš upite.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{slika1.png} 
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{slika2.png} 
+\end{figure}
+
+Često će nam kod upita biti potrebno da znamo i tačne nazive kolona. 
+To možemo da vidimo za svaku tabelu pojedinačno tako što kliknemo na nju u prozoru \textbf{Databases}, 
+pa se onda pojavi opis strukture tabele koji sadrži spisak svih kolona.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{slika3.png} 
+\end{figure}
+
+Spisak kolona možemo da vidimo i kada izvršimo osnovni \textbf{SELECT} upit:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{slika4.png} 
+\end{figure}
+
+\subsection{Kreiranje multitabularnih upita}
+
+Multitabularni upiti (multi-table queries) omogućavaju korisnicima da povežu podatke iz više tabela koristeći operacije kao što su \textbf{JOIN}, \textbf{INNER JOIN} i \textbf{LEFT JOIN}. 
+Ovi upiti su posebno korisni kada je potrebno kombinovati informacije iz različitih delova baze podataka kako bi se dobio potpuniji uvid u podatke.
+
+
+\section{Izveštaji}
+\subsection{Kreiranje izveštaja (sa i bez čarobnjaka)}
+\subsection{Pregled izveštaja}
+\subsection{Postavljanje kontrola i izračunavanja u izveštajima}
+\subsection{Kreiranje multitabularnih izveštaja}
+
+\section{Vizuelizacija podataka iz baze}
+\subsection{Komponente za povezivanje Windows-aplikacije sa bazom podataka}
+\subsection{Vizuelne komponente za prikazivanje i modifikaciju podataka baze}
+\subsection{Komponente za navigaciju}
+
+\end{document}
