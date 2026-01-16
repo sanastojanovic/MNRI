@@ -21,8 +21,8 @@ Jovana Brankov
 \date{26.01.2026.}
 
 \begin{document}
-
 \maketitle
+
 \newpage
 
 \tableofcontents
@@ -31,7 +31,7 @@ Jovana Brankov
 Računarska mreža je sistem koji se sastoji od skupa hardverskih uređaja međusobno povezanih komunikacionom opremom, snabdevenih odgovarajućim komunikacionim softverom, kojim se ostvaruje kontrola sistema tako da je omogućen prenos podataka između povezanih uređaja.
 
 \subsection{Računarske mreže i internet}
- Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računata} ili model \textbf{klijent-server}   
+ Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računata} ili model \textbf{klijent-server}.   
 
 \begin{figure}[h!]
 \centering
@@ -80,7 +80,7 @@ U računarskim mrežama važnu ulogu imaju i uređaji koji posreduju u komunikac
 \caption{Ruter}
 \end{figure}
 
-Pored mrežnih uređaja, važan deo mreže čine i komunikacioni kanali, odnosno medijumi za prenos podataka. Najčešće se koriste \textbf{upredene parice}  (UTP/STP kablovi), \textbf{koaksijalni kablovi} i \textbf{optički kablovi}. UTP kablovi su najrasprostranjeniji u lokalnim mrežama, dok se optički kablovi koriste za prenos velikih količina podataka na velikim brzinama i na većim udaljenostima, naročito u okosnici interneta, a koaksijalni kablovi obično se koriste za prenos radio i televizijskog signala .
+Pored mrežnih uređaja, važan deo mreže čine i komunikacioni kanali, odnosno medijumi za prenos podataka. Najčešće se koriste \textbf{upredene parice}  (UTP/STP kablovi), \textbf{koaksijalni kablovi} i \textbf{optički kablovi}. UTP kablovi su najrasprostranjeniji u lokalnim mrežama, dok se optički kablovi koriste za prenos velikih količina podataka na velikim brzinama i na većim udaljenostima, naročito u okosnici interneta, a koaksijalni kablovi obično se koriste za prenos radio i televizijskog signala.
 
 
 
@@ -95,34 +95,34 @@ Postoji nekoliko različitih sistema adresa koji se koriste u mrežnoj komunikac
 \item DNS adrese i URL-ovi
 \end{itemize}
 
-\paragraph{Fizičke (MAC) adrese}-MAC adresa (Media Access Control) je jedinstveni, trajni fizički identifikator mrežnog uređaja (kartice) koji dodeljuje proizvođač, zapisan u ROM memoriji. Obično su 48-bitne ili 64-bitne, prikazuju se kao 12 heksadecimalnih znakova (npr. 00:1B:44:11:3A:B7). Koristi se za komunikaciju na lokalnoj mreži (LAN). 
-\paragraph{IP adrese}-IP adresa (Internet Protocol Address) je jedinstveni numerički identifikator (npr. 192.168.1.1) koji omogućava uređajima (računarima, telefonima) da komuniciraju na mreži, poput digitalne poštanske adrese koja usmerava podatke, a dele se na javne (vidljive na internetu) i privatne (za lokalnu mrežu), sa dve glavne verzije: stariji IPv4 (četiri broja) i noviji IPv6 (duži niz, 32 cifre).
+\paragraph{Fizičke (MAC) adrese.}MAC adresa (\textit{Media Access Control}) je jedinstveni, trajni fizički identifikator mrežnog uređaja (kartice) koji dodeljuje proizvođač, zapisan u ROM memoriji. Obično su 48-bitne ili 64-bitne, prikazuju se kao 12 heksadecimalnih znakova (npr. 00:1B:44:11:3A:B7). Koristi se za komunikaciju na lokalnoj mreži (LAN). 
+\paragraph{IP adrese.}IP adresa (\textit{Internet Protocol Address}) je jedinstveni numerički identifikator (npr. 192.168.1.1) koji omogućava uređajima (računarima, telefonima) da komuniciraju na mreži, poput digitalne poštanske adrese koja usmerava podatke, a dele se na javne (vidljive na internetu) i privatne (za lokalnu mrežu), sa dve glavne verzije: stariji IPv4 (četiri broja) i noviji IPv6 (duži niz, 32 cifre).
 
 Adrese mogu biti dodeljene statički i dinamički. \textbf{Statičke} dodeljene adrese su takve da uređaj ima fiksnu IP adresu kada god se priključi na internet. Primer: adresa servera nikada se ne menja kako bi klijenti mogli da mu uvek pristupaju na isti način, štampač koji se koristi u poslovnom prostoru i mora imati statičku IP adresu tako da svi u kancelariji mogu lako da se povezuju sa njim. \textbf{Dinamički} dodeljene adrese uređajima su adrese koje se uređaju dodeljuje neka slobodna IP adresa svaki put kada se priključuje na internet. Prednosti dinamičkih adresa su bezbednost i manja mogućnost da dodje do greške. Na primer, jednom laptopu koji se poveže na internet može se dodeliti određena IP adresa, a kada se odvoji, ta adresa se onda može slobodno koristiti za drugi uređaj koji se kasnije povezuje.
 
-\paragraph{Domeni i URL}-Krajnji korisnik najčešće ima dodira sa URL adresama (engl. \textit{Uniform Resource Locator}). Nekada se javlja i pojam URI (engl.\textit{Uniform Resource Identifier}). URL je specifična vrsta URI-ja koja pored identifikacije resursa daje i putanju kako do njega doći, dok URI generalno samo identifikuje resurs bez nužnog načina pristupa. U praksi URL-ovi su veb-adrese.
+\paragraph{Domeni i URL.}Krajnji korisnik najčešće ima dodira sa URL adresama (engl. \textit{Uniform Resource Locator}). Nekada se javlja i pojam URI (engl.\textit{Uniform Resource Identifier}). URL je specifična vrsta URI-ja koja pored identifikacije resursa daje i putanju kako do njega doći, dok URI generalno samo identifikuje resurs bez nužnog načina pristupa. U praksi URL-ovi su veb-adrese.
 Na primer: \url{http://info.cern.ch/hypertext/WWW/TheProject.html}, \url{https://www.wikipedia.org/},\url{http://www.matf.bg.ac.rs/}.
 Šta sve sadrži prvi URL kod?
 \begin{itemize}
-\item http- Oznaka protokola koji se koristi za pristup resursu 
-\item info.cern.ch- Naziv servera na kom se resurs nalazi
-\item hypertext/WWW/TheProject.html- Putanja do resursa unutar tog servera
+\item \texttt{http} -Oznaka protokola koji se koristi za pristup resursu 
+\item \texttt{info.cern.ch} -Naziv servera na kom se resurs nalazi
+\item \texttt{hypertext/WWW/TheProject.html} -Putanja do resursa unutar tog servera
 \end{itemize}
 
-Važan deo URL-a je adresa servera, to su na primer:\url{www.uns.ac.rs}, \url{raf.edu.rs } i \url{info.cern.ch}. Njih nazivamo \textbf{domenima}, oni se koriste u sklopu URL-ova i adresa elektronskih pošti (petar.petrovic@uns.ac.rs).
-Domeni su hijerarhijski organizovani, na primer:matf.bg.ac.rs
+Važan deo URL-a je adresa servera, to su na primer: \url{www.uns.ac.rs}, \url{raf.edu.rs} i \url{info.cern.ch}. Njih nazivamo \textbf{domenima}, oni se koriste u sklopu URL-ova i adresa elektronskih pošti (petar.petrovic@uns.ac.rs).
+Domeni su hijerarhijski organizovani, na primer: matf.bg.ac.rs
 \begin{itemize}
-\item rs--> nalazi se u Srbiji
-\item ac.rs--> deo je akademske mreže
-\item bg.ac.rs--> nalazi se na univerzitetu u Beogradu
-\item matf.bg.ac.rs--> nalazi se na Matematičkom fakultetu
+\item \texttt{rs}--> nalazi se u Srbiji
+\item \texttt{ac.rs}--> deo je akademske mreže
+\item \texttt{bg.ac.rs}--> nalazi se na univerzitetu u Beogradu
+\item \texttt{matf.bg.ac.rs}--> nalazi se na Matematičkom fakultetu
 \end{itemize}
 Domeni nisu uvek vezani za zemlju, na primer:
 \begin{itemize}
-\item .com je komercijalni domen koji može svako da zakupi
-\item .org uglavnom koriste neprofitne organizacije
-\item .edu koriste obrazovne institucije
-\item .aero koriste avioprevoznici i aerodromi
+\item \texttt{.com} je komercijalni domen koji može svako da zakupi
+\item \texttt{.org} uglavnom koriste neprofitne organizacije
+\item \texttt{.edu} koriste obrazovne institucije
+\item \texttt{.aero} koriste avioprevoznici i aerodromi
 \end{itemize}
 Pošto su za interno funkcionisanje mrežne komunikacije neophodne numeričke IP adrese, a ne tekstualne adrese, svakom imenu domena pridružena je IP adresa odgovarajućeg uređaja registrovanog za taj domen (na primer, imenu servera \url{}www.pmf.uns.ac.rs pridružena je IP adresa 147.91.177.44). Ovo pridruživanje beleži se na posebnim serverima, koji se nazivaju serveri za imena domena (engl. \textit{Domain Name Server}, DNS). \textbf{DNS} se često naziva telefonskim imenikom interneta. Pre započinjanja mrežne komunikacije, softver koji podržava imena domena (na primer, pregledač u koji korisnik unosi veb-adresu) obraća se DNS serveru i od njega traži IP adresu na osnovu imena domena koje mu pošalje. 
 
@@ -170,7 +170,7 @@ Za izradu statičkih veb-strana koriste se osnovne veb-tehnologije – HTML i CS
 HTML stranica se sastoji od elemenata koji su označeni tagovima. Tagovi se najčešće javljaju u parovima (otvoreni i zatvoreni tag), a zajedno sa sadržajem koji okružuju čine HTML element. Pomoću ovih elemenata mogu se definisati naslovi, pasusi teksta, liste, slike i drugi delovi stranice.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\textwidth]{sl7.png}
+\includegraphics[width=1.1\textwidth]{sl7.png}
 \caption{Osnovni tagovi}
 \end{figure}
 
@@ -188,9 +188,10 @@ Za oblikovanje teksta koriste se različite oznake, kao što su tagovi za naslov
 \end{figure}
 
 \newpage
-Slike su, u najvećem broju slučajeva, fajlovi koji se čuvaju odvojeno od HTML dokumenata (najćešće u nekom poddirektorijumu). Slike se postavljaju pomoću elementa <img>, koji u svom atributu src sadrži ime slike koju treba prikazati.
+Slike su, u najvećem broju slučajeva, fajlovi koji se čuvaju odvojeno od HTML dokumenata (najćešće u nekom poddirektorijumu). Slike se postavljaju pomoću elementa \texttt{<img>}, koji u svom atributu src sadrži ime slike koju treba prikazati.
 \newline
-<img src="images/stara.jpg" alt="Stara arhitektura">
+\texttt{<img src="slika1.jpg" alt="Klijent server komunikacija"/>}
+
 
 
 Nakon svake izmene HTML dokumenta, fajl je potrebno sačuvati i ponovo učitati u veb-pregledaču kako bi promene bile vidljive. Na ovaj način se kreiraju jednostavne statičke veb-strane koje predstavljaju osnovu daljeg razvoja veb-aplikacija.
@@ -204,12 +205,11 @@ Prilikom izrade veb-stranica, HTML elementi se bez dodatnog oblikovanja prikazuj
 
 \textbf{Veb dizajn} predstavlja proces oblikovanja vizuelnog izgleda veb-stranice i načina na koji su njeni elementi raspoređeni. On je tesno povezan sa organizacijom sadržaja i korisničkim iskustvom, koje ima za cilj da korišćenje sajta bude jednostavno i intuitivno za korisnike.
 
-HTML jezik služi za definisanje strukture i sadržaja veb-stranice, dok se za uređivanje njenog izgleda koristi \textbf{CSS} (Cascading Style Sheets). Pomoću CSS-a se zadaju pravila koja određuju boje, fontove, poravnanje, razmake i druge vizuelne karakteristike elemenata na stranici. CSS pravila se zapisuju u posebnim fajlovima sa ekstenzijom .css, koji se mogu kreirati u bilo kom editoru teksta.
-U CSS dokumentu se navode pravila koja se odnose na pojedinačne HTML elemente ili na više njih istovremeno. Za svaki element mogu se definisati različita stilska svojstva, kao što su boja pozadine, boja teksta ili poravnanje. Na taj način se postiže jedinstven i usklađen izgled cele veb-stranice.
+\textbf{HTML} jezik služi za definisanje strukture i sadržaja veb-stranice, dok se za uređivanje njenog izgleda koristi \textbf{CSS} (\textit{Cascading Style Sheets}). Pomoću CSS-a se zadaju pravila koja određuju boje, fontove, poravnanje, razmake i druge vizuelne karakteristike elemenata na stranici. CSS pravila se zapisuju u posebnim fajlovima sa ekstenzijom \texttt{.css}, koji se mogu kreirati u bilo kom editoru teksta.
+U CSS dokumentu se navode pravila koja se odnose na pojedinačne HTML elemente ili na više njih istovremeno. Za svaki element mogu se definisati različita stilska svojstva, kao što su boja pozadine, boja teksta ili poravnanje. Na taj način se postiže jedinstven i usklađen izgled cele veb-stranice. Na slici ispod mozete videti jedan CSS kod koji sadrži sledeća pravila: \texttt{Background-color} zadaje boju pozadine, \texttt{color} boja teksta na stranici, \texttt{text-align: center} centrira tekst naslova, \texttt{font-family} određuje font, \texttt{font-size} određuje veličinu teksta, \texttt{text-indent} podešava uvlačenje prvog reda pasusa.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl9.png}
-\caption{Background-color zadaje boju pozadine; color boja teksta na stranici; text-align: center centrira tekst naslova; font-family određuje font; font-size određuje veličinu teksta; text-indent podešava uvlačenje prvog reda pasusa.}
 \end{figure}
 
 
@@ -230,7 +230,7 @@ Veb-sajt se najčešće sastoji od više međusobno povezanih veb-stranica koje 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.5\textwidth]{sl11.png}
-\caption{Element a omogućava da klikne na tekst}
+\caption{Element \texttt{a} omogućava da klikne na tekst}
 \end{figure}
 
 
@@ -248,7 +248,7 @@ Slike koje se koriste na veb-sajtu poželjno je organizovati u poseban podfolder
 
 \section{Serversko veb-programiranje}
 
-\subsection{Veb-aplikacije – uvod}
+\subsection{Veb-stranice}
 
 
 Na početku razvoja veba, veb-stranice su bile uglavnom statičke, što znači da su sadržale unapred pripremljen tekst i slike koje su svi korisnici videli na isti način. Korisnici su mogli samo da čitaju sadržaj i da se kreću između stranica pomoću linkova, bez ikakve naprednije interakcije.
@@ -256,7 +256,7 @@ Na početku razvoja veba, veb-stranice su bile uglavnom statičke, što znači d
 
 
 Kako je veb brzo napredovao, javila se potreba za većom interakcijom sa korisnicima. Zbog toga su, pored HTML-a i CSS-a, počeli da se koriste i programski jezici koji omogućavaju dinamičko ponašanje veb-stranica. U zavisnosti od toga gde se programski kod izvršava, razlikujemo klijentske i serverske veb-tehnologije.
-\paragraph{Aktivne strane(klijentski skriptovi).} Klijentske veb-tehnologije se izvršavaju u internet pregledaču korisnika. Najpoznatiji jezik za ovu namenu je \textbf{JavaScript}. On omogućava da veb-stranice postanu interaktivne, odnosno da reaguju na akcije korisnika, kao što su klikovi mišem, unos teksta ili izbor određenih opcija. Klijentski skriptovi se šalju sa servera zajedno sa veb-stranicom i izvršavaju se na računaru korisnika. Ove stranice se često nazivaju aktivne ili interaktivne veb-stranice.
+\paragraph{Aktivne strane (klijentski skriptovi).} Klijentske veb-tehnologije se izvršavaju u internet pregledaču korisnika. Najpoznatiji jezik za ovu namenu je \textbf{JavaScript}. On omogućava da veb-stranice postanu interaktivne, odnosno da reaguju na akcije korisnika, kao što su klikovi mišem, unos teksta ili izbor određenih opcija. Klijentski skriptovi se šalju sa servera zajedno sa veb-stranicom i izvršavaju se na računaru korisnika. Ove stranice se često nazivaju aktivne ili interaktivne veb-stranice.
 
 \begin{figure}[h!]
 \centering
@@ -275,14 +275,14 @@ Kako je veb brzo napredovao, javila se potreba za većom interakcijom sa korisni
 \end{figure}
 
 
-  Savremene veb-aplikacije najčešće kombinuju klijentske i serverske skriptove. Deo aplikacije koji se izvršava u pregledaču naziva se \textbf{prednja strana} (\textit{fronted} ), dok se deo koji radi na serveru naziva \textbf{zadnja strana} (\textit{backed}). Postoje programeri koji se specijalizuju samo za jednu od ovih oblasti, ali i oni koji se bave obema, takozvani \textbf{full-stack} programeri.
+  Savremene veb-aplikacije najčešće kombinuju klijentske i serverske skriptove. Deo aplikacije koji se izvršava u pregledaču naziva se \textbf{prednja strana} (\textit{fronted}), dok se deo koji radi na serveru naziva \textbf{zadnja strana} (\textit{backed}). Postoje programeri koji se specijalizuju samo za jednu od ovih oblasti, ali i oni koji se bave obema, takozvani \textbf{full-stack} programeri.
 
   \paragraph{Ajax.} 
   Posebno važan koncept u savremenim veb-aplikacijama je Ajax. On omogućava da veb-stranica komunicira sa serverom i razmenjuje podatke bez ponovnog učitavanja cele stranice. Na ovaj način je moguće, na primer, automatsko dopunjavanje pojmova pri pretrazi, ažuriranje poruka u čet aplikacijama ili učitavanje delova digitalnih mapa dok se korisnik kreće po njima.
 
 
 
-Ajax koristi JavaScript za slanje zahteva serveru i obradu podataka koji stižu sa servera, najčešće u JSON (\textit{JavaScriptObjectNotation})formatu. Ovaj pristup omogućava brži i efikasniji rad veb-aplikacija i bolje korisničko iskustvo. Zahvaljujući Ajax-u razvijen je i koncept \textbf{jednostraničnih aplikacija}, kod kojih se ceo sadržaj aplikacije prikazuje na jednoj veb-stranici, a menja se dinamički.
+Ajax koristi JavaScript za slanje zahteva serveru i obradu podataka koji stižu sa servera, najčešće u JSON (\textit{JavaScriptObjectNotation}) formatu. Ovaj pristup omogućava brži i efikasniji rad veb-aplikacija i bolje korisničko iskustvo. Zahvaljujući Ajax-u razvijen je i koncept \textbf{jednostraničnih aplikacija}, kod kojih se ceo sadržaj aplikacije prikazuje na jednoj veb-stranici, a menja se dinamički.
 
 \subsection{HTTP protokol}
 
@@ -291,12 +291,12 @@ Razmena podataka između klijenta (veb-pregledača) i servera na internetu obavl
 
 
 Kada korisnik u veb-pregledač unese URL adresu ili klikne na neku vezu, pregledač najpre analizira unetu adresu i razdvaja je na njene delove: protokol, naziv servera, putanju do resursa i eventualne parametre. Na osnovu ovih informacija, pregledač zna kojim protokolom i sa kojim serverom treba da ostvari komunikaciju.
-Na primer:http://www.moja-prodavnica.com/site/products?page=3
+Na primer: \url{http://www.moja-prodavnica.com/site/products?page=3}
 \begin{itemize}
-\item http – oznaka protokola koji se koristi za komunikaciju
-\item www.moja-prodavnica.com – naziv veb-servera
-\item /site/products – putanja do veb-strane na serveru
-\item page=3-dodatni parametri
+\item \texttt{http} –oznaka protokola koji se koristi za komunikaciju
+\item \texttt{www.moja-prodavnica.com} –naziv veb-servera
+\item \texttt{/site/products} –putanja do veb-strane na serveru
+\item \texttt{page=3} -dodatni parametri
 \end{itemize}
 
 
@@ -324,12 +324,12 @@ HTTPS protokol se sve više koristi jer obezbeđuje poverljivost i sigurnost pod
 \section{Flask biblioteka}
 
 \subsection{Osnovni pojmovi}
- \textbf{Flask} (\url{https://flask.palletsprojects.com/})je biblioteka programskog jezika Python koja se koristi za kreiranje veb-aplikacija. Pored Flask-a, u Python-u postoje i druge biblioteke za razvoj veb-aplikacija, jedna od njih je \textbf{Django} (\url{https://www.djangoproject.com/}). Za razliku od Django-a, Flask je osmišljen kao lagana i jednostavna biblioteka, što ga čini pogodnim za početnike i manje projekte.
+ \textbf{Flask} (\url{https://flask.palletsprojects.com/}) je biblioteka programskog jezika Python koja se koristi za kreiranje veb-aplikacija. Pored Flask-a, u Python-u postoje i druge biblioteke za razvoj veb-aplikacija, jedna od njih je \textbf{Django} (\url{https://www.djangoproject.com/}). Za razliku od Django-a, Flask je osmišljen kao lagana i jednostavna biblioteka, što ga čini pogodnim za početnike i manje projekte.
 
-\paragraph{Kako se instalira bibliotekaFlask?}
+\paragraph{Kako se instalira biblioteka Flask?}
 
 
-Instalacija biblioteke Flask je jednostavna i vrši se pomoću alatke pip, koja služi za upravljanje paketima u programskom jeziku Python. Potrebno je pokrenuti komandnu liniju (na primer, unosom cmd u pretragu operativnog sistema).
+Instalacija biblioteke Flask je jednostavna i vrši se pomoću alatke \texttt{pip}, koja služi za upravljanje paketima u programskom jeziku Python. Potrebno je pokrenuti komandnu liniju (na primer, unosom\texttt{cmd} u pretragu operativnog sistema).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl14.png}
@@ -350,6 +350,7 @@ Pod uslovom da je na računaru već instaliran Python 3, u komandnu liniju je do
 \includegraphics[width=0.7\textwidth]{sl16.png}
 \end{figure}
 
+\newpage
 Nakon izvršavanja komande i uspešne instalacije, biblioteka Flask je spremna za korišćenje. Ukoliko Python nije instaliran, neophodno je prvo instalirati programski jezik Python, a zatim nastaviti sa instalacijom Flask biblioteke.
 \begin{figure}[h!]
 \centering
@@ -359,20 +360,21 @@ Nakon izvršavanja komande i uspešne instalacije, biblioteka Flask je spremna z
 
 
 \paragraph{Kako da instaliramo jezik Python?}
-Za instalaciju Python-a potrebno je posetiti zvanični sajt \url{}https://www.python.org/ i u delu Downloads preuzeti najnoviju dostupnu verziju jezika Python. Preporučuje se instalacija aktuelne verzije koja je u tom trenutku ponuđena.
+Za instalaciju Python-a potrebno je posetiti zvanični sajt \url{}https://www.python.org/ i u delu \texttt{Downloads} preuzeti najnoviju dostupnu verziju jezika Python. Preporučuje se instalacija aktuelne verzije koja je u tom trenutku ponuđena.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl18.png}
 \caption{Idite na Downloads i kliknite na dugme za aktuelnu verziju kao na slici}
 \end{figure}
 
+\newpage
 
 
 Nakon preuzimanja, potrebno je pokrenuti instalacioni fajl. 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl19.png}
-\caption{Ako se otvori ovaj prozor, kliknete samo na Close i koristite instaliran Python}
+\caption{Ako se otvori ovaj prozor, kliknete samo na \texttt{Close} i koristite instaliran Python}
 \end{figure}
 
 
@@ -381,11 +383,11 @@ Ukoliko je Python već instaliran, instalater će to prepoznati i ponuditi mogu�
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl20.png}
-\caption{Kliknuti na dugme Upgrade Now}
+\caption{Kliknuti na dugme \texttt{Upgrade Now}}
 \end{figure}
 
-
-U slučaju da Python nije prethodno instaliran, potrebno je označiti opciju Add Python to PATH, a zatim izabrati Install Now kao na slici ispod.
+\newpage
+U slučaju da Python nije prethodno instaliran, potrebno je označiti opciju \texttt{Add Python to PATH}, a zatim izabrati \texttt{Install Now} kao na slici ispod.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl22.png}
@@ -399,27 +401,27 @@ Po završetku instalacije pojaviće se poruka koja potvrđuje da je instalacija 
 
 
 \subsection{Prva Flask veb-aplikacija}
-Rad sa bibliotekom Flask započinje se kreiranjem najjednostavnije moguće veb-aplikacije, čiji je jedini zadatak da u veb-pregledaču prikaže tekst „Zdravo“. Ova vrsta aplikacije je poznata kao Hello World primer i tradicionalno se koristi pri učenju novih programskih jezika i tehnologija.
+Rad sa bibliotekom Flask započinje se kreiranjem najjednostavnije moguće veb-aplikacije, čiji je jedini zadatak da u veb-pregledaču prikaže tekst „Zdravo“. Ova vrsta aplikacije je poznata kao \texttt{Hello World} primer i tradicionalno se koristi pri učenju novih programskih jezika i tehnologija.
 
 
 
-Svaka veb-aplikacija se sastoji od više fajlova, pa je uobičajena praksa da se oni organizuju u poseban folder. U ovom primeru kreira se folder pod nazivom hello,  u kome se nalazi glavni programski fajl app.py. U njemu se definiše Flask aplikacija i jedna funkcija koja vraća tekst koji će biti prikazan u pregledaču.
+Svaka veb-aplikacija se sastoji od više fajlova, pa je uobičajena praksa da se oni organizuju u poseban folder. U ovom primeru kreira se folder pod nazivom \texttt{hello},  u kome se nalazi glavni programski fajl \texttt{app.py}. U njemu se definiše Flask aplikacija i jedna funkcija koja vraća tekst koji će biti prikazan u pregledaču.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1\textwidth]{sl23.png}
 \end{figure}
 
-Programski fajlovi mogu se kreirati u bilo kom editoru teksta, kao što je Notepad, pri čemu je važno da se fajl sačuva sa ekstenzijom .py. Naziv app.py ima posebnu ulogu, jer Flask podrazumevano očekuje da se glavna aplikacija nalazi upravo u tom fajlu.
+Programski fajlovi mogu se kreirati u bilo kom editoru teksta, kao što je Notepad, pri čemu je važno da se fajl sačuva sa ekstenzijom \texttt{.py}. Naziv \texttt{app.py} ima posebnu ulogu, jer Flask očekuje da se glavna aplikacija nalazi upravo u tom fajlu.
 
-Da bismo imali tačnu putanju do fajla koja nam je neophodna da pokrenemo program, možemo da upotrebimo opciju Copy adress kada uradimo desni klik mišem u prozoru File Explorer.
+Da bismo imali tačnu putanju do fajla koja nam je neophodna da pokrenemo program, možemo da upotrebimo opciju \texttt{Copy adress} kada uradimo desni klik mišem u prozoru \texttt{File Explorer}.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl24.png}
 \end{figure}
 \newpage
-Nakon toga, u komandnoj liniji se postavljamo u direktorijum u kome smo kreirali datoteku app.py tako što napišemo sledeće:
+Nakon toga, u komandnoj liniji prelazimo u direktorijum u kome smo kreirali datoteku \texttt{app.py} tako što napišemo sledeće:
 
 \begin{figure}[h!]
 \centering
@@ -429,7 +431,7 @@ Nakon toga, u komandnoj liniji se postavljamo u direktorijum u kome smo kreirali
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl26.png}
-\caption{Pokrećemo Flash aplikaciju kodom flask run}
+\caption{Pokrećemo Flash aplikaciju kodom \texttt{flask run}}
 \end{figure}
 
 \begin{figure}[h!]
@@ -438,17 +440,17 @@ Nakon toga, u komandnoj liniji se postavljamo u direktorijum u kome smo kreirali
 \caption{Poruka koju dobijamo, ako je sve u redu.}
 \end{figure}
 
- Kada se aplikacija uspešno pokrene, Flask pokreće lokalni veb-server koji sluša na adresi http://127.0.0.1:5000/. Unosom ove adrese u veb-pregledač prikazuje se strana sa tekstom „Zdravo“.
+ Kada se aplikacija uspešno pokrene, Flask pokreće lokalni veb-server dostupan na adresi \url{http://127.0.0.1:5000/}. Unosom ove adrese u veb-pregledač prikazuje se strana sa tekstom „Zdravo“.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.4\textwidth]{sl28.png}
 \end{figure}
 
 \newpage
-Veb-server radi sve dok se ne zaustavi kombinacijom tastera Ctrl + C. Ukoliko se naprave izmene u programskom kodu, potrebno je zaustaviti server, sačuvati izmene i ponovo pokrenuti aplikaciju kako bi se one prikazale u pregledaču.
+Veb-server radi sve dok se ne zaustavi kombinacijom tastera \textit{Ctrl} + \texttt{C}. Ukoliko se naprave izmene u programskom kodu, potrebno je zaustaviti server, sačuvati izmene i ponovo pokrenuti aplikaciju kako bi se one prikazale u pregledaču.
 
 
-Glavna Flask aplikacija predstavljena je objektom klase Flask, koji se najčešće smešta u promenljivu app. Prilikom kreiranja tog objekta koristi se specijalna promenljiva \_\_name\_\_, koja omogućava Flask-u da pravilno identifikuje aplikaciju.
+Glavna Flask aplikacija predstavljena je objektom klase Flask, koji se najčešće smešta u promenljivu \texttt{app}. Prilikom kreiranja tog objekta koristi se specijalna promenljiva \texttt{\_\_name\_\_}, koja omogućava Flask-u da pravilno identifikuje aplikaciju.
 
 \begin{figure}[h!]
 \centering
@@ -460,7 +462,7 @@ Veb-aplikacije obično imaju više različitih strana, a koja strana će biti pr
 
 
 
-U Flask-u se ovaj proces naziva \textbf{rutiranje}. Ruta predstavlja vezu između URL putanje i funkcije koja će obraditi zahtev. To se postiže upotrebom dekoratora @app.route(...), koji se postavlja iznad definicije funkcije. Funkcija vraća tekst ili drugi sadržaj koji se zatim prikazuje u pregledaču.
+U Flask-u se ovaj proces naziva \textbf{rutiranje}. Ruta predstavlja vezu između URL putanje i funkcije koja će obraditi zahtev. To se postiže upotrebom dekoratora \texttt{@app.route(...)}, koji se postavlja iznad definicije funkcije. \textbf{Dekorator} je mehanizam u programiranju koji omogućava da se funkciji ili metodi doda dodatna funkcionalnost bez izmene njenog izvornog koda. Funkcija vraća tekst ili drugi sadržaj koji se zatim prikazuje u pregledaču.
 
 \begin{figure}[h!]
 \centering
@@ -502,7 +504,7 @@ U najjednostavnijem slučaju, HTML se može vratiti kao višelinijska tekstualna
 
 
 
-Zbog toga Flask koristi biblioteku \textbf{Jinja}(\url{https://jinja.palletsprojects.com/)}), koja omogućava rad sa šablonima. Jinja omogućava da se HTML kod čuva u posebnim datotekama, dok se u Python programu vrši njihova obrada i generisanje konačne HTML strane koja se prosleđuje klijentu. Flask podrazumeva da se svi šabloni nalaze u posebnom direktorijumu pod nazivom templates. U tom slučaju, aplikacija se sastoji od glavne Python datoteke i odgovarajućih HTML šablona koji se nalaze u pomenutom direktorijumu.
+Zbog toga Flask koristi biblioteku \textbf{Jinja} (\url{https://jinja.palletsprojects.com/}), koja omogućava rad sa šablonima. Jinja omogućava da se HTML kod čuva u posebnim datotekama, dok se u Python programu vrši njihova obrada i generisanje konačne HTML strane koja se prosleđuje klijentu. Flask podrazumeva da se svi šabloni nalaze u posebnom direktorijumu pod nazivom \texttt{templates}. U tom slučaju, aplikacija se sastoji od glavne Python datoteke i odgovarajućih HTML šablona koji se nalaze u pomenutom direktorijumu.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\textwidth]{sl33.png}
@@ -515,24 +517,24 @@ Zbog toga Flask koristi biblioteku \textbf{Jinja}(\url{https://jinja.palletsproj
 
 
 
-
-Za prikaz HTML stranice koristi se funkcija render\_template, koja učitava šablon, obrađuje ga i vraća gotov HTML sadržaj kao odgovor klijentu. Pored samog naziva šablona, ovoj funkciji se mogu proslediti dodatni podaci koji se zatim koriste unutar šablona.
+\newpage
+Za prikaz HTML stranice koristi se funkcija \texttt{render\_template}, koja učitava šablon, obrađuje ga i vraća gotov HTML sadržaj kao odgovor klijentu. Pored samog naziva šablona, ovoj funkciji se mogu proslediti dodatni podaci koji se zatim koriste unutar šablona.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl35.png}
-\caption{Datoteka app.py}
+\caption{Datoteka \texttt{app.py}}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl36.png}
-\caption{Datoteka templates/index.html}
+\caption{Datoteka \texttt{templates/index.html}}
 \end{figure}
 
-
-Posebna prednost Jinja šablona jeste mogućnost korišćenja šablonskih direktiva, koje omogućavaju dinamičko generisanje sadržaja. U okviru HTML koda mogu se koristiti promenljive, uslovi i petlje, čija je sintaksa slična programskom jeziku Python. Izrazi zapisani između {{ }} zamenjuju se svojim vrednostima, dok se direktive poput {% if %} i {% for %} koriste za kontrolu toka izvršavanja unutar šablona.
+\newpage
+Posebna prednost Jinja šablona jeste mogućnost korišćenja šablonskih direktiva, koje omogućavaju dinamičko generisanje sadržaja. U okviru HTML koda mogu se koristiti promenljive, uslovi i petlje, čija je sintaksa slična programskom jeziku Python. Izrazi zapisani između  \{\{ \}\} zamenjuju se svojim vrednostima, dok se direktive poput \{\% if \%\} i \{\% for \%\} koriste za kontrolu toka izvršavanja unutar šablona.
 
 
 
@@ -546,12 +548,12 @@ Vežbe radi, definišimo jednostavnu aplikaciju koja na osnovu liste parova (ime
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl37.png}
-\caption{Datoteka app.py}
+\caption{Datoteka \texttt{app.py}}
 \end{figure}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl38.png}
-\caption{Šablon templates/ucenici.html}
+\caption{Šablon \texttt{templates/ucenici.html}}
 \end{figure}
 \begin{figure}[h!]
 \centering
@@ -567,13 +569,58 @@ Nasleđivanje šablona predstavlja važnu tehniku u razvoju veb-aplikacija, jer 
 
 \subsection{Statičke datoteke i linkovi}
 
-\section{Zaključak}
+Veb-stranica se ne sastoji samo od HTML koda, već i od različitih pratećih datoteka kao što su CSS stilovi, JavaScript datoteke, slike, video i audio-zapisi. Iako se kod dinamičkih veb-aplikacija HTML sadržaj često generiše na serveru, ove prateće datoteke su najčešće statičke i klijentu se šalju u nepromenjenom obliku.
 
+
+
+U Flask veb-aplikacijama postoji jasno definisana struktura direktorijuma. HTML šabloni se smeštaju u direktorijum \texttt{templates}, dok se sve statičke datoteke (CSS, slike, JavaScript) nalaze u direktorijumu \texttt{static}. Na primer, u direktorijumu \texttt{static} mogu se nalaziti CSS datoteka za stil i slika koja se prikazuje na veb-strani.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{sl40.png}
+\caption{Primer strukture i sadržaja direktorijuma veb-aplikacije}
+\end{figure}
+
+\newpage
+Prilikom korišćenja statičkih datoteka u HTML šablonima, nije preporučljivo ručno navoditi relativne ili apsolutne putanje, jer se putanja veb-stranice može menjati ili isti šablon može biti korišćen na više različitih URL-ova. Zbog toga Flask pruža funkciju \texttt{url\_for}, koja automatski generiše ispravnu putanju u trenutku prikaza stranice.
+
+
+
+Za pristup statičkim datotekama, funkciji \texttt{url\_for} se kao prvi argument prosleđuje niska \texttt{static}, a kao imenovani argument navodi se naziv datoteke. Na taj način se, na primer, CSS stil uključuje u zaglavlju strane, a slika u telu dokumenta, bez potrebe da se unapred zna tačna putanja do datoteke. Flask će automatski generisati URL oblika \texttt{/static/naziv\_datoteke}.
+
+Na slikama ispod je ceo šablon \texttt{index.html} u kome se u zaglavlju uključuje CSS datoteka \texttt{style.css} (iz poddirektorijuma \texttt{static}), a u telu se uključuje slika \texttt{logo.png} (takođe iz poddirektorijuma \texttt{static}).
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{sl41.png}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{sl42.png}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{sl43.png}
+\caption{To bi u pregledaču izgledalo ovako}
+\end{figure}
+
+\newpage
+Pored statičkih datoteka, funkcija \texttt{url\_for} se koristi i za pravljenje linkova ka drugim stranicama u okviru iste veb-aplikacije. Umesto da se u HTML-u ručno upisuju putanje, kao vrednost atributa \texttt{href} navodi se poziv funkcije \texttt{url\_for} sa imenom Python funkcije koja generiše željenu stranicu. Ovaj pristup olakšava održavanje aplikacije, jer se promene putanja automatski odražavaju na sve linkove.
+
+
+
+Često se pravi zajednički osnovni šablon koji sadrži navigaciju, a koji se nasleđuje u ostalim stranicama. U takvom šablonu linkovi ka stranicama kao što su „Home“ i „About“ se definišu pomoću funkcije \texttt{url\_for}, čime se obezbeđuje fleksibilnost i ispravno funkcionisanje navigacije u celoj veb-aplikaciji.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{sl44.png}
+\caption{Primer zajedničkog šablona osnovni.html (koji se nasleđuje za sve veb-strane na sajtu) sa navigacionim linkovima na vrhu strane}
+\end{figure}
+
+
+\newpage
 \section{Literatura}
 \begin{itemize}
-\item 
-\item 
-\item 
+\item \url{https://petlja.org/sr-Latn-RS/kurs/18657/20/6544}
+\item \url{https://sr.wikipedia.org/sr-ec/Ra%C4%8Dunarska_mre%C5%BEa}
+\item \url{https://www.w3schools.com/html/default.asp}
 \end{itemize}
 
 \end{document}
