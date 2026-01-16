@@ -7,30 +7,42 @@
 \usepackage{amsmath}
 \usepackage[colorlinks=true, urlcolor=blue]{hyperref}
 \usepackage{tabularx}
+\usepackage{amssymb}
 
 \title{Baze podataka}
 \author{Tanja Šević}
-\date{decembar 2025}
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
+\vspace*{\fill} 
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{flushleft}
+        Metodika nastave informatike a
+    \end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{flushright}
+        prof. Sana Stojanović Đurđević
+    \end{flushright}
+\end{minipage}
 \newpage
 \tableofcontents 
 \newpage
 
 \section{Pojam baze podataka}
-\indent \textbf{Baza podataka} je organizovana kolekcija podataka. Umesto da informacije čuvamo u svesci ili tabeli na papiru, baza podataka ih čuva u računaru tako da se lako mogu pretraživati, menjati i koristiti. \\
-Njena poenta je da olakša pristup podacima, pretraživanje, menjanje njihovog sadržaja ili ažuriranje. 
+\indent \textbf{Baza podataka} je organizovana kolekcija podataka. Umesto da informacije čuvamo na papiru, baza podataka ih čuva u računaru. \\
+\indent Svrha baze podataka je da olakša pristup podacima, pretraživanje, menjanje sadržaja ili ažuriranje. 
 
 \subsection*{Šta je baza podataka?}
-\indent \textbf{Baza podataka je strukturirani skup podataka koji se čuva elektronski i kojim upravlja sistem za upravljanje bazama podataka (SGBD), omogućavajući jednostavno čuvanje, pretragu, izmenu i upravljanje informacijama.} 
+\indent \textbf{Baza podataka je strukturirani skup podataka koji se čuva elektronski i kojim upravlja sistem za upravljanje bazama podataka, omogućavajući jednostavno čuvanje, pretragu, izmenu i upravljanje informacijama.} 
 
-\subsection*{Zašto su baze podataka važne}
+\subsection*{Zašto su baze podataka važne?}
 U savremenom svetu, zahvaljujući napretku tehnologije, količina informacija do kojih možemo doći i kojima možemo raspolagati je velika. 
 Danas, u odnosu na generaciju naših baka i deka, ukoliko želimo da dođemo do određene informacije, na primer, koja hrana ima najviše vlakana, ne moramo tražiti knjigu iz biologije, pa lekciju u kojoj se ta tema obrađuje. 
 Dovoljno je Google-u da postavimo pitanje i pretraživač će nam sam dati odgovor. \\
 \indent Ovako brzu pretragu nam omogućavaju upravo \textbf{baze podataka}. One omogućavaju da velika količina informacija bude dostupna u svakom trenutku.
-Osim toga, baze podataka te informacije uređuju i skladište. 
 \\
 
 
@@ -43,11 +55,10 @@ Baze podataka se koriste svuda oko nas:
     \item \textbf{Na internetu} (profili na društvenim mrežama, onlajn prodavnica, aplikacije za plaćanje računa, sajtovi za puštanje muzike).
 \end{itemize}
 
-\indent One pomažu da se informacije brzo pronađu i koriste.
-Uzmimo primer iz svakodnevnog života. Kada želimo da pustimo neku pesmu uključimo YouTube i on nam sam na \textit{Glavnoj strani} da predlog pesama koje bismo mogli da pustimo. Da li smo se nekad zapitali na koji način on formira tu listu za nas? 
+\indent Uzmimo primer iz svakodnevnog života. Kada želimo da pustimo neku pesmu uključimo YouTube i on nam na \textit{Glavnoj strani} da predlog pesama koje bismo mogli da pustimo. Da li smo se nekad zapitali na koji način on formira tu listu za nas? 
 YouTube koristi baze podataka u kojima se čuvaju informacije o pesmama i izvođačima koje smo prethodno slušali. Na osnovu tih podataka, sistem nam predlaže sadržaj koji procenjuje da će nam se dopasti. Bez baza podataka, YouTube ne bi mogao da zapamti naše izbore i ne bi svaki korisnik imao prilagođenu pretragu.
 \\
-U školi postoji spisak učenika sa njihovim podacima, to je takođe jedna baza podataka. 
+\indent U školi postoji spisak učenika sa njihovim podacima, ocenama, izostancima, to je takođe jedna baza podataka. 
 \bigskip
 
 \subsection{Sistemi za upravljanje bazama podataka}
@@ -67,7 +78,7 @@ Ti sistemi korisnicima pružaju sve usluge rada sa podacima.
 Često se podatak i informacija koriste kao sinonimi, iako to nisu. Da bismo shvatili razliku hajde prvo da vidimo šta ovi pojmovi predstavljaju.
 
 \subsection*{Šta je podatak?}
-\textbf{Podatak} je neka reč, broj ili simbol koji sam po sebi nema jasno značenje. Ako samo kažemo neki broj ili reč, on nam ne govori ništa korisno dok ga ne stavimo u određeni kontekst.
+\textbf{Podatak} je neka reč, broj ili simbol koji sam po sebi nema posebno značenje. Ako samo kažemo neki broj ili reč, on nam ne govori ništa korisno dok ga ne stavimo u određeni kontekst.
 
 \begin{itemize}
     \item \textbf{Primeri podataka:} 38$^\circ$, Sunčano, 15:00, Beograd.
@@ -78,7 +89,7 @@ Ti sistemi korisnicima pružaju sve usluge rada sa podacima.
 \textbf{Informacija} nastaje kada podatke obradimo, organizujemo i damo im značenje. Informacija nam pomaže da donesemo neku odluku ili naučimo nešto novo.
 
 \begin{itemize}
-    \item \textbf{Primer informacije:} "Temperatura u \textbf{Beogradu} je \textbf{38} stepeni, biće \textbf{sunčano} danas u \textbf{15:00} časova."
+    \item \textbf{Primer informacije:} ''Temperatura u \textbf{Beogradu} je \textbf{38} stepeni, biće \textbf{sunčano} danas u \textbf{15:00} časova.''
 \end{itemize}
 
 \subsection*{Ključna razlika}
@@ -95,7 +106,7 @@ Glavna razlika se može prikazati kroz proces obrade:
 \textbf{Karakteristika} & \textbf{Podatak} & \textbf{Informacija} \\ \hline
 Šta je to? & Neka reč, broj & Obrađen i smislen podatak \\ \hline
 Značenje & Sam po sebi ga nema & Ima jasno značenje \\ \hline
-Primer & "12" & "U mom odeljenju ima 12 devojčica" \\ \hline
+Primer & ''12'' & ''U mom odeljenju ima 12 devojčica'' \\ \hline
 \end{tabular}
 \caption{Razlika između podatka i informacije}
 \end{table}
@@ -148,17 +159,17 @@ Da bismo lakše razumeli, uporedimo ih sa stvarima iz svakodnevnog života:
 \textit{Zaključak:} Bez baze podataka, informacioni sistem ne bi imao gde da čuva informacije. Sa druge strane, bez informacionog sistema, baza podataka bi bila samo gomila nabacanih podataka. 
 
 \subsection{Modeli baza podataka}
-Postoji više načina za organizovanje podataka, ali se kroz istoriju nekoliko modela posebno izdvojilo.
+Postoji više načina za organizovanje podataka, ali najzastuoljeniji je \textbf{relacioni model}.
 
 \subsection*{Relacioni model}
-Ovo je danas najzastupljeniji model. Osnovna ideja je da se podaci čuvaju u \textbf{tabelama} (relacijama). 
-Kao što smo videli na primeru tabele \texttt{Automobil} (Slika \ref{fig:access_relacije}), svaki red predstavlja jedan zapis, a svaka kolona jedan atribut tog zapisa.
+Osnovna ideja je da se podaci čuvaju u \textbf{tabelama} (relacijama). 
+Kao što vidimo na primeru tabele \texttt{Automobil} (Slika \ref{fig:access_relacije}), svaki red predstavlja jedan zapis, a svaka kolona jedan atribut tog zapisa. \\
 
 Karakteristike ovog modela su:
 \begin{itemize}
     \item \textbf{Tabele:} Podaci su organizovani u dvodimenzionalne nizove.
     \item \textbf{Ključevi:} Svaki red je jedinstven zahvaljujući primarnom ključu.
-    \item \textbf{Veze:} Tabele se povezuju putem zajedničkih kolona (spoljni ključevi).
+    \item \textbf{Veze:} Tabele se povezuju putem zajedničkih kolona.
 \end{itemize}
 
 \begin{figure}[h!]
@@ -176,18 +187,20 @@ Pored relacionog, značajni su i:
 \end{itemize}
 
 \subsection{Relacione baze podataka}
-\textbf{Relacione baze podataka} su tip baza koji se najčešće koristi. Sastoje se od tabela koje su međusobno povezane. 
+\textbf{Relacione baze podataka} su najkorišćeniji tip baza. Sastoje se od tabela koje su međusobno povezane. 
 \bigskip
 
-\indent \textbf{Relaciona baza podataka je skup digitalnih tabela u kojima su podaci organizovani tako da su međusobno povezani. Reč "relacija" sugeriše da je u pitanju neka veza.} \\
+\subsection*{Šta je relaciona baza podataka?}
+
+\indent \textbf{Relaciona baza podataka je skup digitalnih tabela u kojima su podaci organizovani tako da su međusobno povezani. Reč ''relacija'' sugeriše da je u pitanju neka veza.} 
 
 \subsection*{Kako one funkcionišu?}
 Da bi tabela bila deo relacione baze, ona mora da ima tri osnovna dela:
 
 \begin{itemize}
-    \item \textbf{Entitete (tabele)} - Objekti o kojima čuvamo podatke. Zamisli ih kao posebne foldere (npr. tabela \textit{Učenici}, tabela \textit{Nastavnici}, tabela \textit{Ocene}).
-    \item \textbf{Atribute (kolone)} - Osobine tih objekata. Na primer, u tabeli \textit{Učenici} kolone su: \textit{Ime}, \textit{Prezime}, \textit{Razred}.
-    \item \textbf{Primarni ključ (ID)} - Jedinstveni broj koji ima svaki red u tabeli. On svaki podatak čini autentičnim (poput JMBG-a).
+    \item \textbf{Entitete (tabele)} - Objekti o kojima čuvamo podatke (na primer tabela \textit{Učenici}, tabela \textit{Nastavnici}, tabela \textit{Ocene}).
+    \item \textbf{Atribute (kolone)} - Osobine tih objekata (na primer, u tabeli \textit{Učenici} kolone su: \textit{Ime}, \textit{Prezime}, \textit{Razred}).
+    \item \textbf{Primarni ključ (ID)} - Jedinstveni broj koji ima svaki red u tabeli (na primer JMBG).
 \end{itemize}
 
 \subsection*{Zašto su relacione baze najkorišćenije?}
@@ -199,14 +212,14 @@ Relacione baze su kao \textit{digitalni organizator}. Glavne prednosti su što:
     \item \textbf{Tačnost:} Podaci su uvek tačni jer sistem ne dozvoljava da upišemo ocenu učeniku koji ne postoji u bazi.
 \end{itemize}
 
-\subsection{Osnivni pojmovi relacionih baza podataka}
+\subsection{Osnovni pojmovi relacionih baza podataka}
 Relacione baze podataka se zasnivaju na tabelama, a svaki element tabele ima svoj naziv i ulogu. Na osnovu Slike \ref{fig:access_relacije}, možemo jasno videti osnovne elemente:
 
 \begin{itemize}
     \item \textbf{Tabela (Relacija):} Predstavlja skup podataka o istoj vrsti entiteta. Na slici \ref{fig:access_relacije} u levom panelu vidimo tabelu pod nazivom \textit{Automobil}, koja služi za čuvanje podataka o vozilima.
     \item \textbf{Kolona (Atribut):} Određuje karakteristike podataka. Na slici su to polja: \textit{IdAutomobila}, \textit{Marka}, \textit{Klasa} i \textit{IdVlasnika}. Svaka kolona ima definisan tip podataka (\textit{Data Type}); u ovom slučaju, za sva polja je izabran tip \textit{Short Text}.
-    \item \textbf{Red (Vrsta ili Torka):} Predstavlja jedan konkretan zapis u tabeli (npr. podaci o jednom specifičnom automobilu marke ''Opel''). Iako se na slici vidi dizajn tabele (\textit{Design View}), u realnom radu svaki popunjeni red bi predstavljao jedan jedinstveni objekat.
-    \item \textbf{Polje (Ćelija):} To je mesto gde se seku red i kolona (npr. konkretna vrednost ''Siva'' u koloni \textit{Marka}).
+    \item \textbf{Red (Vrsta ili Torka):} Predstavlja jedan konkretan zapis u tabeli (npr. podaci o jednom specifičnom automobilu marke ,,Opel''). Iako se na slici vidi dizajn tabele (\textit{Design View}), u realnom radu svaki popunjeni red bi predstavljao jedan jedinstveni objekat.
+    \item \textbf{Polje (Ćelija):} To je mesto gde se seku red i kolona (npr. konkretna vrednost ,,Siva'' u koloni \textit{Marka}).
     \item \textbf{Primarni ključ (Primary Key):} Posebno važan pojam koji vidimo na slici je polje \textit{IdAutomobila}, pored kojeg se nalazi simbol ključa. To znači da je ovo polje jedinstveni identifikator koji sprečava da se u bazi pojave dva identična zapisa.
 \end{itemize}
 
@@ -235,13 +248,10 @@ U relacionim bazama, \textbf{ključevi} su \textit{specijalne kolone} koje služ
 Postoji više tipova ključeva koji omogućavaju da baza bude organizovana i tačna:
 
 \begin{itemize}
-    \item \textbf{Primarni ključ (Primary Key):} je jedinstveni identifikator za svaki red u tabeli. Svaka tabela mora imati primarni ključ i on mora biti jedinstven. 
+    \item \textbf{Primarni ključ (Primary Key):} čini svaki red autentičan. Svaka tabela mora imati primarni ključ i on mora biti jedinstven. 
     \begin{itemize}
         \item \textit{Primer:} U tabeli \textit{Radnici}, \textit{idRadnika} bi bio primarni ključ.
     \end{itemize}
-    \indent Karakteristično za relacioni model je da \textbf{redovi u tabeli nemaju definisan fizički položaj} unutar tabele. Ako smo, na primer, upisali tri reda u
-    tabelu koja je prethodno bila prazna, ne možemo unapred reći koji će red biti prvi, koji drugi, a koji treći. \\
-    \indent Jedini način da izaberemo određeni red je \textbf{prema vrednostima njegovih atributa}. To znači da podaci u tabeli čine skup, a ne uređeni niz, zbog čega je upotreba \textit{primarnih ključeva} neophodna kako bismo precizno pristupili željenom podatku.
     
     \item \textbf{Strani ključ (Foreign Key):} Služi kao ,,most'' za povezivanje dve tabele. On u jednoj tabeli pokazuje na primarni ključ u drugoj.
     \begin{itemize}
@@ -263,17 +273,18 @@ Postoji više tipova ključeva koji omogućavaju da baza bude organizovana i ta�
 \subsection{Šema relacione baze podataka}
 U programu Microsoft Access, šema baze podataka se sastoji iz dva ključna dela (Slika \ref{fig:access2}):
 
+\begin{enumerate}
+    \item \textbf{Logička struktura (Leva strana):} U panelu \textit{All Access Objects} vidi se spisak entiteta: \textit{Automobil}, \textit{Autoservis}, \textit{Popravka} i \textit{Vlasnik}. Ovaj spisak predstavlja ,,kostur'' šeme, odnosno skup svih objekata o kojima baza vodi računa.
+    \item \textbf{Definicija atributa (Centralni deo):} Tabela u sredini ekrana, gde se definišu \textit{Field Name} (\textit{IdAutomobila, Marka, Klasa, IdVlasnika}) i \textit{Data Type} (\textit{Short Text}), predstavlja detaljan arhitektonski plan šeme. Ovde se određuju pravila za svako pojedinačno polje pre nego što se krene sa unosom podataka.
+\end{enumerate}
+
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{access2.png}
     \caption{Prikaz logičke strukture i definicije atributa u Access-u}
     \label{fig:access2}
 \end{figure}
-
-\begin{enumerate}
-    \item \textbf{Logička struktura (Leva strana):} U panelu \textit{All Access Objects} vidi se spisak entiteta: \textit{Automobil}, \textit{Autoservis}, \textit{Popravka} i \textit{Vlasnik}. Ovaj spisak predstavlja ''kostur'' šeme, odnosno skup svih objekata o kojima baza vodi računa.
-    \item \textbf{Definicija atributa (Centralni deo):} Tabela u sredini ekrana, gde se definišu \textit{Field Name} (\textit{IdAutomobila, Marka, Klasa, IdVlasnika}) i \textit{Data Type} (\textit{Short Text}), predstavlja detaljan arhitektonski plan šeme. Ovde se određuju pravila za svako pojedinačno polje pre nego što se krene sa unosom podataka.
-\end{enumerate}
 
 Ovakva organizacija omogućava projektantu baze da jasno vidi kako su podaci strukturirani i da osigura integritet informacija unutar celog sistema.
 
@@ -314,31 +325,65 @@ Kada uspešno dodamo bazu, na ekranu razlikujemo tri bitna dela:
     \label{fig:automobili}
 \end{figure}
 
-\subsection{Korišćenje unapred kreiranih baza podataka}
-Umesto da sami pravimo tabele, možemo otvoriti postojeće baze koje sadrže hiljade podataka. Postoje baze koje su napravljene za vežbu.
-Na primer, \textit{Chinook baza} simulira rad digitalne muzičke prodavnice.
+\subsection{Planiranje jednostavnih baza podataka}
+Izgradnja baze podataka počinje od \textbf{planiranja} tabela, koje su nosioci informacija, i njihovog povezivanja.  \\
 
-\subsection*{Prednosti}
+Planiranje je najbitnija faza u kreiranju baze podataka.  Proces planiranja se obično deli na nekoliko ključnih koraka:
+
+\begin{enumerate}
+    \item \textbf{Analiza zahteva:} Određivanje svrhe baze podataka. Potrebno je odgovoriti na pitanje šta sistem treba da podrži (npr. ,,Šta sve moj elektronski dnevnik treba da pamti?'').
+    \item \textbf{Identifikacija entiteta:} Određivanje glavnih objekata (tema) o kojima čuvamo podatke. U školskom sistemu to su najčešće: \textit{Učenik}, \textit{Predmet}, \textit{Ocena} ili \textit{Izostanak}.
+    \item \textbf{Definisanje atributa:} Određivanje specifičnih osobina za svaki entitet. Na primer, za entitet \textit{Učenik} atributi su: ime, prezime, JMBG i adresa.
+    \item \textbf{Uspostavljanje relacija:} Definisanje načina na koji su entiteti međusobno povezani. Na primer, uspostavlja se veza tipa jedan-prema-više, jer jedan učenik može imati više ocena.
+    \item \textbf{Normalizacija:} Završna provera strukture kako bi se osiguralo da su podaci pravilno podeljeni u tabele i da se nigde nepotrebno ne ponavljaju.
+\end{enumerate}
+
+\subsection{Korišćenje šablona za kreiranje jednostavnih baza podataka}
+\textbf{Šabloni} su unapred dizajnirane baze koje već sadrže tabele, upite, forme i izveštaje prilagođene određenoj nameni.
+Korišćenje šablona (templates) je najbrži način da se formira funkcionalna baza podataka. Pomažu nam da preskočimo tehničko podešavanje i odmah pređemo na unos podataka. \\
+
+\subsection*{Uključivanje šablona}
+
+ Objasnićemo kako se u Access-u uključuje gotov šablon. Umesto kreiranja prazne baze podataka (\textit{Blank Database}), možete iskoristiti biblioteku gotovih rešenja u centralnom delu ekrana. Postupak uključivanja šablona podrazumeva sledeće korake:
+
+\begin{enumerate}
+    \item \textbf{Pretraga (Search):} U polje \textit{Search for online templates} na vrhu ekrana ukucajte ključnu reč na engleskom jeziku (npr. \texttt{Students}, \texttt{Inventory} ili \texttt{Tasks}) i pritisnite taster \textit{Enter}.
+    \item \textbf{Odabir šablona:} Iz ponuđene liste dostupnih rezultata, kliknite jednom na šablon koji najbolje odgovara vašim potrebama.
+    \item \textbf{Ime i lokacija:} U novom iskačućem prozoru, unutar polja \textit{File Name}, upišite željeno ime svoje baze. Klikom na ikonicu fascikle pored ovog polja birate tačnu lokaciju na računaru gde će baza biti sačuvana.
+    \item \textbf{Kreiranje (Create):} Kliknite na dugme \textit{Create}. Program će preuzeti šablon sa interneta, konfigurisati strukturu i otvoriti bazu.
+    \item \textbf{Omogućavanje sadržaja:} Po otvaranju, pojavljuje se žuta traka sa sigurnosnim upozorenjem (\textit{Security Warning}). Neophodno je kliknuti na dugme \textbf{Enable Content} kako bi svi tasteri, makroi i automatizacije unutar šablona postali funkcionalni.
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{gotovasema.png}
+    \caption{Primer gotovih šablona u Access-u}
+    \label{fig:sabloni}
+\end{figure}
+
+Iako šabloni značajno ubrzavaju proces izrade baze, korisnik treba da bude svestan i njihovih ograničenja.
+
+\subsubsection*{Prednosti}
 \begin{itemize}
-    \item \textbf{Ušteda vremena:} Nema potrebe za ručnim osmišljavanjem strukture i dugotrajnim unosom stotina ili hiljada testnih podataka.
-    \item \textbf{Primeri iz prakse:} Gotove baze često imaju kompleksne veze između tabela koje početnik možda ne bi umeo sam da kreira.
-    \item \textbf{Vežbanje upita:} Omogućavaju nam da odmah testiramo složene SQL naredbe na velikom broju informacija.
+    \item \textbf{Brzina izrade:} Baza je spremna za rad za svega nekoliko sekundi, bez potrebe za kreiranjem tabela.
+    \item \textbf{Profesionalni dizajn:} Šablone su kreirali stručnjaci, što znači da su relacije između tabela ispravno postavljene, čime su izbegnute greške u logici.
+    \item \textbf{Kompletnost:} Uz tabele se dobijaju i dizajnirane forme, upiti i izveštaji.
+    \item \textbf{Edukacija:} Analizom šablona, početnik može naučiti kako se pravilno povezuju podaci u složenim sistemima.
 \end{itemize}
 
-\subsection*{Mane}
-Iako su korisne, rad sa unapred kreiranim bazama ima i svoje nedostatke:
+\subsubsection*{Mane}
 \begin{itemize}
-    \item \textbf{Nepoznata struktura:} Početnik se može osećati izgubljeno u velikom broju tabela koje nije sam kreirao, pa mu treba vremena da shvati kako su podaci povezani.
-    \item \textbf{Preterana složenost:} Gotove baze mogu sadržati previše kolona i pravila koja mogu zbuniti nekoga ko tek uči osnove.
-    \item \textbf{Nedostatak kreativnosti:} Korisnik ne prolazi kroz važan proces \textbf{projektovanja baze}, gde sam odlučuje koji su mu podaci bitni, a koji ne.
-    \item \textbf{Zavisnost od tuđeg modela:} Ako u gotovoj bazi nedostaje neka informacija koja nam je potrebna za vežbu, njena izmena može biti teža nego pravljenje tabele od početka.
+    \item \textbf{Suvišni podaci:} Šabloni često sadrže previše polja koja vam nisu potrebna.
+    \item \textbf{Teško prilagođavanje:} Ponekad je teže prepraviti postojeću komplikovanu strukturu nego napraviti novu.
+    \item \textbf{Specifičnost potreba:} Šabloni su pravljeni za opšte slučajeve. Na primer, američki šablon za školu možda nema polja koja bi odgovarala našem obrazovnom sistemu.
+    \item \textbf{Zavisnost od engleskog jezika:} Većina šablona je na engleskom jeziku.
 \end{itemize}
 
 \section{Rad s tabelama}
-Tabele predstavljaju osnovnu komponentu u relacionim bazama podataka. One omogućavaju organizaciju i skladištenje podataka na način koji olakšava upravljanje podacima i dobijanje korisnih informacija. 
+\textbf{Tabele} predstavljaju osnovnu komponentu u relacionim bazama podataka. One omogućavaju organizaciju i skladištenje podataka na način koji olakšava upravljanje podacima i dobijanje korisnih informacija. 
 
 \subsection{Kreiranje tabele}
-Pokazaćemo kako se pravi tabela u Microsoft accessu-u. \\
+Pokazaćemo kako se pravi tabela u Microsoft Accessu-u. \\
 \indent Tabela u Access programu može se prikazati i kreirati u dva osnovna oblika, od kojih svaki predstavlja različit pristup organizaciji podataka:
 \begin{enumerate}
     \item \textbf{Prikaz lista sa podacima (\textit{Datasheet View})}
@@ -358,7 +403,7 @@ Ova komanda otvara \textit{Datasheet} prikaz (prikazan na Slici \ref{fig:view}).
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{view.png}
-    \caption{Prikaz lista sa podacima (Datasheet View)) - Kreiranje definisanjem polja}
+    \caption{Prikaz lista sa podacima (Datasheet View) - Kreiranje definisanjem polja}
     \label{fig:view}
 \end{figure}
 
@@ -391,9 +436,9 @@ Izbor tipa podataka \textit{Data Type} je jedan od najvažnijih koraka pri kreir
 \begin{tabular}{|l|l|p{5cm}|}
 \hline
 \textbf{Tip podataka} & \textbf{Namena} & \textbf{Primer iz našeg zadatka} \\ \hline
-Short Text & Tekstualni podaci do 255 karaktera & Polja \texttt{Marka} i \texttt{Klasa} \cite{access.png} \\ \hline
+Short Text & Tekstualni podaci do 255 karaktera & Polja \texttt{Marka} i \texttt{Klasa} \\ \hline
 Number & Brojne vrednosti za proračune & Broj sedišta ili kubikaža \\ \hline
-AutoNumber & Automatski generisan broj & Vještački primarni ključ (ID) \\ \hline
+AutoNumber & Automatski generisan broj & Veštački primarni ključ (ID) \\ \hline
 Date/Time & Datumi i vremenske odrednice & Datum poslednje popravke \\ \hline
 Yes/No & Logička polja (Check-box) & Da li je automobil na servisu? \\ \hline
 \end{tabular}
@@ -404,34 +449,100 @@ Yes/No & Logička polja (Check-box) & Da li je automobil na servisu? \\ \hline
 Kao što se vidi na Slici \ref{fig:design}, definisanje tipa podataka se vrši odmah pored naziva polja, što omogućava Access-u da automatski kontroliše unos korisnika i spreči npr. unos teksta u polje predviđeno za brojeve.
 
 \subsection{Postavljanje primarnog ključa}
-\textbf{Primarni ključ} je, kao što smo već rekli, jedinstvena kolona ili kombinacija kolona u tabeli koja jednoznačno određuje svaki red u toj tabeli. 
-Osnovna svrha primarnog ključa je da osigura integritet podataka tako što sprečava unos duplih ili \textit{null} vrednosti u ključnoj koloni. Može da se koristi kao referenca u drugim tabelama za uspostavljanje veza između različitih tabela. \\
-\indent Uzmimo za primer tabelu \textit{Učenici}. Ukoliko u jednom odeljenju imamo dva učenika sa istim imenom i prezimenom (npr. dva učenika koji se zovu Marko Marković), sistem ne bi mogao da razlikuje kome od njih treba upisati ocenu ili izostanak samo na osnovu imena i prezimena. Da bi se izbegla ovakva dvosmislenost, svakom učeniku se dodeljuje jedinstveni broj – \textbf{primarni ključ} (poput JMBG-a ili broja u dnevniku). Na ovaj način, ne može doći do mešanja podataka, jer vrednost u koloni primarnog ključa nikada ne može biti ista za dva različita reda, niti može ostati prazna (\textit{not null}).
+\begin{enumerate}
+    \item \textbf{Otvorite tabelu u \textit{Design View}.} 
 
-\subsection{Unos podataka u tabelu}
+    \item \textbf{Odaberite polje koje će biti primarni ključ} (tip primarnog ključa je najčešće \textit{AutoNumber}).
 
+    \item \textbf{Postavite primarni ključ.} Postoje dva načina da to uradite:
+    \begin{itemize}
+        \item \textbf{Preko izbornika:} Kliknite na željeno polje, a zatim na kartici \textit{Table Design} kliknite na ikonu \textit{Primary Key}.
+        \item \textbf{Desnim klikom:} Kliknite desnom tipkom miša na sivi kvadratić levo od naziva polja i odaberite \textit{Primary Key}.
+    \end{itemize}
+    \textit{Napomena:} Pored naziva polja pojaviće se mala ikona ključa.
+\end{enumerate}
+
+\subsection{Unošenje podataka u tabelu}
+U Access-u postoje tri nivoa unosa podataka:
+\subsection*{Direktan unos u tabelu (Datasheet View)}
+Ovo je najbrži način unosa, sličan radu u Excel-u, kada dizajn nije primaran.
+\begin{enumerate}
+    \item U levoj koloni (\textit{Navigation Pane}) kliknite dvoklikom na željenu tabelu.
+    \textsf{Tabela će se otvoriti u prikazu mreže.}
+    \item Pronađite red na dnu koji ima ikonicu zvezdice ($*$). To je prazan red spreman za novi unos.
+    \item \textbf{Važno:} Ako je prva kolona \texttt{ID} podešena na \textit{AutoNumber}, nju preskačete. Access će automatski dodeliti broj.
+    \item Nakon unosa podataka u red, pritisnite \textbf{Enter} ili \textbf{Tab}. Podaci se automatski čuvaju.
+\end{enumerate}
+
+\subsection*{Unos preko Forme}
+Forme omogućavaju pregledniji unos jednog po jednog zapisa, čime se smanjuje mogućnost greške.
+\begin{enumerate}
+    \item Obeležite tabelu u listi sa leve strane jednim klikom.
+    \item U gornjem meniju izaberite tab \textbf{Create}.
+    \item Kliknite na dugme \textbf{Form}. Access će automatski generisati jednostavnu formu.
+    \item Za novi unos, koristite navigacionu traku na dnu i kliknite na ikonicu strelice sa žutom zvezdicom ($\blacktriangleright *$) --- \textit{New (Blank) Record}.
+\end{enumerate}
+
+\subsection*{Unos preko Lookup polja (Padajući meni)}
+Koristi se za povezivanje tabela (npr. biranje grada iz unapred definisane liste).
+\begin{enumerate}
+    \item Otvorite tabelu u \textbf{Design View} (desni klik na tabelu).
+    \item Za željeno polje, u koloni \textit{Data Type} izaberite \textbf{Lookup Wizard}.
+    \item Izaberite opciju: \textit{,,I want the lookup field to get the values from another table''}.
+    \item Pratite čarobnjak da povežete polje sa izvornom tabelom.
+\end{enumerate}
+
+\subsubsection*{Pravila pri unosu podataka}
+\begin{itemize}
+    \item \textbf{Tip podataka:} Access strogo kontroliše tipove. Ne možete uneti tekst u polje koje je definisano kao \textit{Date} ili \textit{Number}.
+    \item \textbf{ID polja:} Greška \textit{,,Index or primary key cannot contain a Null value''} znači da ste preskočili obavezan ključ koji nije \textit{AutoNumber}.
+    \item \textbf{Čuvanje:} Podaci se automatski čuvaju kad se promeni fokus.
+    \item \textbf{Brisanje:} Ceo red brišete desnim klikom na sivu kockicu sa leve strane reda i odabirom opcije \textbf{Delete Record}. Moraju se popuniti sva polja reda koji želimo da obrišemo, da bismo mogli da obrišemo red.
+\end{itemize}
 
 \section{Veza između tabela}
-
+\textbf{Veza} je \textit{logička povezanost} između dve tabele koja se uspostavlja preko zajedničkih kolona. Možemo je posmatrati kao ,,most'' koji omogućava bazi da spoji informaciju iz jedne tabele sa informacijom iz druge. \\
+\indent Svrha povezivanja tabela jeste stvaranje koherentne strukture (jedinstvene celine). Koherentna struktura nam omogućava da se tabele ne ponašaju kao gomila izolovanih fajlova, već kao celina. Za to nam pomaže \textbf{primarni ključ}, koji omogućava da podatke o subjektu (poput učenika) unosimo samo u jednu tabelu, dok ga u svim ostalim tabelama identifikujemo preko njegove jedinstvene vrednosti.
 
 \subsection{Pojam veze}
-Kada pravimo bazu podataka, to je kao da pravimo veliki digitalni ormar sa fiokama. Svaka fioka (tabela) čuva određene stvari – na primer, u jednoj su podaci o \textbf{učenicima}, a u drugoj o \textbf{knjigama}.
-Kada imamo više informacija, moramo da ih povežemo da se ne bismo zbunili. To zovemo \textbf{relacije} ili \textbf{odnosi}.
-Evo primera iz škole:
+Postoji više vrsta veze, u zavisnosti od broja objekata delimo ih na:
 \begin{itemize}
-    \item Imamo tabelu \textbf{Učenici} (ime, prezime, razred).
-    \item Imamo tabelu \textbf{Knjige} (naslov, pisac).
+    \item \textbf{Jedan-prema-više ($1:N$):} Ovo je najčešći tip veze. Primeri:
+    \begin{itemize}
+        \item Veza između učenika i njegovih izostanaka (svaki izostanak pripada tačno jednom učeniku).
+        \item Veza između odeljenja i učenika (jedno odeljenje ima više učenika).
+    \end{itemize}
+    
+    \item \textbf{Više-prema-više ($M:N$):} Pojavljuje se kada više zapisa iz jedne tabele odgovara većem broju zapisa iz druge. Primeri:
+    \begin{itemize}
+        \item Veza između učenika i predmeta (učenik ima više predmeta, predmet sluša više učenika).
+        \item Veza između nastavnika i predmeta (nastavnik predaje više predmeta, a isti predmet može predavati više nastavnika).
+    \end{itemize}
+    
+    \item \textbf{Jedan-prema-jedan ($1:1$):} Specifična veza gde se zapisi iz dve tabele uparuju po principu ,,jedan na jedan''. Ovakve tabele se često mogu predstaviti kao jedinstvena tabela. Primer:
+        \begin{itemize}
+        \item Svakom učeniku odgovara tačno jedan par roditelja. Svaki par roditelja u bazi tog konkretnog odeljenja odgovara tačno jednom učeniku.
+        \end{itemize}
 \end{itemize}
-Ako želimo da znamo ko je pozajmio koju knjigu, nećemo stalno ponovo upisivati ime učenika pored svake knjige (to troši prostor i pravi nered). Umesto toga, mi \textit{povežemo} te dve tabele. Tako baza „zna” da je Marko iz 5. razreda uzeo knjigu „Hajdi”.
 
 \subsection{Kreiranje veze između tabela}
 
-\section{Pretraživanje i sortiranje}
+\begin{figure}[h!] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{veza.png} 
+    \caption{Prikaz kreiranja veza između tabela}
+    \label{fig:veza}
+\end{figure} 
 
-\subsection{Traženje informacija u tabeli}
+Da bismo kreirali vezu između tabela potrebni su nam:
+\begin{itemize}
+    \item \textbf{Primarni ključ (Primary Key)} - osigurava da svaki zapis bude prepoznatljiv (npr. \texttt{id\_ucenik}).
+    \item \textbf{Strani ključ (Foreign Key)} - referencira na primarni ključ matične tabele, čime se fizički uspostavlja veza između podataka.
+    \item \textbf{Zajednički tip podataka} - da bi veza funkcionisala, polja koja se povezuju moraju imati identičan tip podataka (npr. oba moraju biti \textit{Number}).
+    \item \textbf{Referencijalni integritet} - pravilo koje aktiviramo prilikom kreiranja veze kako bismo osigurali da baza ne dozvoli unos podataka koji nemaju svog  ,,vlasnika'' u matičnoj tabeli (npr. da se ne može uneti ocena za nepostojećeg učenika).
+\end{itemize}
 
-\subsection{Sortiranje i filtriranje}
-
+Nakon što obezbedimo potrebne elemente, u programu Access koristimo alat \textbf{Relationships} iz kartice \textbf{Design}, pomoću kog vizuelno prevlačenjem primarnog ključa preko stranog, definišemo međusobnu zavisnost tabela.
 
 \newpage
 \begin{thebibliography}{9}
@@ -442,6 +553,12 @@ Dostupno na: \url{https://skolskainformatika.weebly.com/uploads/9/2/2/7/9227239/
 \bibitem{petlja_baze} 
 Portal Petlja,\\
 Dostupno na: \url{https://petlja.org/sr-Latn-RS/kurs/18676/12/6426} \\
-\end{thebibliography}
+\bibitem{sql_tabela} 
+Kako se pravi SQL tabela,\\
+Dostupno na: \url{https://www.doit.rs/kako-se-pravi-sql-tabela/} \\
+\bibitem{jednostavne_baze}
+Planiranje jednostavnih baza podataka,\\
+Dostupno na: \url{https://nastavaracunarstva.wordpress.com/2013/10/17/planiranje-jednostavnih-baza-podataka/} \\
 
+\end{thebibliography}
 \end{document}
