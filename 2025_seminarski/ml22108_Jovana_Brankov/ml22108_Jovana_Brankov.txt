@@ -22,7 +22,16 @@ Jovana Brankov
 
 \begin{document}
 \maketitle
-
+\vfill
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+{\large Metodika nastave računarstva i informatike}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright}
+{\large prof. Sana Stojanović Đurđević}
+\end{flushright}
+\end{minipage}
 \newpage
 
 \tableofcontents
@@ -31,7 +40,7 @@ Jovana Brankov
 Računarska mreža je sistem koji se sastoji od skupa hardverskih uređaja međusobno povezanih komunikacionom opremom, snabdevenih odgovarajućim komunikacionim softverom, kojim se ostvaruje kontrola sistema tako da je omogućen prenos podataka između povezanih uređaja.
 
 \subsection{Računarske mreže i internet}
- Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računata} ili model \textbf{klijent-server}.   
+ Internet je globalna mreža koja povezuje milione manjih mreža. Mreže se najčešće organizuju u model \textbf{mreže ravnopravnih računara} ili model \textbf{klijent-server}.   
 
 \begin{figure}[h!]
 \centering
@@ -206,7 +215,7 @@ Prilikom izrade veb-stranica, HTML elementi se bez dodatnog oblikovanja prikazuj
 \textbf{Veb dizajn} predstavlja proces oblikovanja vizuelnog izgleda veb-stranice i načina na koji su njeni elementi raspoređeni. On je tesno povezan sa organizacijom sadržaja i korisničkim iskustvom, koje ima za cilj da korišćenje sajta bude jednostavno i intuitivno za korisnike.
 
 \textbf{HTML} jezik služi za definisanje strukture i sadržaja veb-stranice, dok se za uređivanje njenog izgleda koristi \textbf{CSS} (\textit{Cascading Style Sheets}). Pomoću CSS-a se zadaju pravila koja određuju boje, fontove, poravnanje, razmake i druge vizuelne karakteristike elemenata na stranici. CSS pravila se zapisuju u posebnim fajlovima sa ekstenzijom \texttt{.css}, koji se mogu kreirati u bilo kom editoru teksta.
-U CSS dokumentu se navode pravila koja se odnose na pojedinačne HTML elemente ili na više njih istovremeno. Za svaki element mogu se definisati različita stilska svojstva, kao što su boja pozadine, boja teksta ili poravnanje. Na taj način se postiže jedinstven i usklađen izgled cele veb-stranice. Na slici ispod mozete videti jedan CSS kod koji sadrži sledeća pravila: \texttt{Background-color} zadaje boju pozadine, \texttt{color} boja teksta na stranici, \texttt{text-align: center} centrira tekst naslova, \texttt{font-family} određuje font, \texttt{font-size} određuje veličinu teksta, \texttt{text-indent} podešava uvlačenje prvog reda pasusa.
+U CSS dokumentu se navode pravila koja se odnose na pojedinačne HTML elemente ili na više njih istovremeno. Za svaki element mogu se definisati različita stilska svojstva, kao što su boja pozadine, boja teksta ili poravnanje. Na taj način se postiže jedinstven i usklađen izgled cele veb-stranice. Na slici ispod možete videti jedan CSS kod koji sadrži sledeća pravila: \texttt{Background-color} zadaje boju pozadine, \texttt{color} boja teksta na stranici, \texttt{text-align: center} centrira tekst naslova, \texttt{font-family} određuje font, \texttt{font-size} određuje veličinu teksta, \texttt{text-indent} podešava uvlačenje prvog reda pasusa.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl9.png}
