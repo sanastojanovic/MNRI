@@ -51,7 +51,7 @@ Pravilno uređenje polja uključuje odabir odgovarajućih tipova podataka, kao i
 Slogovi se unose tako da budu konzistentni i u skladu sa definisanim tipovima polja. \\
 
 Svi slogovi sadrže ista polja, koja se u svakom redu pojavljuju u istom redosledu, dok svako polje ima jedinstven naziv i unapred definisan tip podataka, kao što su numerički, tekstualni, logički ili datumski tip. 
-Podaci unutar jednog polja moraju pripadati istom domenu, odnosno skupu dozvoljenih vrednosti za taj atribut. \\
+Podaci unutar jednog polja moraju pripadati istom domenu, odnosno skupu dozvoljenih vrednosti za taj atribut.
 
 Jedno od osnovnih pravila relacionog modela jeste da se u tabeli ne mogu nalaziti dva potpuno ista sloga. 
 Ova jedinstvenost se ostvaruje uvođenjem primarnog ključa, koji predstavlja atribut ili skup atributa čije vrednosti jednoznačno identifikuju svaki slog u tabeli. 
@@ -59,7 +59,7 @@ Primarni ključ može biti prost, ukoliko ga čini jedan atribut, ili složen, k
 
 U praksi se kao primarni ključ često koriste jedinstveni identifikatori, poput broja indeksa studenta, registracije vozila itd. \\
 
-U slučajevima kada ne postoji prirodan atribut koji ispunjava uslove primarnog ključa, sistemi za upravljanje bazama podataka omogućavaju korišćenje veštačkog ključa, najčešće polja tipa \textit{AutoIncrement}, koje se automatski uvećava za svaki novi slog. \\
+U slučajevima kada ne postoji prirodan atribut koji ispunjava uslove primarnog ključa, sistemi za upravljanje bazama podataka omogućavaju korišćenje veštačkog ključa, najčešće polja tipa \textit{AutoIncrement}, koje se automatski uvećava za svaki novi slog.
 
 Pored primarnog ključa, u tabelama se mogu koristiti i sekundarni ključevi, odnosno indeksi. Indeksi ne moraju imati jedinstvene vrednosti, ali omogućavaju brže pretraživanje i sortiranje podataka, slično indeksima u knjigama. \\
 
@@ -104,18 +104,24 @@ U drugom primeru učenik može da prima više različitih stipendija (ali samo j
 
 \subsection{Formatiranje podataka u tabeli}
 
-Formatiranje podataka u tabeli ima ključnu ulogu u obezbeđivanju preglednosti, konzistentnosti i pravilne interpretacije informacija. Ono obuhvata definisanje tipova podataka za polja, postavljanje širine kolona, kao i izbor odgovarajućeg formata prikaza za numeričke vrednosti, datume i tekstualne podatke. Pravilno formatirana tabela omogućava lakše čitanje podataka i smanjuje mogućnost pogrešne interpretacije. \\
+Formatiranje podataka u tabeli ima ključnu ulogu u obezbeđivanju preglednosti, konzistentnosti i pravilne interpretacije informacija. 
 
-Pored osnovnog izgleda, formatiranje uključuje i primenu pravila prikaza, kao što su ograničenja unosa, podrazumevane vrednosti i maskiranje podataka. Ovakva pravila doprinose tačnosti unosa i obezbeđuju da se podaci unose u skladu sa unapred definisanim standardima. Dobar dizajn i formatiranje tabele olakšavaju rad sa podacima, unapređuju kvalitet baze i predstavljaju osnovu za efikasnu obradu, pretragu i analizu informacija u relacionim bazama podataka.
+Ono obuhvata definisanje tipova podataka za polja, postavljanje širine kolona, kao i izbor odgovarajućeg formata prikaza za numeričke vrednosti, datume i tekstualne podatke. Pravilno formatirana tabela omogućava lakše čitanje podataka i smanjuje mogućnost pogrešne interpretacije.
+
+Pored osnovnog izgleda, formatiranje uključuje i primenu pravila prikaza, kao što su ograničenja unosa, podrazumevane vrednosti i maskiranje podataka. 
+
+Ovakva pravila doprinose tačnosti unosa i obezbeđuju da se podaci unose u skladu sa unapred definisanim standardima. Dobar dizajn i formatiranje tabele olakšavaju rad sa podacima, unapređuju kvalitet baze i predstavljaju osnovu za efikasnu obradu, pretragu i analizu informacija u relacionim bazama podataka.
 
 
 \subsection{Opis referencijalnog integriteta}
 
 U relacionim bazama podataka tabele se često ne posmatraju izolovano, već su međusobno povezane kako bi se izbeglo dupliranje podataka i obezbedila njihova logička povezanost. Takve veze između tabela ostvaruju se pomoću ključeva, pri čemu se najčešće povezuje primarni ključ jedne tabele sa stranim ključem druge tabele. Da bi ove veze bile ispravne i pouzdane, neophodno je obezbediti referencijalni integritet. \\
 
-Referencijalni integritet predstavlja skup pravila koja garantuju doslednost podataka između povezanih tabela. Njegova osnovna uloga je da obezbedi da svaka vrednost stranog ključa u jednoj tabeli odgovara postojećoj vrednosti primarnog ključa u povezanoj tabeli, ili da bude prazna ukoliko je to dozvoljeno. Na taj način sprečava se pojava nevažećih ili „visećih” zapisa, odnosno slogova koji se pozivaju na nepostojeće podatke u drugim tabelama. \\
+Referencijalni integritet predstavlja skup pravila koja garantuju doslednost podataka između povezanih tabela. Njegova osnovna uloga je da obezbedi da svaka vrednost stranog ključa u jednoj tabeli odgovara postojećoj vrednosti primarnog ključa u povezanoj tabeli, ili da bude prazna ukoliko je to dozvoljeno. 
 
-Primena referencijalnog integriteta posebno je važna prilikom povezivanja tabela koje opisuju različite aspekte istog sistema, kao što su npr. tabele učenika i stipendija, kupaca i porudžbina ili proizvoda i magacina. Kada se jednom uspostavi veza između tabela, sistem za upravljanje bazom podataka automatski kontroliše operacije unosa, izmene i brisanja podataka, čime se čuva logička ispravnost baze. \\
+Primena referencijalnog integriteta posebno je važna prilikom povezivanja tabela koje opisuju različite aspekte istog sistema, kao što su npr. tabele učenika i stipendija, kupaca i porudžbina ili proizvoda i magacina. 
+
+Kada se jednom uspostavi veza između tabela, sistem za upravljanje bazom podataka automatski kontroliše operacije unosa, izmene i brisanja podataka, čime se čuva logička ispravnost baze. \\
 
 Referencijalni integritet takođe omogućava definisanje dodatnih pravila ponašanja, kao što su kaskadne izmene i kaskadna brisanja. Ova pravila određuju kako će se promene u jednoj tabeli odraziti na povezane zapise u drugim tabelama. Na taj način se obezbeđuje stabilnost baze podataka i olakšava rad sa povezanim tabelama, što predstavlja osnovu za efikasno spajanje tabela, formiranje upita i izradu složenijih struktura u relacionim bazama podataka.
 
@@ -123,90 +129,64 @@ Referencijalni integritet takođe omogućava definisanje dodatnih pravila ponaš
 \subsection{Izmene veze između tabela}
 
 Veze između tabela mogu se menjati dodavanjem, uklanjanjem ili modifikovanjem veza između polja. 
-Tipične veze su \textit{one-to-one}, \textit{one-to-many} i \textit{many-to-many}. 
-Prilikom izmene veza važno je paziti na integritet podataka i primenu odgovarajući. \\
+Tipične veze su \textit{one-to-one}, \textit{one-to-many} i \textit{many-to-many}. Do izmene veze može doći usled promene zahteva sistema, proširenja baze podataka ili potrebe za drugačijom organizacijom podataka. Takve izmene mogu uključivati dodavanje ili uklanjanje stranog ključa, promenu tipa veze, kao i redefinisanje pravila referencijalnog integriteta. \\
 
-Relacija jedan prema više se najčešće koristi. Kod ovakve relacije, jednom slogu iz prve tabele odgovaraju više slogova iz druge tabele, i obrnuto svaki slog iz druge tabele ima jedan odgovarajući iz prve tabele. Polje iz prve tabele, koje je u relaciji, mora biti primarni ključ dok je polje iz druge tabele strani ključ. Imena polja za primarni i strani ključ ne moraju biti ista, ali tip podatka mora. \\
-
-Relacija jedan prema jedan se retko koristi i kod ove relacije svaki slog iz prve tabele ima samo jedan odgovarajući iz druge tabele, i obrnuto. Npr. jedan rukovodilac može obavljati samo jednu funkciju. \\
-
-Relacija više prema više je dosta komplikovana i takoreći je nemoguća kod relacionog modela baze podataka. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{slika11.png} 
-\end{figure}
+U praksi se preporučuje da se izmene veza između tabela planiraju unapred i sprovode uz prethodnu analizu postojećih podataka. Često je neophodno izvršiti migraciju podataka ili privremeno prilagoditi strukturu baze kako bi se sačuvala ispravnost i stabilnost sistema.
 
 \section{Forme (obrasci)}
 
-\subsubsection{Kreiranje formi (obrazaca) sa i bez \textit{čarobnjaka}}
+\subsection{Kreiranje formi (obrazaca) sa i bez čarobnjaka}
 
-Forme predstavljaju jedan od najvažnijih alata u radu sa bazama podataka jer omogućavaju lakši i pregledniji unos i prikaz podataka. Mogu biti kreirane na više načina: korišćenjem \textit{Wizard} funkcije, tj pomoću čarobnjaka, koja vodi korisnika kroz proces kreiranja, ili ručno, u \textit{Design view}, gde se sve postavke i raspored kontrola podešavaju samostalno. \textit{Wizard} je pogodan za početnike jer automatski dodaje standardne kontrole i postavlja osnovni izgled forme. \\
+Forme predstavljaju jedan od najvažnijih alata u radu sa bazama podataka, jer omogućavaju lakši i pregledniji unos i prikaz podataka. Mogu biti kreirane na više načina: korišćenjem \textit{Wizard} funkcije, tj pomoću čarobnjaka, koja vodi korisnika kroz proces kreiranja, ili ručno, u \textit{Design view}, gde se sve postavke i raspored kontrola podešavaju samostalno.
 
-U kreiranju forme bez \textit{Wizard-a}, korisnik ima potpunu kontrolu nad rasporedom polja, vrstom kontrola i vizuelnim izgledom forme. Ovo je naročito korisno kada je potrebno napraviti prilagođenu formu koja sadrži složene kontrole ili kada se želi postići specifičan vizuelni identitet baze podataka. Forme kreirane ovako zahtevaju detaljnije planiranje, ali pružaju maksimalnu fleksibilnost.
+\textit{Wizard} je pogodan za početnike jer automatski dodaje standardne kontrole i postavlja osnovni izgled forme. U kreiranju forme bez \textit{Wizard-a}, korisnik ima potpunu kontrolu nad rasporedom polja, vrstom kontrola i vizuelnim izgledom forme. Ovo je naročito korisno kada je potrebno napraviti prilagođenu formu koja sadrži složene kontrole ili kada se želi postići specifičan vizuelni identitet baze podataka. Forme kreirane ovako zahtevaju detaljnije planiranje, ali pružaju maksimalnu fleksibilnost.
 
-\subsubsection{Unos podataka pomoću formi}
+\subsection{Unos podataka pomoću formi}
 
-Forme služe prvenstveno za unos podataka u bazu. Pomoću povezanih kontrola, korisnik može unositi vrednosti direktno u polja iz osnovne tabele ili \textit{query-a}. Svaka kontrola može biti tipa \textit{text box}, \textit{combo box}, \textit{list box} ili \textit{check box}, zavisno od vrste podataka koji se unose. Prednost formi je u tome što korisnik ne vidi kompletnu strukturu tabele, već samo relevantna polja, što smanjuje mogućnost greške. \\
+Forme služe prvenstveno za unos podataka u bazu. Pomoću povezanih kontrola, korisnik može unositi vrednosti direktno u polja iz osnovne tabele ili \textit{query-a}. Svaka kontrola može biti tipa \textit{text box}, \textit{combo box}, \textit{list box} ili \textit{check box}, zavisno od vrste podataka koji se unose. Prednost formi je u tome što korisnik ne vidi kompletnu strukturu tabele, već samo relevantna polja, što smanjuje mogućnost greške.
 
-Takođe, forme omogućavaju validaciju podataka i korišćenje izraza (\textit{expressions}) za izračunavanje vrednosti, što olakšava unos i održavanje integriteta baze podataka. \\
+Takođe, forme omogućavaju validaciju podataka i korišćenje izraza za izračunavanje vrednosti, što olakšava unos i održavanje integriteta baze podataka.
 
-\subsubsection{Dodavanje specijalnih kontrola formi}
+\subsection{Dodavanje specijalnih kontrola formi}
 
 Pored standardnih tekstualnih i numeričkih polja, forme mogu sadržati specijalne kontrole koje olakšavaju rad sa podacima i navigaciju. \textit{List boxes} i \textit{combo boxes} omogućavaju izbor vrednosti iz unapred definisanih lista, dok \textit{command buttons} mogu izvršavati akcije kao što su čuvanje, brisanje ili otvaranje drugih formi. Korišćenje ovih kontrola povećava efikasnost i smanjuje mogućnost greške korisnika. 
 
-\subsubsection{Kreiranje multitabularnih formi}
+\subsection{Kreiranje multitabularnih formi}
 
-Multitabularne forme ili višestruke tabele unutar jedne forme omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno. Ovakve forme su korisne za prikaz povezanih podataka, na primer prikaz proizvoda i njihove trenutne količine po magacinima. \\
+Multitabularne forme ili višestruke tabele unutar jedne forme omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno. Ovakve forme su korisne za prikaz povezanih podataka, na primer prikaz proizvoda i njihove trenutne količine po magacinima.
 
-Kreiranje ovakvih formi zahteva pravilno povezivanje kontrola sa izvorom podataka i često korišćenje \textit{subforms} za prikaz podataka iz drugih tabela ili upita. \\
+Kreiranje ovakvih formi zahteva pravilno povezivanje kontrola sa izvorom podataka i često korišćenje \textit{subforms} za prikaz podataka iz drugih tabela ili upita.
 
-Multitabulare forme poboljšavaju preglednost podataka i omogućavaju ažuriranje povezanih informacija, što je posebno korisno u poslovnim aplikacijama sa velikim bazama podataka.
-
-\subsection{Pretraživanje i sortiranje}
+\section{Pretraživanje i sortiranje}
 
 \subsection{Traženje informacija u tabeli}
 
-Pretraživanje podataka predstavlja osnovnu funkcionalnost u radu sa bazom podataka. Kroz forme, korisnik može brzo pronaći željene slogove prema različitim kriterijumima. \textit{Search} funkcija omogućava filtriranje podataka po tekstu, brojevima ili datumu, dok \textit{Advanced Filter} omogućava kombinovanje više kriterijuma. \\
+Pretraživanje podataka predstavlja osnovnu funkcionalnost u radu sa bazom podataka. Kroz forme, korisnik može brzo pronaći željene slogove prema različitim kriterijumima. \textit{Search} funkcija omogućava filtriranje podataka po tekstu, brojevima ili datumu, dok \textit{Advanced Filter} omogućava kombinovanje više kriterijuma. Pravilno postavljeni kriterijumi i indeksiranje tabela omogućavaju brže pronalaženje podataka i optimizuju rad sa velikim bazama.
 
-Pravilno postavljeni kriterijumi i indeksiranje tabela omogućavaju brže pronalaženje podataka i optimizuju rad sa velikim bazama.
+\subsection{Sortiranje, filtriranje i indeksiranje}
 
-\subsubsection{Sortiranje, filtriranje i indeksiranje}
-
-Sortiranje i filtriranje podataka poboljšavaju preglednost i analizu informacija. \textit{Sort} opcija omogućava raspoređivanje slogova po rastućem ili opadajućem redosledu, dok \textit{Filter} omogućava prikaz samo onih slogova koji ispunjavaju određene kriterijume. Indeksiranje tabela dodatno ubrzava ove operacije, jer omogućava brži pristup podacima po definisanim poljima. \\
-
-Kombinacija sortiranih, filtriranih i indeksiranih tabela je posebno korisna prilikom izveštavanja i vizuelizacije podataka u formama i izveštajima, jer omogućava korisniku da se fokusira na relevantne informacije i olakšava donošenje poslovnih odluka.
+Sortiranje i filtriranje podataka poboljšavaju preglednost i analizu informacija. \textit{Sort} opcija omogućava raspoređivanje slogova po rastućem ili opadajućem redosledu, dok \textit{Filter} omogućava prikaz samo onih slogova koji ispunjavaju određene kriterijume. Indeksiranje tabela dodatno ubrzava ove operacije, jer omogućava brži pristup podacima po definisanim poljima. Kombinacija sortiranih, filtriranih i indeksiranih tabela je posebno korisna prilikom izveštavanja i vizuelizacije podataka u formama i izveštajima, jer omogućava korisniku da se fokusira na relevantne informacije i olakšava donošenje poslovnih odluka.
 
 \section{Upiti}
 
-Upiti predstavljaju osnovni način komunikacije sa bazom podataka, omogućavajući korisnicima da pregledaju, dodaju, menjaju i brišu podatke prema svojim potrebama. \\
+Upiti predstavljaju osnovni način komunikacije sa bazom podataka, omogućavajući korisnicima da pregledaju, dodaju, menjaju i brišu podatke prema svojim potrebama.
 
-Upitni jezik SQL omogućava korisnicima da izvrše sve potrebne operacije nad bazom podataka, 
-od kreiranja same baze i tabela u njoj, upisivanja, menjanja i pretraživanja podataka, 
-do brisanja nekih podataka, tabela ili cele baze.
+Upitni jezik SQL omogućava korisnicima da izvrše sve potrebne operacije nad bazom podataka, od kreiranja same baze i tabela u njoj, upisivanja, menjanja i pretraživanja podataka, do brisanja nekih podataka, tabela ili cele baze.
 
 \subsection{Osnovne SQL komande (definicione, kontrolne i manipulacione)}
 
-Komande jezika \textit{SQL} se tradicionalno nazivaju upitima. 
-Prva reč u svakom \textit{SQL} upitu određuje vrstu akcije koju korisnik zahteva od sistema. 
-Na osnovu te akcije, \textit{SQL} komande se logički dele u tri osnovna seta: 
+Komande jezika \textit{SQL} se tradicionalno nazivaju upitima. Prva reč u svakom \textit{SQL} upitu određuje vrstu akcije koju korisnik zahteva od sistema. Na osnovu te akcije, \textit{SQL} komande se logički dele u tri osnovna seta: 
 komande za definiciju podataka, komande za manipulaciju podacima i komande za kontrolu pristupa. \\
 
-Ova podela se u praksi ne ističe posebno, jer se sve naredbe koriste kroz upite na sličan način, 
-ali je veoma značajna za razumevanje njihove namene i uloge u radu sa bazama podataka. \\
+Ova podela se u praksi ne ističe posebno, jer se sve naredbe koriste kroz upite na sličan način, ali je veoma značajna za razumevanje njihove namene i uloge u radu sa bazama podataka. \\
 
 Najčešće korišćeni \textit{SQL} upiti su:
 \begin{itemize}
-    \item \textbf{Upiti \textit{SELECT}}, koji služe za čitanje podataka iz baze,
-    \item \textbf{Upiti \textit{INSERT}}, koji služe za unos novih podataka u bazu,
-    \item \textbf{Upiti \textit{DELETE}}, koji služe za brisanje postojećih podataka, i
-    \item \textbf{Upiti \textit{UPDATE}}, koji služe za izmenu postojećih podataka u bazi.
+    \item \textbf{\textit{SELECT}}, koji služe za čitanje podataka iz baze,
+    \item \textbf{\textit{INSERT}}, koji služe za unos novih podataka u bazu,
+    \item \textbf{\textit{DELETE}}, koji služe za brisanje postojećih podataka,
+    \item \textbf{\textit{UPDATE}}, koji služe za izmenu postojećih podataka u bazi.
 \end{itemize}
-
-Od svih navedenih tipova upita, za nas je najznačajniji upit \textbf{\textit{SELECT}}, 
-pomoću kojeg veoma brzo možemo da dođemo do podataka koji su nam potrebni. 
-Međutim, da bismo u potpunosti razumeli mogućnosti jezika \textit{SQL}, 
-neophodno je sagledati i ostale grupe naredbi.
 
 \subsubsection{Set SQL naredbi za kontrolu}
 
@@ -216,8 +196,7 @@ U ovaj set spadaju naredbe \textit{GRANT} i \textit{REVOKE}.
 
 \subsubsection{Set SQL naredbi za definiciju}
 
-Set definicionih naredbi koristi se za rukovanje objektima na serveru. U ovaj set spadaju naredbe \textit{CREATE}, \textit{ALTER} i \textit{DROP}. 
-Njima se kreiraju, menjaju ili brišu baze podataka, tabele, pogledi, uskladištene procedure i drugi objekti. \\
+Set definicionih naredbi koristi se za rukovanje objektima na serveru. U ovaj set spadaju naredbe \textit{CREATE}, \textit{ALTER} i \textit{DROP}. Njima se kreiraju, menjaju ili brišu baze podataka, tabele, pogledi, uskladištene procedure i drugi objekti. 
 
 Pošto se ovim naredbama upravlja strukturom baze, 
 one su najčešće dostupne samo administratorima servera. 
@@ -226,106 +205,29 @@ ali ne i da brišu baze ili upravljaju drugim bazama na serveru.
 
 \subsubsection{Set SQL naredbi za manipulaciju}
 
-Naredbe za manipulaciju podacima predstavljaju srž jezika \textit{SQL}.  One se koriste najčešće i u najvećoj količini, jer omogućavaju svakodnevni rad sa podacima. U ovaj set spadaju naredbe \textit{SELECT}, \textit{INSERT}, \textit{UPDATE} i \textit{DELETE}. \\
-
-Iako je ovaj set naredbi fleksibilniji po pitanju korisničkih prava, neophodno je biti oprezan, jer pogrešna upotreba naredbi \textit{INSERT}, \textit{UPDATE} i \textit{DELETE} može dovesti do ozbiljnih oštećenja podataka.
-
+Naredbe za manipulaciju podacima predstavljaju srž jezika \textit{SQL}. One se koriste najčešće i u najvećoj količini, jer omogućavaju svakodnevni rad sa podacima. U ovaj set spadaju naredbe \textit{SELECT}, \textit{INSERT}, \textit{UPDATE} i \textit{DELETE}.
 
 \subsection{Kreiranje upita (sa i bez čarobnjaka)}
 
-Upiti u sistemu za upravljanje bazama podataka mogu se kreirati na više načina, najčešće pomoću čarobnjaka ili u \textit{design} modu. Čarobnjak pojednostavljuje formulisanje složenih upita, posebno kada je potrebno povezati više tabela ili primeniti filtere i sortiranja. \\
-Kreiranje upita u \textit{design} modu omogućava preciznu kontrolu nad izborom tabela, polja i uslova, ali zahteva poznavanje strukture baze podataka, kao i relacija između tabela. Pre samog kreiranja upita, neophodno je jasno definisati zadatak, odnosno utvrditi koje podatke je potrebno prikazati. \\
+Upiti u sistemu za upravljanje bazama podataka mogu se kreirati na više načina, najčešće pomoću čarobnjaka ili u \textit{design} modu. Čarobnjak pojednostavljuje formulisanje složenih upita, posebno kada je potrebno povezati više tabela ili primeniti filtere i sortiranja.
 
-\paragraph{Primer zadatka}
-
-Prikazati trenutni lager u svim magacinima tako da se vide sledeća polja:
-\textit{Naziv magacina}, \textit{Šifra robe}, \textit{Naziv robe}, \textit{Dimenzije}, 
-\textit{Dezen}, \textit{Jedinica mere}, \textit{Količina} i \textit{Maloprodajna cena}.
-Kreirani upit snimiti pod nazivom \textit{Trenutni lager}. \\
-
-Upit se kreira na tabu \textit{Create} izborom komande \textit{Query Design}. Tom prilikom se otvara prozor \textit{Show Table}, u kojem se biraju tabele 
-potrebne za realizaciju upita. U ovom slučaju, u početnoj fazi bira se tabela \textit{Lager}, dok se tabela \textit{Roba} može dodati naknadno. \\
-
-Nakon izbora tabele, u donju zonu prozora za dizajn upita 
-prevlače se odgovarajuća polja, kao što su \textit{Šifra magacina}, \textit{Šifra robe} i \textit{Količina}. Polja se mogu dodati prevlačenjem levim tasterom miša ili dvostrukim klikom na njihovo ime. \\
-
-Radi provere ispravnosti upita, koristi se dugme \textit{View}, koje omogućava prikaz rezultata izvršavanja upita. Isto dugme se zatim menja u \textit{Design}, čime se omogućava povratak u režim dizajna. Na taj način moguće je naizmenično prelaziti između \textit{view} i \textit{design} moda i pratiti razvoj i rezultate kreiranog upita. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{slika5.png} 
-\end{figure}
-
-Nakon izvršavanja upita može se proveriti koliko slogova sadrži rezultat. Dobija se nešto više od 5300 slogova, odnosno isti broj kao u tabeli Lager. Razlog za to je činjenica da u upit nije dodat nijedan kriterijum, 
-dok će kriterijumi biti razmatrani kasnije. 
-U trenutnoj verziji upita još uvek nije jasno o kojim proizvodima je reč. \\
-
-Zbog toga je potrebno u upit dodati i tabelu Roba, 
-kao i polja Nazivrobe, Dimenzije, Dezen, Jedinicamere i Mpcena. Dodavanje tabele vrši se desnim klikom na pozadinu upita, nakon čega se bira opcija \textit{Show Table} i dodaje tabela Roba. \\
-
-Nakon dodavanja potrebnih polja, neophodno je njihov raspored prilagoditi redosledu zahtevanom u zadatku, pri čemu polje Kolicina treba da se nalazi ispred polja Mpcena. Kolona se premešta tako što se najpre selektuje klikom na njen vrh 
-(obeležen crvenom linijom na slici ispod), a zatim se levim tasterom miša prevuče na željenu poziciju. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{slika6.png} 
-\end{figure}
-
-Nakon pokretanja upita može se uočiti da se, pored šifre robe, prikazuju i ostala polja koja su dodata iz tabele Roba. 
-Međutim, zadatak još uvek nije u potpunosti završen. 
-U zahtevu zadatka navedeno je da se prikaže naziv magacina, 
-a ne šifra magacina. Zbog toga je potrebno u upit dodati i tabelu Magacini, iz koje se ubacuje polje Nazivmagacina, 
-dok se iz upita uklanja polje Siframagacina. \\
-
-Nakon toga, podatke je potrebno sortirati u rastućem redosledu, u skladu sa prikazom na slici ispod, 
-i ponovo pokrenuti upit. \\
-
-Ukoliko se prilikom izvršavanja upita prikažu i polja koja nisu eksplicitno dodata u upit, neophodno je uključiti \textit{Property Sheet} i opciju \textit{Output All Fields} postaviti na \textit{No}. Nakon ove izmene, u rezultatu upita biće prikazana samo tražena polja. Ista opcija važi i prilikom korišćenja dugmeta \textit{Totals}, 
-kada se može pojaviti poruka \textit{Cannot group on fields selected with *}, čija će upotreba biti objašnjena u nastavku. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{slika7.png} 
-\end{figure}
-
-Uključivanjem dugmeta \textit{Totals} dobija se mogućnost grupisanja podataka ili primene neke od ponuđenih funkcija, kao što su \textit{Sum}, \textit{Avg}, \textit{Min}, \textit{Max} i \textit{Count}. 
-U tabeli Lager, za svaku šifru robe evidentirane su količine, 
-pri čemu su količine od nabavke pozitivne, 
-dok su količine od prodaje negativne. \\
-
-Grupisanjem slogova prema šifri robe i primenom funkcije \textit{Sum} nad poljem Kolicina, dobijaju se sabrane količine, odnosno trenutni lager za pojedinačne šifre robe. 
-Nakon primene grupisanja, broj slogova u rezultatu upita 
-više nije 5325, već iznosi 1055. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{slika8.png} 
-\end{figure}
+Kreiranje upita u \textit{design} modu omogućava preciznu kontrolu nad izborom tabela, polja i uslova, ali zahteva poznavanje strukture baze podataka, kao i relacija između tabela. Pre samog kreiranja upita, neophodno je jasno definisati zadatak, odnosno utvrditi koje podatke je potrebno prikazati. 
 
 \subsection{Pregled rezultata upita}
 
-Rezultati izvršenih upita prikazuju se u tabelarnom obliku, što omogućava korisnicima da brzo analiziraju i interpretiraju podatke. Pregled rezultata može uključivati sortiranje, filtriranje i grupisanje podataka, što pomaže u identifikaciji važnih informacija i donošenju odluka. \\
+Rezultati izvršenih upita prikazuju se u tabelarnom obliku, što omogućava korisnicima da brzo analiziraju i interpretiraju podatke. Pregled rezultata može uključivati sortiranje, filtriranje i grupisanje podataka, što pomaže u identifikaciji važnih informacija i donošenju odluka.
 
-S obzirom da je upravo \textbf{SELECT} upit osnovni način za čitanje podataka iz baze, sledeći primer prirodno ilustruje ovaj proces. \\
+Tokom pregleda rezultata moguće je uočiti greške u logici upita, kao što su pogrešno definisani uslovi, neispravne veze između tabela ili nedostajući podaci. Zbog toga pregled rezultata ima i kontrolnu ulogu, jer pomaže u proveri integriteta i tačnosti podataka. \\
 
-\textit{SELECT} upit određuje koje kolone i iz kojih tabela želimo da dobijemo podatke, a izvršavanjem upita dobijamo tabelarni prikaz koji možemo analizirati. Na ovaj način, veza između pisanja upita i pregleda rezultata postaje jasna i praktično primenljiva. \\
-
-Svaki, pa i najjednostavniji upit \textbf{SELECT} mora da sadrži sledeće elemente:
+S obzirom da je upravo \textit{SELECT} upit osnovni način za čitanje podataka iz baze, sledeći primer prirodno ilustruje ovaj proces. Svaki \textit{SELECT} mora da sadrži sledeće elemente:
 \begin{quote}
-\begin{verbatim}
-SELECT kolone
-FROM tabele;
-\end{verbatim}
+\textit{SELECT} kolone \\
+\textit{FROM} tabele;
 \end{quote}
 
-Ovim se sistemu nalaže da nam iz navedene tabele (ili više tabela) izdvoji sve podatke koji su dati u navedenim kolonama. \\
+Ovim se sistemu nalaže da nam iz navedene tabele (ili više tabela) izdvoji sve podatke koji su dati u navedenim kolonama. Za početak ćemo uvek čitati podatke samo iz jedne tabele. Najjednostavniji slučaj je onaj u kome se želi čitanje svih podataka iz jedne tabele. Tada se umesto imena svih kolona može navesti samo simbol \texttt{*}.
 
-Jezik nije osetljiv na razliku između velikih i malih slova (moguće je pisati i \texttt{select} i \texttt{from}). Sve beline u upitu se zanemaruju, pa samim tim nije bitno da li se upit piše u jednom ili više redova. \\
-
-Za početak ćemo uvek čitati podatke samo iz jedne tabele. Najjednostavniji slučaj je onaj u kome se želi čitanje svih podataka iz jedne tabele. 
-Tada se umesto imena svih kolona može navesti samo simbol \texttt{*}.  Tačka-zarez (\texttt{;}) može i ne mora da se doda na kraj upita. \\
-
-Prikazati sve podatke o učenicima koji su upisani u bazi:
+Primer: Prikazati sve podatke o učenicima koji su upisani u bazi:
 
 \begin{verbatim}
 SELECT *
@@ -376,15 +278,12 @@ id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
 5 & Ana & Pekić & ž & 2005-02-23 & 2 & 1 \\
 \hline
 \end{tabular}
-\end{center}
+\end{center} 
 
-Oblik upita \textbf{SELECT} koji smo upravo upoznali sadrži samo obavezne delove, pa je to najkraći mogući oblik ovog upita.  \\[10pt]
-
-Obradićemo različite složenije oblike upita \textbf{SELECT}, koji nam omogućavaju da od postojećih podataka odaberemo samo neke, da ih prebrojimo, da nađemo najmanji ili najveći podatak koji ispunjava neki uslov, da prikažemo jednostavne statistike po grupama podataka i slično. \\
+Obradićemo različite složenije oblike upita \textit{SELECT}, koji nam omogućavaju da od postojećih podataka odaberemo samo neke, da ih prebrojimo, da nađemo najmanji ili najveći podatak koji ispunjava neki uslov, i slično. \\
 
 U sistemu \textit{SQLite Studio} se upiti pišu nakon što se klikne na kreiranu bazu \textbf{dnevnik} u prozoru 
-\textit{Databases} i potom izabere komanda menija \textit{Tools → Open SQL Editor}. 
-Kada se napiše upit, klikne se na dugme \textit{Execute query (F9)} (plavi trouglić). Kako je prikayano na slici. 
+\textit{Databases} i potom izabere komanda menija \textit{Tools → Open SQL Editor}. Kada se napiše upit, klikne se na dugme \textit{Execute query (F9)} (plavi trouglić). Kako je prikazano na slici. 
 
 \begin{figure}[H]
     \centering
@@ -399,50 +298,39 @@ Ukoliko imamo više baza podataka, obavezno proveri da li je pored ovog dugmeta 
     \includegraphics[width=0.6\textwidth]{slika2.png} 
 \end{figure}
 
-Često će nam kod upita biti potrebno da znamo i tačne nazive kolona. 
-To možemo da vidimo za svaku tabelu pojedinačno tako što kliknemo na nju u prozoru \textit{Databases}, pa se onda pojavi opis strukture tabele koji sadrži spisak svih kolona.
+Često će nam kod upita biti potrebno da znamo i tačne nazive kolona. To možemo da vidimo za svaku tabelu pojedinačno tako što kliknemo na nju u prozoru \textit{Databases}, pa se onda pojavi opis strukture tabele koji sadrži spisak svih kolona.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{slika3.png} 
 \end{figure}
 
-Spisak kolona možemo da vidimo i kada izvršimo osnovni \textbf{SELECT} upit:
+Spisak kolona možemo da vidimo i kada izvršimo osnovni \textit{SELECT} upit:
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{slika4.png} 
 \end{figure}
 
-\subsection{Kreiranje multitabularnih upita}
+\subsection{Kreiranje multitabelarnih upita}
 
-Multitabularni upiti (\textit{multi-table queries}) omogućavaju korisnicima da povežu podatke iz više tabela koristeći operacije kao što su \textbf{JOIN}, \textbf{INNER JOIN} i \textbf{LEFT JOIN}. 
-Ovi upiti su posebno korisni kada je potrebno kombinovati informacije iz različitih delova baze podataka kako bi se dobio potpuniji uvid u podatke. \\
+Multitabularni upiti omogućavaju korisnicima da povežu podatke iz više tabela koristeći operacije kao što su \textit{JOIN}, \textit{INNER JOIN} i \textit{LEFT JOIN}. 
+Ovi upiti su posebno korisni kada je potrebno kombinovati informacije iz različitih delova baze podataka kako bi se dobio potpuniji uvid u podatke.
 
-Multiplikativni upiti predstavljaju vrstu upita u \textit{SQL}-u koji omogućavaju kombinovanje podataka iz više tabela. Ovakvi upiti su posebno korisni kada je potrebno analizirati sve moguće parove ili kombinacije podataka između tabela. \\
-
-Prilikom kreiranja multiplikativnog upita, bitno je paziti na broj redova u rezultatima, jer ukoliko tabele sadrže veliki broj slogova, broj redova u rezultujućoj tabeli može eksponencijalno rasti. Na primer, upit koji kombinuje tabelu A sa 100 redova i tabelu B sa 50 redova rezultiraće sa 5000 redova u multiplikativnom rezultatu. \\
-
-U praksi se multiplikativni upiti često kombinuju sa \textit{JOIN} operacijama kako bi se rezultati filtrirali i ograničili na relevantne kombinacije, čime se izbegava nekontrolisano povećanje broja slogova. Ovim se omogućava da se iz multiplikativnog upita dobiju samo oni parovi ili kombinacije podataka koji su korisni za analizu. \\
-
-Multiplikativni upiti su korisni u situacijama kada je potrebno izvršiti analize poput poređenja svih proizvoda sa svim kupcima, kombinovanja svih uslova sa svim stavkama narudžbine itd. Važno je planirati upit i koristiti dodatne kriterijume filtriranja kako bi rezultati bili pregledni i korisni. 
+Prilikom kreiranja multitabelarnih upita važno je voditi računa o strukturi baze i pravilnom definisanju veza između tabela. Neispravno povezivanje može dovesti do pojave dupliranih slogova ili do prevelikog broja rezultata, što otežava analizu podataka. Zbog toga se multitabelarni upiti često kombinuju sa dodatnim uslovima filtriranja, sortiranja i grupisanja, čime se dobijaju pregledni i smisleni rezultati koji verno odražavaju stvarne odnose između podataka u bazi.
 
 \section{Izveštaji}
 
 Izveštaji predstavljaju organizovan prikaz podataka iz baza podataka, namenjen analizi, prezentaciji i štampi. 
-Oni se sastoje od informacija koje se preuzimaju iz tabela ili upita, kao i dodatnih elemenata poput oznaka, naslova, grafika i formata koji se definišu prilikom dizajna izveštaja. \\
+Oni se sastoje od informacija koje se preuzimaju iz tabela ili upita, kao i dodatnih elemenata poput oznaka, naslova, grafika i formata koji se definišu prilikom dizajna izveštaja.
 
-Tabele ili upiti koji pružaju osnovne podatke nazivaju se \textit{record source} izveštaja. Ako se sva polja nalaze u jednoj tabeli, ta tabela može direktno služiti kao izvor podataka. U slučaju da su potrebna polja iz više tabela, koriste se upiti, koji mogu već postojati ili biti kreirani posebno da zadovolje potrebe konkretnog izveštaja. \\
-
-Izveštaji omogućavaju pregled podataka na pregledan i čitljiv način, često uključujući sortiranje, grupisanje, filtriranje i agregacije. \\
+Izveštaji omogućavaju pregled podataka na pregledan i čitljiv način, često uključujući sortiranje, grupisanje, filtriranje i agregacije. 
 
 Pored analitičke funkcije, izveštaji služe i kao dokumentacija i alat za donošenje odluka, jer omogućavaju vizuelizaciju važnih podataka i njihovih odnosa.
 
 \subsection{Kreiranje izveštaja}
 
-Kreiranje izveštaja može se izvršiti na više načina. Jedan od najbržih je korišćenje alatke \textit{Report} koja automatski generiše izveštaj na osnovu izabranog izvora podataka. \\
-
-Ova metoda omogućava brzo pregledanje osnovnih podataka, dok finalni izgled izveštaja može biti dodatno uređivan u prikazu \textit{Layout} ili \textit{Design}, kako bi se postigla bolja preglednost i estetski efekat.
+Kreiranje izveštaja može se izvršiti na više načina. Jedan od najbržih je korišćenje alatke \textit{Report} koja automatski generiše izveštaj na osnovu izabranog izvora podataka. Ova metoda omogućava brzo pregledanje osnovnih podataka, dok finalni izgled izveštaja može biti dodatno uređivan u prikazu \textit{Layout} ili \textit{Design}, kako bi se postigla bolja preglednost i estetski efekat.
 
 \subsubsection{Kreiranje izveštaja pomoću čarobnjaka}
 
@@ -454,58 +342,9 @@ Ova metoda omogućava brzo pregledanje osnovnih podataka, dok finalni izgled izv
     \item Na poslednjoj stranici kliknite \textit{Finish} da biste generisali izveštaj.
 \end{enumerate}
 
-Kada je izveštaj generisan, moguće je pregledati kako će izgledati prilikom štampe i koristiti opciju zumiranja (\textit{Zoom}) za detaljan pregled. 
 Izveštaj se može sačuvati i naknadno menjati, čime se omogućava stalno ažuriranje podataka iz izvora zapisa i prilagođavanje izgleda potrebama korisnika.
 
-\subsubsection{Saveti za dizajn i upotrebu izveštaja}
-
-Prilikom kreiranja izveštaja važno je:
-\begin{itemize}
-    \item koristiti relevantan \textit{record source} koji obuhvata sva potrebna polja,
-    \item primeniti logičko grupisanje i sortiranje kako bi podaci bili pregledni,
-    \item koristiti dodatne elemente dizajna, kao što su naslovi, oznake i grafika, za bolju vizuelnu interpretaciju,
-    \item proveriti da su podaci ažurni, jer izveštaj prikazuje stanje u trenutku otvaranja izveštaja.
-\end{itemize}
-
-Kombinovanjem automatskog čarobnjaka i manuelnog dizajn moda omogućava se brzo kreiranje funkcionalnih i estetski dopadljivih izveštaja, koji se mogu koristiti za analize, prezentacije i dokumentaciju.
-
-\subsubsection{Izveštaji u \textit{Access}-u}
-
-Izveštaji u \textit{Access}-u su organizovani u odeljke koji definišu izgled i ponašanje podataka prilikom štampe ili prikaza. \\
-
-Razumevanje funkcije svakog odeljka omogućava precizno kreiranje preglednih i funkcionalnih izveštaja. 
-U prikazu \textit{Design} moguće je pregledati strukturu izveštaja i njegovih odeljaka, što olakšava postavljanje kontrola, agregacija i drugih elemenata. \\
-
-Glavni odeljci izveštaja uključuju:
-
-\begin{itemize}
-    \item \textbf{Zaglavlje izveštaja (\textit{Report Header})}: Štampa se samo jednom, na početku izveštaja. Koristi se za informacije koje bi se obično pojavljivale na naslovnoj stranici, kao što su logotip, naslov ili datum. Kada se u ovom odeljku postavi izračunata kontrola koja koristi agregatnu funkciju \textit{Sum}, zbir se računa za ceo izveštaj.
-    
-    \item \textbf{Zaglavlje stranice (\textit{Page Header})}: Štampa se na vrhu svake stranice. Koristi se, na primer, za ponavljanje naslova izveštaja na svakoj stranici.
-    
-    \item \textbf{Zaglavlje grupe (\textit{Group Header})}: Štampa se na početku svake grupe zapisa. Idealno je za odštampavanje imena grupe, npr. naziv proizvoda u izveštaju grupisanom po proizvodima. Agregatne funkcije u ovom odeljku primenjuju se samo na trenutnu grupu.
-    
-    \item \textbf{Detalj (\textit{Detail})}: Štampa se za svaki red u izvoru zapisa. Ovo je glavni odeljak u kojem se postavljaju kontrole koje prikazuju podatke.
-    
-    \item \textbf{Podnožje grupe (\textit{Group Footer})}: Štampa se na kraju svake grupe zapisa i služi za prikaz zbirnih informacija ili sažetih statistika za grupu.
-    
-    \item \textbf{Podnožje stranice (\textit{Page Footer})}: Štampa se na kraju svake stranice. Koristi se za brojeve stranica, datum ili druge informacije o stranici.
-    
-    \item \textbf{Podnožje izveštaja (\textit{Report Footer})}: Štampa se samo jednom, na kraju izveštaja. Idealan za zbirne vrednosti, ukupne iznose ili sažetke podataka za ceo izveštaj.
-\end{itemize}
-
-Razumevanje i pravilno korišćenje ovih odeljaka omogućava:
-\begin{itemize}
-    \item pregledne i logički organizovane izveštaje,  
-    \item pravilno grupisanje i agregaciju podataka,  
-    \item postavljanje kontrola na mesta koja određuju tačno gde se i kada vrednosti izračunavaju,  
-    \item prilagođavanje izveštaja različitim potrebama korisnika, kao što su analize, prezentacije ili štampa.
-\end{itemize}
-
-Praktično iskustvo pokazuje da je pravilno korišćenje odeljaka ključno za efikasno kreiranje izveštaja koji su i funkcionalni i estetski dopadljivi. 
-Ova organizacija omogućava korisnicima da odmah identifikuju važne informacije, da grupišu podatke po kriterijumima i da dobiju pregled ukupnih ili zbirnih vrednosti.
-
-\subsubsection{Pregled izveštaja}
+\subsection{Pregled izveštaja}
 
 Postoji više načina za prikaz izveštaja. Izbor metoda zavisi od toga šta želite da uradite sa izveštajem i njegovim podacima:  
 
@@ -515,12 +354,11 @@ Postoji više načina za prikaz izveštaja. Izbor metoda zavisi od toga šta že
     \item Ako je potrebno samo videti kako će izveštaj izgledati kada se odštampa, koristi se \textit{Print Preview}.
 \end{itemize}
 
-Ovi prikazi omogućavaju fleksibilnost pri radu sa izveštajima, bilo da se vrše brze provere podataka, prilagođavanje dizajna ili priprema za štampanje.
-
 
 \subsection{Postavljanje kontrola i izračunavanja u izveštajima}
 
-Kontrole u \textit{Access}-u predstavljaju objekte koji prikazuju podatke, omogućavaju rad sa informacijama i poboljšavaju korisnički \textit{interfejs}, uključujući oznake, slike i druge grafičke elemente. Kontrole se mogu svrstati u tri osnovna tipa: povezane (\textit{bound}), nepovezane (\textit{unbound}) i izračunate (\textit{calculated}).  
+Postavljanje kontrola i izračunavanja u izveštajima ima ključnu ulogu u jasnoj i tačnoj prezentaciji podataka iz baze. Izveštaji se ne koriste samo za prost prikaz podataka, već i za njihovu analizu, sumiranje i tumačenje. Kontrole u izveštajima (tekstualna polja, labele, slike, linije i dr.) omogućavaju strukturiranje sadržaja, isticanje važnih informacija i logičko razdvajanje podataka po sekcijama, kao što su zaglavlje, telo izveštaja i podnožje.
+Kontrole se mogu svrstati u tri osnovna tipa: povezane (\textit{bound}), nepovezane (\textit{unbound}) i izračunate (\textit{calculated}).  
 
 \subsubsection{Povezane kontrole}
 
@@ -538,61 +376,40 @@ Izračunata kontrola koristi izraz umesto polja kao \textit{data source}. Izraz 
 = [Cena po jedinici] * 0,75
 \end{verbatim}
 
-izračunava cenu stavke sa 25\% popusta množenjem vrednosti iz polja \textit{Cena po jedinici} sa konstantom 0,75. Izračunate kontrole omogućavaju fleksibilne kalkulacije i agregacije podataka unutar izveštaja, bez potrebe za modifikacijom osnovnih tabela ili upita.  
-
 \subsubsection{Postavljanje kontrola u izveštaju}
 
 Prilikom kreiranja izveštaja, preporučljivo je prvo dodati i rasporediti sve povezane kontrole, jer one čine osnovu većine izveštaja. Nepovezane i izračunate kontrole se potom dodaju kako bi se dopunio dizajn i omogućilo izračunavanje dodatnih vrednosti. \\ 
 
 Povezivanje kontrole sa poljem može se ostvariti prevlačenjem polja iz okna \textit{Field List} u izveštaj. Okno \textit{Field List} prikazuje polja iz izvora zapisa izveštaja (tabele ili upita). Alternativno, ime polja može se uneti direktno u kontrolu ili u svojstvo \textit{ControlSource} u listi svojstava kontrole. Lista svojstava definiše karakteristike kontrole, uključujući ime, izvor podataka i format.  
 
-Korišćenje okna \textit{Field List} ima dve prednosti:
-\begin{itemize}
-    \item Povezana kontrola automatski dobija prateću oznaku koja preuzima ime polja ili definisani natpis, što olakšava označavanje i štedi vreme.
-    \item Povezana kontrola nasleđuje većinu svojstava polja iz osnovne tabele ili upita (kao što su \textit{Format}, decimalna mesta i ulazna maska), osiguravajući doslednost prikaza podataka.
-\end{itemize}
+Nepovezana kontrola se može povezati sa poljem naknadno, tako što se svojstvo \textit{ControlSource} postavi na ime polja. Ova fleksibilnost omogućava dizajniranje izveštaja koji kombinuju statičke i dinamičke elemente, prilagođene potrebama krajnjih korisnika.  
 
-Nepovezana kontrola se takođe može povezati sa poljem naknadno, tako što se svojstvo \textit{ControlSource} postavi na ime polja. Ova fleksibilnost omogućava dizajniranje izveštaja koji kombinuju statičke i dinamičke elemente, prilagođene potrebama krajnjih korisnika.  
+\subsection{Kreiranje multitabelarnih izveštaja}
 
-\subsection{Kreiranje multitabularnih izveštaja}
-
-Multitabularni izveštaji omogućavaju prikaz podataka iz više tabela ili upita u jednom izveštaju, čime se olakšava analiza i upoređivanje informacija iz različitih izvora. Ovakvi izveštaji se kreiraju tako što se kao \textit{record sources} koriste tabele ili prethodno definisani \textit{queries}, a između njih se uspostavljaju relacije kako bi se podaci ispravno povezali.\\
-
-Kada se pravi multitabularni izveštaj, važno je definisati strukturu i raspored podataka. Zaglavlja i podnožja mogu se koristiti za grupisanje zapisa po ključnim kategorijama, dok se u detaljnom odeljku izveštaja prikazuju konkretni podaci iz više tabela. \\
-
-Upotreba \textit{subreports} omogućava uključivanje dodatnih detalja iz povezanih tabela unutar glavnog izveštaja, čime se dobija pregledan i informativan izveštaj.  \\
-
-Kontrole u izveštaju, uključujući povezane, nepovezane i izračunate kontrole, koriste se za prikaz vrednosti iz različitih izvora. Pravilnim povezivanjem kontrola sa poljima iz tabela i upita, moguće je automatski izračunati i prikazati agregirane vrednosti, kao što su \textit{sum}, \textit{average} ili \textit{count}. \\
+Multitabularni izveštaji omogućavaju prikaz podataka iz više tabela ili upita u jednom izveštaju, čime se olakšava analiza i upoređivanje informacija iz različitih izvora. Ovakvi izveštaji se kreiraju tako što se kao izvori zapisa koriste tabele ili prethodno definisani upiti, a između njih se uspostavljaju relacije kako bi se podaci ispravno povezali. Upotreba podizveštaja omogućava uključivanje dodatnih detalja iz povezanih tabela unutar glavnog izveštaja, čime se dobija pregledan i informativan izveštaj.  \\
 
 Dizajn multitabularnog izveštaja treba da bude jasan i pregledan: raspored kolona, boje, obrubi i druge vizuelne karakteristike pomažu korisniku da brzo identifikuje ključne podatke. Ovakvi izveštaji su posebno korisni za praćenje višedimenzionalnih informacija, kao što su lageri po magacinima, prodaja po proizvodima ili finansijski pokazatelji po odeljenjima.
 
 \section{Vizuelizacija podataka baze}
 
-Vizuelizacija podataka baze predstavlja prikaz i interpretaciju informacija iz baze na način koji olakšava razumevanje, analizu i donošenje odluka. \\
+Vizuelizacija podataka baze predstavlja prikaz i interpretaciju informacija iz baze na način koji olakšava razumevanje, analizu i donošenje odluka.
 
-Podaci iz tabela ili upita često se vizuelizuju kroz interaktivne komponente korisničkog \textit{interfejsa}, grafikone, tabele i obrasce koji omogućavaju pregled, filtriranje i manipulaciju podacima. 
+\subsection{Komponente za povezivanje \textit{Windows}-aplikacije sa bazom podataka}
 
-\subsection{Komponente za povezivanje Windows aplikacije sa bazom podataka}
+Povezivanje \textit{Windows}-aplikacije sa bazom podataka obuhvata komponente i mehanizme koji omogućavaju uspostavljanje i održavanje veze između aplikacije i izvora podataka.
 
-Povezivanje Windows aplikacije sa bazom podataka obuhvata komponente i mehanizme koji omogućavaju uspostavljanje i održavanje veze između aplikacije i izvora podataka. \\
-
-U .NET okruženju, vizuelne komponente se često oslanjaju na strukture kao što su \textit{BindingSource}, \textit{DataTable}, \textit{DataSet} i \textit{DataView}, koje omogućavaju automatsku sinhronizaciju podataka između baze i elemenata korisničkog \textit{interfejsa}. \\ \textit{BindingSource} predstavlja posrednika koji povezuje izvor podataka sa više kontrola, omogućavajući dvosmerno ažuriranje i obaveštavanje o promenama. \\
-
-Pored toga, Windows aplikacije se mogu povezivati sa bazama podataka korišćenjem različitih interfejsa kao što su \textit{ODBC} ili specifični drajveri za određene DBMS-ove, a \textit{Visual Studio} i druge razvojne platforme nude alate koji olakšavaju konfigurisanje veze, izvršavanje upita i upravljanje rezultatima direktno u kodu ili kroz vizuelne komponente koje podržavaju \textit{data binding}.
+U .NET okruženju, vizuelne komponente se često oslanjaju na strukture kao što su \textit{BindingSource}, \textit{DataTable}, \textit{DataSet} i \textit{DataView}, koje omogućavaju automatsku sinhronizaciju podataka između baze i elemenata korisničkog \textit{interfejsa}. \\ \textit{BindingSource} predstavlja posrednika koji povezuje izvor podataka sa više kontrola, omogućavajući dvosmerno ažuriranje i obaveštavanje o promenama.
+Sa druge strane, \textit{Visual Studio} i druge razvojne platforme nude alate koji olakšavaju konfigurisanje veze, izvršavanje upita i upravljanje rezultatima direktno u kodu ili kroz vizuelne komponente koje podržavaju \textit{data binding}.
 
 \subsection{Vizuelne komponente za prikazivanje i modifikaciju podataka baze}
 
-Vizuelne komponente predstavljaju kontrolne elemente korisničkog interfejsa koje omogućavaju prikaz i modifikaciju podataka iz baze. Najčešće se koriste tabele, liste, obrasci, padajuće liste i grafikoni koji su povezani sa izvorima podataka putem mehanizama \textit{data binding}. \\
-
-Na primer, komponenta \textit{DataGridView} omogućava prikaz višestrukih zapisa baze u tabelarnom obliku, dok kontrole poput \textit{TextBox} ili \textit{ComboBox} služe za prikaz pojedinačnih vrednosti ili izbor iz skupa podataka. \\
+Vizuelne komponente predstavljaju kontrolne elemente korisničkog interfejsa koje omogućavaju prikaz i modifikaciju podataka iz baze. Najčešće se koriste tabele, liste, obrasci, padajuće liste i grafikoni koji su povezani sa izvorima podataka putem mehanizama \textit{data binding}. Na primer, komponenta \textit{DataGridView} omogućava prikaz višestrukih zapisa baze u tabelarnom obliku, dok kontrole poput \textit{TextBox} ili \textit{ComboBox} služe za prikaz pojedinačnih vrednosti ili izbor iz skupa podataka. 
 
 Ove komponente omogućavaju ne samo prikaz podataka, već i njihovu modifikaciju, jer se promene u vizuelnim kontrolama mogu automatski propagirati nazad u izvor podataka. To znači da korisnik može unositi, ažurirati ili brisati podatke direktno, bez potrebe za direktnim pisanjem \textit{SQL} upita. Vizuelni alati za razvoj aplikacija kao što je \textit{Visual Studio} dodatno podržavaju automatsko generisanje i povezivanje ovih komponenti sa izvorima podataka. 
 
 \subsection{Komponente za navigaciju}
 
-Komponente za navigaciju omogućavaju korisniku da se kreće kroz podatke i različite delove aplikacije. U Windows aplikacijama, tipične komponente za navigaciju uključuju \textit{MenuStrip}, \textit{ToolStrip}, \textit{Toolbar} ili \textit{Navigation Pane}, koje omogućavaju otvaranje različitih obrazaca, filtriranje podataka, prelazak između tabela ili modula aplikacije. \\
-
-Na primer, u programu \textit{Microsoft Access}, \textit{Navigation Pane} prikazuje sve objekte baze podataka (tabele, obrasce, izveštaje) i omogućava brzi pristup njihovom otvaranju i upravljanju. \\
+Komponente za navigaciju omogućavaju korisniku da se kreće kroz podatke i različite delove aplikacije. U \textit{Windows}-aplikacijama, tipične komponente za navigaciju uključuju \textit{MenuStrip}, \textit{ToolStrip}, \textit{Toolbar} ili \textit{Navigation Pane}, koje omogućavaju otvaranje različitih obrazaca, filtriranje podataka, prelazak između tabela ili modula aplikacije. Na primer, u programu \textit{Microsoft Access}, \textit{Navigation Pane} prikazuje sve objekte baze podataka (tabele, obrasce, izveštaje) i omogućava brzi pristup njihovom otvaranju i upravljanju. \\
 
 Dodatno, vizuelni elementi kao što su dugmad, kartice (\textit{tabs}) i paneli omogućavaju intuitivno upravljanje sadržajem i prelazak između različitih funkcionalnosti aplikacije, čime se poboljšava korisničko iskustvo i olakšava rad sa podacima. 
 
@@ -603,15 +420,18 @@ Dodatno, vizuelni elementi kao što su dugmad, kartice (\textit{tabs}) i paneli 
 \vspace{0.5cm}
 
 \begin{itemize}
-    \item \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/0}
-    \item \texttt{https://www.bazepodataka.matf.bg.ac.rs/}
-    \item \texttt{https://poincare.matf.bg.ac.rs/~smalkov/nastava.urbp.php}
-    \item \texttt{https://poslovnainformatika.rs/access/referencijalni-integritet/}
-    \item \texttt{https://poslovnainformatika.rs/access/kreiranje-upita/?cn-reloaded=1}
-    \item \texttt{https://edukacija.rs/it/baze-podataka/sql-naredbe-setovi}
-    \item \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/}
-    
-    
+    \item Petlja – Uvod u baze podataka \\
+    Dostupno na: \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/0}
+    \item Matematički fakultet u Beogradu – Baze podataka (nastavni materijali) \\
+    Dostupno na: \texttt{https://www.bazepodataka.matf.bg.ac.rs/}
+    \item S. Malkov – Uvod u relacione baze podataka \\ Dostupno na: \texttt{https://poincare.matf.bg.ac.rs/~smalkov/nastava.urbp.php}
+    \item Poslovna informatika – Referencijalni integritet u bazama podataka \\
+    Dostupno na: \texttt{https://poslovnainformatika.rs/access/referencijalni-integritet/}
+    \item Poslovna informatika – Kreiranje upita u MS Access-u \\
+    Dostupno na: \texttt{https://poslovnainformatika.rs/access/kreiranje-upita/?cn-reloaded=1}
+    \item Edukacija.rs – SQL naredbe i skupovi podataka \\ Dostupno na: \texttt{https://edukacija.rs/it/baze-podataka/sql-naredbe-setovi}
+    \item Petlja – Baze podataka (kompletan kurs) \\
+    Dostupno na: \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/}
 \end{itemize}
 
 
