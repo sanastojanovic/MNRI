@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{graphicx}
@@ -151,9 +152,9 @@ Takođe, forme omogućavaju validaciju podataka i korišćenje izraza za izraču
 
 Pored standardnih tekstualnih i numeričkih polja, forme mogu sadržati specijalne kontrole koje olakšavaju rad sa podacima i navigaciju. \textit{List boxes} i \textit{combo boxes} omogućavaju izbor vrednosti iz unapred definisanih lista, dok \textit{command buttons} mogu izvršavati akcije kao što su čuvanje, brisanje ili otvaranje drugih formi. Korišćenje ovih kontrola povećava efikasnost i smanjuje mogućnost greške korisnika. 
 
-\subsection{Kreiranje multitabularnih formi}
+\subsection{Kreiranje multitabelarnih formi}
 
-Multitabularne forme ili višestruke tabele unutar jedne forme omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno. Ovakve forme su korisne za prikaz povezanih podataka, na primer prikaz proizvoda i njihove trenutne količine po magacinima.
+Multitabelarne forme ili višestruke tabele unutar jedne forme omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno. Ovakve forme su korisne za prikaz povezanih podataka, na primer prikaz proizvoda i njihove trenutne količine po magacinima.
 
 Kreiranje ovakvih formi zahteva pravilno povezivanje kontrola sa izvorom podataka i često korišćenje \textit{subforms} za prikaz podataka iz drugih tabela ili upita.
 
@@ -314,7 +315,7 @@ Spisak kolona možemo da vidimo i kada izvršimo osnovni \textit{SELECT} upit:
 
 \subsection{Kreiranje multitabelarnih upita}
 
-Multitabularni upiti omogućavaju korisnicima da povežu podatke iz više tabela koristeći operacije kao što su \textit{JOIN}, \textit{INNER JOIN} i \textit{LEFT JOIN}. 
+Multitabelarni upiti omogućavaju korisnicima da povežu podatke iz više tabela koristeći operacije kao što su \textit{JOIN}, \textit{INNER JOIN} i \textit{LEFT JOIN}. 
 Ovi upiti su posebno korisni kada je potrebno kombinovati informacije iz različitih delova baze podataka kako bi se dobio potpuniji uvid u podatke.
 
 Prilikom kreiranja multitabelarnih upita važno je voditi računa o strukturi baze i pravilnom definisanju veza između tabela. Neispravno povezivanje može dovesti do pojave dupliranih slogova ili do prevelikog broja rezultata, što otežava analizu podataka. Zbog toga se multitabelarni upiti često kombinuju sa dodatnim uslovima filtriranja, sortiranja i grupisanja, čime se dobijaju pregledni i smisleni rezultati koji verno odražavaju stvarne odnose između podataka u bazi.
@@ -386,9 +387,9 @@ Nepovezana kontrola se može povezati sa poljem naknadno, tako što se svojstvo 
 
 \subsection{Kreiranje multitabelarnih izveštaja}
 
-Multitabularni izveštaji omogućavaju prikaz podataka iz više tabela ili upita u jednom izveštaju, čime se olakšava analiza i upoređivanje informacija iz različitih izvora. Ovakvi izveštaji se kreiraju tako što se kao izvori zapisa koriste tabele ili prethodno definisani upiti, a između njih se uspostavljaju relacije kako bi se podaci ispravno povezali. Upotreba podizveštaja omogućava uključivanje dodatnih detalja iz povezanih tabela unutar glavnog izveštaja, čime se dobija pregledan i informativan izveštaj.  \\
+Multitabelarni izveštaji omogućavaju prikaz podataka iz više tabela ili upita u jednom izveštaju, čime se olakšava analiza i upoređivanje informacija iz različitih izvora. Ovakvi izveštaji se kreiraju tako što se kao izvori zapisa koriste tabele ili prethodno definisani upiti, a između njih se uspostavljaju relacije kako bi se podaci ispravno povezali. Upotreba podizveštaja omogućava uključivanje dodatnih detalja iz povezanih tabela unutar glavnog izveštaja, čime se dobija pregledan i informativan izveštaj.  \\
 
-Dizajn multitabularnog izveštaja treba da bude jasan i pregledan: raspored kolona, boje, obrubi i druge vizuelne karakteristike pomažu korisniku da brzo identifikuje ključne podatke. Ovakvi izveštaji su posebno korisni za praćenje višedimenzionalnih informacija, kao što su lageri po magacinima, prodaja po proizvodima ili finansijski pokazatelji po odeljenjima.
+Dizajn multitabelarnog izveštaja treba da bude jasan i pregledan: raspored kolona, boje, obrubi i druge vizuelne karakteristike pomažu korisniku da brzo identifikuje ključne podatke. Ovakvi izveštaji su posebno korisni za praćenje višedimenzionalnih informacija, kao što su lageri po magacinima, prodaja po proizvodima ili finansijski pokazatelji po odeljenjima.
 
 \section{Vizuelizacija podataka baze}
 
@@ -421,18 +422,27 @@ Dodatno, vizuelni elementi kao što su dugmad, kartice (\textit{tabs}) i paneli 
 
 \begin{itemize}
     \item Petlja – Uvod u baze podataka \\
-    Dostupno na: \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/0}
+    Dostupno na: \href{https://petlja.org/sr-Latn-RS/kurs/4654/0}{https://petlja.org/sr-Latn-RS/kurs/4654/0}
+
     \item Matematički fakultet u Beogradu – Baze podataka (nastavni materijali) \\
-    Dostupno na: \texttt{https://www.bazepodataka.matf.bg.ac.rs/}
-    \item S. Malkov – Uvod u relacione baze podataka \\ Dostupno na: \texttt{https://poincare.matf.bg.ac.rs/~smalkov/nastava.urbp.php}
+    Dostupno na: \href{https://www.bazepodataka.matf.bg.ac.rs/}{https://www.bazepodataka.matf.bg.ac.rs/}
+
+    \item S.~Malkov – Uvod u relacione baze podataka \\
+    Dostupno na: \href{https://poincare.matf.bg.ac.rs/~smalkov/nastava.urbp.php}{https://poincare.matf.bg.ac.rs/~smalkov/nastava.urbp.php}
+
     \item Poslovna informatika – Referencijalni integritet u bazama podataka \\
-    Dostupno na: \texttt{https://poslovnainformatika.rs/access/referencijalni-integritet/}
+    Dostupno na: \href{https://poslovnainformatika.rs/access/referencijalni-integritet/}{https://poslovnainformatika.rs/access/referencijalni-integritet/}
+
     \item Poslovna informatika – Kreiranje upita u MS Access-u \\
-    Dostupno na: \texttt{https://poslovnainformatika.rs/access/kreiranje-upita/?cn-reloaded=1}
-    \item Edukacija.rs – SQL naredbe i skupovi podataka \\ Dostupno na: \texttt{https://edukacija.rs/it/baze-podataka/sql-naredbe-setovi}
+    Dostupno na: \href{https://poslovnainformatika.rs/access/kreiranje-upita/?cn-reloaded=1}{https://poslovnainformatika.rs/access/kreiranje-upita/?cn-reloaded=1}
+
+    \item Edukacija.rs – SQL naredbe i skupovi podataka \\
+    Dostupno na: \href{https://edukacija.rs/it/baze-podataka/sql-naredbe-setovi}{https://edukacija.rs/it/baze-podataka/sql-naredbe-setovi}
+
     \item Petlja – Baze podataka (kompletan kurs) \\
-    Dostupno na: \texttt{https://petlja.org/sr-Latn-RS/kurs/4654/}
+    Dostupno na: \href{https://petlja.org/sr-Latn-RS/kurs/4654/}{https://petlja.org/sr-Latn-RS/kurs/4654/}
 \end{itemize}
+
 
 
 
