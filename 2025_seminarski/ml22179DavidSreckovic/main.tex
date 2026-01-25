@@ -1,0 +1,1343 @@
+\documentclass[12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[serbian]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\geometry{margin=2.5cm}
+\onehalfspacing
+\usepackage{float}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=HTML,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=2
+}
+
+
+
+\begin{document}
+
+
+\begin{titlepage}
+    \centering
+    {\Large Универзитет у Београду\\ Математички факултет\par}
+    \vspace{2cm}
+
+    {\LARGE \textbf{ВЕБ ПРОГРАМИРАЊЕ У СРЕДЊОЈ ШКОЛИ}\par}
+
+    \vspace{0.5cm}
+    {\large Семинарски рад\par}
+
+    \vfill
+
+    \begin{flushleft}
+        Студент: Давид Срећковић \\
+        Број индекса: 179/2022 \\
+        Предмет: Методика наставе рачунарства и информатике \\
+        Професор: Сана Стојановић
+    \end{flushleft}
+
+    \vfill
+
+    {Београд, \the\year.}
+\end{titlepage}
+
+\clearpage
+
+
+\tableofcontents
+\clearpage
+
+
+\section{Увод}
+
+У претходном семинарском раду објашњен је појам шаблона и њихова улога у изради динамичких веб-страна. Шаблони омогућавају раздвајање логике апликације од њеног изгледа, што значајно олакшава одржавање и проширивање веб-сајтова. На тај начин створена је основа за разумевање савремених веб технологија и начина на који се подаци приказују кориснику.
+
+Надовезујући се на тај рад, овај семинарски рад бави се библиотеком Flask, једним од најједноставнијих и најчешће коришћених веб оквира у програмском језику Python. Flask омогућава повезивање Python кода са HTML шаблонима, као и једноставну обраду HTTP захтева и креирање динамичких веб-страна.
+
+Захваљујући својој једноставности и прегледној структури, Flask је веома погодан за примену у настави веб програмирања у средњој школи. У овом раду биће приказане основне карактеристике Flask библиотеке, начин дефинисања рута, рад са шаблонима и употреба статичких датотека, уз пример једноставне веб-апликације.
+
+\section{Прослеђивање података серверској апликацији}
+
+Веб-апликације стално примају податке од својих корисника. На пример, приликом логовања на систем корисник уноси и шаље своје корисничко име и лозинку, који се проверавају на серверу и, у зависности од резултата провере, кориснику се допушта или ускраћује приступ веб-апликацији. Слично томе, приликом претраге веб-сајта, параметри претраге се прослеђују серверској веб-апликацији, као што је случај код електронских веб-продавница, где корисник бира врсту производа и распон цена.
+
+Уопштено, корисник у различитим ситуацијама уноси податке у формулар који се налази на веб-страни. Након попуњавања формулара, подаци се шаљу серверској апликацији, која их затим обрађује, на пример складишти у базу података.
+
+\subsection*{GET параметри у претрази производа}
+
+У примеру претраге производа очекује се да се методом GET серверској скрипти проследе две вредности:
+\begin{itemize}
+    \item \texttt{vrsta} – означава врсту производа који се претражују,
+    \item \texttt{max\_cena} – означава највишу дозвољену цену.
+\end{itemize}
+
+Пошто је могуће да се скрипта позове и без навођења параметара, у скрипти се користе подразумеване вредности. Метод \texttt{request.args.get} најчешће се позива са два аргумента: први представља назив GET параметра, док други представља подразумевану вредност у случају да параметар није прослеђен. Уколико се подразумевана вредност не наведе, а параметар не постоји, функција враћа вредност \texttt{None}.
+
+Датотека \texttt{app.py} има следећи садржај:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{s1.png}
+\end{figure}
+
+
+
+\subsection*{Подразумеване вредности и типови података}
+
+Ако параметар \texttt{vrsta} није прослеђен, његова вредност може бити постављена на подразумевану вредност, на пример \texttt{svi\_proizvodi}. Уколико параметар \texttt{max\_cena} није наведен, његова вредност може бити постављена на бесконачност, што се у програмском језику Python записује као \texttt{float("inf")}. На тај начин се обезбеђује да се не ограничава цена производа.
+
+\subsection*{Шаблон и приказ података}
+
+Шаблон \texttt{templates/search.html} служи за приказ података који су прочитани из GET захтева. У реалној веб-апликацији, на основу ових параметара би се извршила претрага производа у бази података, а затим приказали одговарајући резултати.
+
+Шаблон има следећи садржај:
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{s2.png}
+\end{figure}
+
+
+\subsection*{Безбедност података}
+
+Не постоји гаранција да су сви подаци које веб-апликација прими безбедни и поуздани. Злонамерни корисник може проследити податке који садрже HTML или JavaScript код. Flask функција \texttt{render\_template} аутоматски трансформише такве податке у безбедан облик, чиме се спречава њихово извршавање. Уколико се подаци не прослеђују овој функцији, препоручљиво је користити функцију \texttt{escape} из пакета \texttt{markupsafe}.
+
+\subsection*{Вежба: Таблица множења}
+
+Као вежба, може се реализовати скрипта која приказује таблицу множења, при чему се димензија таблице задаје GET параметром \texttt{n}. Ако параметар није прослеђен, подразумева се вредност 10. Тако се посетом различитим URL адресама добијају таблице различитих димензија.
+
+Датотека \texttt{app.py} има следећи садржај:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{s3.png}
+\end{figure}
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{s4.png}
+\end{figure}
+
+\subsection*{Метода GET}
+
+Метода GET подразумева да су подаци које клијент шаље серверу саставни део URL адресе. Подаци се наводе након упитника (\texttt{?}) у облику парова \texttt{naziv=vrednost}, који су раздвојени амперсандом (\texttt{\&}).
+
+Пример URL адресе:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.4\textwidth]{tablicamnozenja.png}
+\end{figure}
+
+Параметри се тумаче као ниске карактера. Уколико садрже специјалне карактере, они се кодирају, на пример размак се представља низом \texttt{\%20}.
+
+\subsection*{Приступ GET параметрима у Flask-у}
+
+Flask омогућава приступ GET параметрима коришћењем објекта \texttt{request}. Методом \texttt{request.args.get} могуће је прочитати вредност параметра и, по потреби, конвертовати је у одговарајући тип података.
+
+
+\subsection*{Пренос података из формулара}
+
+Пренос података са клијента на сервер најчешће се реализује помоћу HTML формулара. Формулари садрже различите контроле за унос података, као што су поља за унос текста, падајуће листе, радио-дугмад и поља за потврду. Кликом на дугме типа \texttt{submit}, подаци се пакују у GET или POST захтев и шаљу серверу.
+
+
+\subsection*{Пример: Калкулатор}
+
+У овом примеру корисник уноси два броја у формулар, који се затим шаљу серверу методом GET. Сервер сабира унете вредности и враћа веб-страницу са приказом резултата.
+
+Датотека \texttt{app.py} има следећи садржај:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{s5.png}
+\end{figure}
+
+Шаблон \texttt{templates/index.html} је дефинисан на следећи начин:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{s6.png}
+\end{figure}
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{sabiranjebrojeva.png}
+\end{figure}
+
+\subsection*{Пример: Наручивање пице}
+
+Још један пример употребе GET захтева је формулар за наручивање пице. Корисник попуњава формулар, а унети подаци се шаљу серверу и приказују у облику наруџбенице.
+
+Изглед формулара:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{pica.png}
+\end{figure}
+
+Шаблон \texttt{templates/narudzbenica.html} има следећи садржај:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.6\textwidth]{s7.png}
+\end{figure}
+
+Сви подаци се примају у датотеци \texttt{app.py} путем GET параметара и прослеђују функцији \texttt{render\_template}, која их табеларно приказује.
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{pica1.png}
+\end{figure}
+
+\section{Метода POST}
+
+За разлику од методе GET, која користи садржај URL-а за слање података, метода POST шаље податке у \textbf{телу HTTP захтева}. 
+То омогућава слање веће количине података, а подаци нису видљиви у URL-у, што је посебно важно за поверљиве информације, као што су лозинке.
+
+Генерална препорука за избор метода:
+\begin{itemize}
+    \item \textbf{GET:} када желимо да узмемо податке са сервера без трајних промена.
+    \item \textbf{POST:} када шаљемо податке на сервер и желимо да променимо стање на серверу (нпр. упис у базу).
+\end{itemize}
+
+HTML формулар који користи POST метод изгледа овако:
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{s8.png}
+\end{figure}
+
+
+\section{Путање са параметрима}
+
+Поред класичних GET параметара, који се у URL адреси наводе након упитника, Flask омогућава и коришћење \textbf{параметризованих путања}, где се поједини сегменти путање користе као параметри.
+
+На пример, приказ одређеног производа помоћу класичних GET параметара може изгледати овако:
+
+\texttt{http://www.moja-prodavnica.com/prikazi\_proizvod?id=159}
+
+Алтернативно, идентификатор производа може бити део саме путање:
+
+\texttt{http://www.moja-prodavnica.com/prikazi\_proizvod/159}
+
+Овакав начин рутирања даје прегледније и читљивије URL адресе.
+
+\subsection*{Параметризоване руте у Flask-у}
+
+Flask омогућава дефинисање рута које садрже променљиве сегменте. Ако се у путањи наведе облик \texttt{/<ime>}, то значи да ће се вредност тог сегмента проследити функцији као параметар.
+
+Пример једноставне Flask апликације:
+
+\begin{lstlisting}[language=Python]
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/<ime>")
+def pozdravi(ime):
+    return render_template("index.html", ime=ime)
+\end{lstlisting}
+
+Ако се апликацији приступи преко URL адресе \texttt{http://127.0.0.1/Petar}, биће позвана функција \texttt{pozdravi("Petar")}, док ће приступом адреси \texttt{http://127.0.0.1/Ana} бити позвана функција \texttt{pozdravi("Ana")}.  
+На тај начин се подаци извлаче директно из URL адресе и могу се даље користити у апликацији.
+
+\subsection*{Приказ података у шаблону}
+
+Добијена вредност се може проследити HTML шаблону, који затим динамички приказује садржај странице. Шаблон може изгледати на следећи начин:
+
+\begin{lstlisting}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zdravo: {{ ime }}</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <p>Zdravo, ti se zoveš {{ ime }}.</p>
+  </body>
+</html>
+\end{lstlisting}
+
+На слици је приказан изглед стране унутар прегледача веба.
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.6\textwidth]{anas.png}
+\end{figure}
+
+
+Ако је рута дефинисана као \texttt{/pozdravi/<ime>}, поздравној страни се приступа преко URL адреса облика  
+\texttt{http://127.0.0.1/pozdravi/Petar}.
+
+\subsection*{Ограничење типа параметара}
+
+Flask омогућава и ограничавање типа података који се прихвата у путањи. На пример, ако желимо да параметар буде цео број, користи се тип \texttt{int}:
+
+\begin{lstlisting}[language=Python]
+@app.route("/prikazi_proizvod/<int:id_proizvod>")
+def prikazi_proizvod(id_proizvod):
+    return f"ID proizvoda: {id_proizvod}"
+\end{lstlisting}
+
+Овој рути се може приступити преко URL адресе облика  
+\texttt{http://www.moja-prodavnica.com/prikazi\_proizvod/1234}.
+
+\subsection*{Предности и ограничења}
+
+Параметризоване путање дају лепши и читљивији облик URL адреса у односу на класичне GET параметре.  
+Међутим, овај приступ није практичан када постоји већи број параметара или када су неки од њих опциони.
+
+Такође, уколико подаци долазе из HTML формулара, параметри се и даље читају помоћу објекта \texttt{request}, коришћењем метода \texttt{request.args.get(...)} или \texttt{request.form.get(...)}, у зависности од употребљене HTTP методе.
+
+\section{Колачићи}
+
+HTTP протокол је по својој природи \textbf{без стања}, што значи да се сваки пар захтев–одговор посматра као независан од претходних.  
+Међутим, у савременим веб-апликацијама често постоји потреба да се одређени подаци памте током корисничке сесије. У ту сврху користе се различити механизми, од којих су најчешћи \textbf{колачићи} (cookies) и \textbf{сесије} (sessions).
+
+Колачићи представљају мале количине података које сервер шаље клијенту, а клијент их чува и аутоматски шаље серверу у сваком наредном захтеву ка истом домену. Они се најчешће користе за чување привремених података, као што су:
+\begin{itemize}
+    \item корисничко име улогованог корисника,
+    \item садржај корпе у електронској продавници,
+    \item подешавања сајта (језик, валута, тема приказа).
+\end{itemize}
+
+Ови подаци нису трајни и њихов губитак не представља озбиљан проблем, за разлику од података који се чувају у бази података (нпр. кориснички налози или објаве).
+
+\subsection*{Пример употребе колачића у Flask-у}
+
+У следећем примеру корисник при првом приступу апликацији уноси своје име у формулар. Име се чува у колачићу, тако да се при сваком наредном приступу кориснику приказује поздравна порука. Корисник има могућност и да се „излогује“, чиме се колачић брише.
+
+\subsection*{HTML шаблон}
+
+Шаблон \texttt{templates/index.html} приказује формулар или поздравну поруку, у зависности од тога да ли је прослеђена променљива \texttt{name}:
+
+\begin{lstlisting}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kolačići</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    {% if name %}
+      <h1>Welcome {{ name }}</h1>
+      <a href="{{ url_for('resetcookie') }}">Logout</a>
+    {% else %}
+      <form method="post" action="{{ url_for('setcookie') }}">
+        <input type="text" name="name" />
+        <input type="submit" value="login" />
+      </form>
+    {% endif %}
+  </body>
+</html>
+\end{lstlisting}
+
+\subsection*{Читање колачића}
+
+У главној путањи апликације проверава се да ли је колачић постављен. Ако јесте, његова вредност се чита и прослеђује шаблону:
+
+\begin{lstlisting}[language=Python]
+@app.route("/")
+def index():
+    if "name" in request.cookies:
+        name = request.cookies.get("name")
+        return render_template("index.html", name=name)
+    else:
+        return render_template("index.html")
+\end{lstlisting}
+
+\subsection*{Постављање колачића}
+
+Колачић се поставља креирањем објекта одговора помоћу функције \texttt{make\_response}, а затим позивом методе \texttt{set\_cookie}. Након тога се корисник редиректује на почетну страну:
+
+\begin{lstlisting}[language=Python]
+@app.route("/setcookie", methods=["POST"])
+def setcookie():
+    name = request.form["name"]
+    response = make_response(redirect(url_for("index")))
+    response.set_cookie("name", name)
+    return response
+\end{lstlisting}
+
+Пошто се подаци шаљу формуларом, потребно је омогућити употребу HTTP методе POST.
+
+\subsection*{Брисање колачића}
+
+Брисање колачића се врши тако што му се постави време истека једнако нули:
+
+\begin{lstlisting}[language=Python]
+@app.route("/resetcookie")
+def resetcookie():
+    response = make_response(redirect(url_for("index")))
+    response.set_cookie("name", "", expires=0)
+    return response
+\end{lstlisting}
+
+\subsection*{Напомена о приватности}
+
+Колачићи се не користе искључиво за функционалност веб-апликација, већ и за праћење понашања корисника у сврху оглашавања. Због могућег нарушавања приватности, у Европској унији је прописано да веб-сајтови морају обавестити кориснике о употреби колачића и прибавити њихову сагласност.
+
+
+\section{Сесије}
+
+Колачићи омогућавају чување података на клијенту, унутар прегледача веба. Сесије, с друге стране, чувају податке на серверу и обично су ограниченог трајања. Током трајања сесије, сервер памти податке о кориснику (нпр. корисничко име), а након истека сесије или излоговања, приступ заштићеним деловима сајта се онемогућава.  
+
+Када се креира сесија, сервер шаље кориснику \textit{колачић сесије} који је јединствен за сваку сесију. Наредни захтеви прегледача садрже овај колачић, па сервер може да идентификује сесију и приступљене податке. Колачићи сесије се бришу чим корисник затвори прегледач, а корисник не мора да брине о њиховој управи.
+
+Прикажимо пример Flask апликације која памти корисничко име у сесији. Корисник уноси своје име у формулар и, док је улогован, види своје име и опцију за излоговање.  
+
+\begin{lstlisting}[language=Python, caption={Пример Flask апликације са сесијама}]
+from flask import Flask, render_template, request, redirect, url_for, session
+
+app = Flask(__name__)
+app.secret_key = b'Lz\xbe\xaa\xd3\xce\xcd\xcb>\xdcLq\n%\x11h\x13\x9e\x1f\xf2\x1f\xcc\xddg'
+
+@app.route("/")
+def index():
+    if "username" in session:
+        username = session["username"]
+        return render_template("index.html", username=username)
+    else:
+        return render_template("index.html")
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        session["username"] = request.form["username"]
+    return redirect(url_for("index"))
+
+@app.route("/logout")
+def logout():
+    session.pop("username", None)
+    return redirect(url_for("index"))
+\end{lstlisting}
+
+HTML шаблон \texttt{templates/index.html} приказује формулар за унос имена или поздравну поруку ако је корисник улогован:
+
+\begin{lstlisting}[language=HTML, caption={HTML шаблон за сесије}]
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sesije</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    {% if username %}
+      <h1>Username: {{ username }}</h1>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <form method="post" action="{{ url_for('login') }}">
+        <input type="text" name="username" />
+        <input type="submit" value="login" />
+      </form>
+    {% endif %}
+  </body>
+</html>
+\end{lstlisting}
+
+Кључ \texttt{app.secret_key} је неопходан за шифровање података у сесији и колачића који се шаљу на клијент. Вредност кључа треба бити тајна и може се генерисати у Python интерактивно помоћу:
+
+\begin{lstlisting}[language=Python]
+import os
+os.urandom(24)
+\end{lstlisting}
+
+Овај механизам омогућава да сервер сигурно прати улоговане кориснике без потребе да подаци буду видљиви на клијенту.
+
+
+\section{Коришћење база података из Flask апликација}
+
+На самом почетку нашег рада са базама података, рекли смо да је један од начина интеракције са системом за управљање базама података (СУБП) управо апликативни интерфејс.
+
+Сваки сајт за пуштање музике, свака онлајн продавница, електронски дневник, свака апликација на мобилном уређају путем које се плаћају рачуни и тако даље, користи неку базу података. Да би то било могуће, неопходно је да постоји начин интеракције са СУБП који ће се уградити у апликацију која се креира. Програмери, када из својих програма приступају базама података, користе апликативни програмски интерфејс, АПИ (енгл. \textit{application programming interface}).
+
+Да би наши програми преко АПИ-ја могли да приступају СУБП-у, обично је потребно да у програм укључимо посебан модул, односно програмску библиотеку која имплементира АПИ за приступ бази.
+
+Када је у питању програмски језик Python, већ у стандардној инсталацији програмског језика долази модул за SQLite који се зове \texttt{sqlite3}, и то са уграђеним СУБП за SQLite. То значи да, ако програмирате у програмском језику Python, није потребно ништа додатно да инсталирате да бисте користили SQLite. Модул \texttt{sqlite3} имплементира стандардну спецификацију АПИ-ја за приступ бази која се зове DB-API 2.0, што значи да када научите како у Python-у да користите SQLite, на сличан начин ћете моћи да користите и друге релационе базе.
+
+Унутар Python кôда веб-апликације (код једноставних апликација он се налази у датотеци \texttt{app.py}) вршимо повезивање са базом података и читање података из базе, смештајући резултат упита у листу, која се затим прослеђује функцији \texttt{render\_template}, при чему се у шаблону налази петља \texttt{for} која чита и приказује један по један податак из те листе.  
+
+\subsection*{Повезивање са базом и постављање упита}
+
+Као што смо већ нагласили, свака иоле сложенија веб-апликација укључује неколико различитих фајлова, па је логична конвенција да се све оне чувају унутар једног фолдера намењеног тој веб-апликацији. За први пример веб-апликације која се повезује на базу података направићемо фолдер под именом \texttt{01\_database} и у њему креирати фајл \texttt{app.py} са програмским кôдом.  
+
+У исти фолдер стављамо и базу података. У овом примеру користимо базу података фиктивне компаније за продају музичких композиција \texttt{music.db}.  
+
+Да би се могло приступити SQLite бази података, потребно је прво повезати се са базом коришћењем функције \texttt{sqlite3.connect}, наводећи назив базе:  
+
+\begin{lstlisting}[language=Python]
+import os
+import sqlite3
+from flask import Flask
+
+app = Flask(__name__)
+
+conn = sqlite3.connect(os.path.join(app.root_path, 'music.db'))
+# ...
+conn.close()
+\end{lstlisting}
+
+Приказаћемо називе првих 10 извођача. За то је потребно креирати објекат курсора:  
+
+\begin{lstlisting}[language=Python]
+cur = conn.cursor()
+cur.execute("SELECT Name FROM artist LIMIT 10")
+artists = cur.fetchall()
+\end{lstlisting}
+
+Шаблон \texttt{templates/artists.html} за приказ података може изгледати овако:  
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Artists</title>
+   </head>
+   <body>
+     <h1>Artists</h1>
+     <ol>
+       {% for artist in artists %}
+          <li>{{ artist[0] }}</li>
+       {% endfor %}
+     </ol>
+   </body>
+</html>
+\end{lstlisting}
+
+Комплетан пример \texttt{app.py}:  
+
+\begin{lstlisting}[language=Python]
+import sqlite3
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/artists')
+def artists():
+    con = sqlite3.connect('music.db')
+    cur = con.cursor()
+    cur.execute("SELECT Name FROM artist LIMIT 10")
+    artists = cur.fetchall()
+    return render_template("artists.html", artists=artists)
+\end{lstlisting}
+
+Следeћа слика илуструје фолдер у којем се налази наша веб-апликација.
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{sl1.png}
+\end{figure}
+
+Да бисмо имали тачну путању до фајла која нам је неопходна да покренемо програм, можемо да употребимо опцију Copy adress када урадимо десни клик мишем у прозору File Explorer.
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.8\textwidth]{sl2.png}
+\end{figure}
+
+На слици је приказан изглед апликације када се покрене http://127.0.0.1:5000/artists из прегледача веба:
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.4\textwidth]{sl3.png}
+\end{figure}
+
+
+\subsection*{Флексибилнија конекција и глобална променљива}
+
+Путању до базе можемо дефинисати преко \texttt{app.root\_path}:  
+
+\begin{lstlisting}[language=Python]
+import os
+import sqlite3
+from flask import Flask
+
+app = Flask(__name__)
+conn = sqlite3.connect(os.path.join(app.root_path, 'music.db'))
+# ...
+conn.close()
+\end{lstlisting}
+
+Убудуће можемо користити глобалну променљиву \texttt{DATABASE}:  
+
+\begin{lstlisting}[language=Python]
+DATABASE = os.path.join(app.root_path, 'music.db')
+\end{lstlisting}
+
+Мало елегантније решење је да конекцију чувамо унутар објекта \texttt{flask.g}, на пример \texttt{g.\_db\_conn}.  
+
+\begin{lstlisting}[language=Python]
+from flask import g
+
+def get_db():
+    if not "_db_conn" in g:
+        g._db_conn = sqlite3.connect(DATABASE) 
+    return g._db_conn
+
+@app.teardown_appcontext
+def close_db(exception):
+    if "_db_conn" in g:
+        g._db_conn.close()
+\end{lstlisting}
+
+Курсор за упите добијамо као:  
+
+\begin{lstlisting}[language=Python]
+cur = get_db().cursor()
+artists = cur.execute("SELECT Name FROM Artist LIMIT 10").fetchall()
+\end{lstlisting}
+
+\subsection*{Помоћна функција за упите}
+
+Функција \texttt{query\_db} поједностављује рад са базом:  
+
+\begin{lstlisting}[language=Python]
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rows = cur.fetchall()
+    cur.close()
+    if one:
+        return rows[0] if rows else None
+    else:
+        return rows
+
+@app.route("/artists")
+def artists():
+    artists = query_db("SELECT Name FROM Artist LIMIT 10")
+    return render_template("artists.html", artists=artists)
+\end{lstlisting}
+
+Шаблон остаје исти као претходно.  
+
+\subsection*{Упознавање са базом}
+
+Приликом креирања веб-апликација које се повезују на базу података, важно је добро се упознати са том базом. Преузету SQLite базу \texttt{music.db} можемо отворити у програму SQLite Studio командом менија \texttt{Database → Add a database} и проверити списак табела и колона.
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.4\textwidth]{sl4.png}
+\end{figure}
+
+
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[serbian]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{green!50!black},
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    tabsize=4
+}
+
+
+
+\section{Пренос параметара упита}
+
+И у случају веб-апликација упити често зависе од неких параметара. На пример, желимо да прикажемо списак композиција одабраног жанра. Параметар је у том случају идентификатор жанра.  
+
+Претпоставимо да се идентификатор жанра прослеђује нашем серверском скрипту у склопу GET HTTP захтева. Страну ћемо отварати помоћу URL-ова облика \texttt{http://127.0.0.1:5000/tracks?genre\_id=3}.  
+
+\subsection*{Python код за приказ песама по жанру}
+
+\begin{lstlisting}[style=pythonstyle]
+from flask import Flask, request, render_template
+from your_db_module import query_db  # pretpostavimo da postoji ova funkcija
+
+app = Flask(__name__)
+
+@app.route("/tracks")
+def tracks_by_genre():
+    # proveravamo da li se među prosleđenim GET argumentima nalazi genre_id 
+    if "genre_id" in request.args:
+        # citamo identifikator zanra iz GET argumenata
+        genre_id = request.args.get("genre_id")
+
+        # citamo iz baze naziv zanra
+        genre_name = query_db(
+            "SELECT Name FROM Genre WHERE GenreId=?", 
+            (genre_id,), 
+            one=True  # vraća samo jedan red
+        )
+
+        # proveravamo da li je naziv zanra uspesno procitan
+        if genre_name is None:
+            return render_template(
+                "tracks.html", error=True, error_msg="wrong genre id supplied"
+            )
+
+        # citamo iz baze spisak od najvise 10 kompozicija tog zanra
+        tracks = query_db(
+            "SELECT Name FROM Track WHERE GenreId=? LIMIT 10", 
+            (genre_id,)
+        )
+
+        # formiramo i vracamo veb-stranu
+        return render_template(
+            "tracks.html", genre_name=genre_name["Name"], tracks=tracks
+        )
+    else:
+        # formiramo i vracamo veb-stranu koja ukazuje na gresku
+        return render_template(
+            "tracks.html", error=True, error_msg="no genre id supplied"
+        )
+
+@app.route("/genres")
+def genres():
+    # citamo sve zanrove iz baze
+    genres = query_db("SELECT GenreId, Name FROM Genre")
+    return render_template("genres.html", genres=genres)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+\end{lstlisting}
+
+\subsection*{HTML шаблон за песме (tracks.html)}
+
+\begin{lstlisting}[style=pythonstyle]
+{% extends "index.html" %}
+{% block content %}
+    {% if error %}
+        <h2>Error: {{ error_msg }}</h2>
+    {% else %}
+        <h2>{{ genre_name }}</h2>
+        <ol>
+            {% for track in tracks %}
+                <li>{{ track["Name"] }}</li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+{% endblock %}
+\end{lstlisting}
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.4\textwidth]{sli1.png}
+\end{figure}
+
+
+\subsection*{HTML шаблон за жанрове (genres.html)}
+
+\begin{lstlisting}[style=pythonstyle]
+{% extends "index.html" %}
+{% block content %}
+    <ul>
+        {% for genre in genres %}
+            <li>
+                <a href="{{ url_for('tracks_by_genre', genre_id=genre.GenreId) }}">
+                    {{ genre.Name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+\end{lstlisting}
+
+\subsection*{Заједнички HTML шаблон (index.html)}
+
+\begin{lstlisting}[style=pythonstyle]
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tracks by genre</title>
+    </head>
+    <body>
+        <h1>Tracks by genre</h1>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
+\end{lstlisting}
+
+
+\section{Формулари и упити ка бази података}
+
+Јако често се параметри упита добијају на основу вредности које је корисник унео у формулар. На пример, у текућем задатку уместо листе линкова, одабир жанра можемо урадити коришћењем HTML формулара. Жанрове је могуће бирати из падајуће листе. Подсетимо се, падајућу листу у језику HTML можемо дефинисати на следећи начин:
+
+\begin{lstlisting}[language=HTML]
+<select name="genre_id">
+  <option value="1">Rock</option>
+  <option value="2">Jazz</option>
+  <option value="3">Metal</option>
+  ...
+</select>
+\end{lstlisting}
+
+Уз ову падајућу листу формулар треба да садржи и дугме \texttt{submit} чијим притиском проузрокујемо слање новог захтева. Назив (атрибут \texttt{name}) елемента \texttt{select} је \texttt{genre_id}, а вредност сваког елемента \texttt{option} одговара идентификатору жанра. На крају, захтев за приказ композиција се шаље на путању \texttt{/tracks}, па формулару треба навести атрибут \texttt{action}.
+
+\begin{lstlisting}[language=HTML]
+{% extends "index.html" %}
+{% block content %}
+<form action="{{ url_for('tracks_by_genre') }}">
+  <select name="genre_id">
+    {% for genre in genres: %}
+    <option value="{{ genre.GenreId }}">{{ genre.Name }}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Show" />
+</form>
+{% endblock %}
+\end{lstlisting}
+
+Апликација може имати само једну страницу која приказује и листу жанрова и одабране песме. У том случају, функција која обрађује захтев на путањи \texttt{/tracks} изгледа овако:
+
+\begin{lstlisting}[language=Python]
+@app.route("/tracks")
+def tracks_by_genre():
+    # ucitavamo sve zanrove iz baze
+    genres = query_db("SELECT GenreId, Name FROM genre")
+    
+    # proveravamo da li se medju GET argumentima nalazi genre_id
+    if not "genre_id" in request.args:
+        # prikazujemo samo formular za izbor zanra
+        return render_template("index.html", genres=genres)
+   
+    # citamo identifikator zanra koji je dat kao GET parametar
+    genre_id = request.args.get("genre_id", type=int)
+    # citamo iz baze naziv zanra
+    genre_name = query_db("SELECT Name FROM Genre WHERE GenreId=?", (genre_id,), True)
+    # prijavljujemo gresku ako je identifikator zanra pogresan
+    if genre_name is None:
+       return render_template("index.html", genres=genres,
+                              error=True, error_msg="wrong genre id supplied")
+                              
+    # citamo iz baze spisak od najvise 10 kompozicija tog zanra
+    tracks = query_db("SELECT Name FROM Track WHERE GenreId=? LIMIT 10", (genre_id,))
+ 
+    # formiramo i vracamo veb-stranu koja sadrzi i formular i spisak pesama
+    return render_template("index.html", genres=genres,
+                           genre_id=genre_id, genre_name=genre_name["Name"],
+                           tracks=tracks)
+\end{lstlisting}
+
+Шаблон \texttt{index.html} приказује формулар и, ако је дат идентификатор жанра, списак песама или поруку о грешци:
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Tracks by genre</title>
+   </head>
+   <body>
+     <h1>Tracks by genre</h1>
+
+     <form>
+       <select name="genre_id">
+         {% for genre in genres: %}
+         <option value="{{ genre.GenreId }}"
+                 {% if genre_id == genre.GenreId %}selected{% endif %}>
+           {{ genre.Name }}
+         </option>
+         {% endfor %}
+       </select>
+       <input type="submit" value="Show" />
+     </form>
+     
+     {% if error %}
+     <h2>Error: {{ error_msg }}</h2>
+     {% else %}
+     <h2>{{ genre_name }}</h2>
+     <ol>
+       {% for track in tracks %}
+          <li>{{ track["Name"] }}</li>
+       {% endfor %}
+     </ol>
+     {% endif %}
+   </body>
+</html>
+\end{lstlisting}
+
+Важно је напоменути да када се одабере жанр и притисне дугме \texttt{submit}, формулар се поново учитава са истим избором, што се постиже проверавањем вредности \texttt{genre\_id} и додавањем атрибута \texttt{selected} у HTML-у.
+
+
+\section{Пренос параметара упита и избор жанра из листе}
+
+У веб-апликацијама често желимо да корисник бира параметре и на основу тога добије резултате из базе. У овом примеру приказујемо како се прослеђује идентификатор жанра и како се приказују композиције тог жанра. Такође, користимо падајућу листу за избор жанра.
+
+\subsection{Python код за Flask апликацију}
+
+\begin{lstlisting}[language=Python]
+from flask import Flask, request, render_template
+import sqlite3
+
+app = Flask(__name__)
+
+# Funkcija za konekciju sa bazom
+def get_db():
+    conn = sqlite3.connect("your_database.db")
+    conn.row_factory = sqlite3.Row
+    return conn
+
+# Funkcija za parametrizovane upite
+def query_db(query, args=(), one=False):
+    db = get_db()
+    cur = db.execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    return (rv[0] if rv else None) if one else rv
+
+# ------------------------
+# 10.1 - Prikaz pesama po zanru
+# ------------------------
+@app.route("/tracks")
+def tracks_by_genre():
+    # Ucitavamo sve zanrove iz baze za formu
+    genres = query_db("SELECT GenreId, Name FROM Genre")
+    
+    # Proveravamo da li je prosledjen parametar genre_id
+    if "genre_id" not in request.args:
+        # Ako nije, prikazujemo samo formu za izbor zanra
+        return render_template("index.html", genres=genres)
+    
+    # Citamo prosledjeni identifikator zanra
+    genre_id = request.args.get("genre_id", type=int)
+    
+    # Citamo naziv zanra iz baze
+    genre_name = query_db("SELECT Name FROM Genre WHERE GenreId=?", (genre_id,), one=True)
+    
+    if genre_name is None:
+        # Pogresan ID zanra
+        return render_template("index.html", genres=genres,
+                               error=True, error_msg="wrong genre id supplied")
+    
+    # Citamo spisak do 10 kompozicija tog zanra
+    tracks = query_db("SELECT Name FROM Track WHERE GenreId=? LIMIT 10", (genre_id,))
+    
+    # Prikazujemo formu i listu pesama
+    return render_template("index.html", genres=genres,
+                           genre_id=genre_id, genre_name=genre_name["Name"],
+                           tracks=tracks)
+
+# ------------------------
+# 10.2 - Upis novog korisnika u bazu
+# ------------------------
+@app.route("/customer", methods=["GET", "POST"])
+def customer():
+    if request.method == 'GET':
+        return render_template("customer.html")
+    else:
+        try:
+            db_conn = get_db()
+            cursor = db_conn.cursor()
+            query = ("INSERT INTO Customer "
+                     "(FirstName, LastName, Phone, Email) "
+                     "VALUES (?, ?, ?, ?)")
+            
+            first_name = request.form['first-name']
+            last_name = request.form['last-name']
+            phone = request.form['phone']
+            email = request.form['e-mail']
+            
+            cursor.execute(query, (first_name, last_name, phone, email))
+            db_conn.commit()
+            
+            return render_template("customer.html",
+                                   msg="Customer was successfully added")
+        except:
+            return render_template("customer.html",
+                                   msg="Error adding new customer")
+\end{lstlisting}
+
+
+\section{„Флешоване“ поруке}
+
+Поруку о томе да ли је упис у базу успео смо у претходној апликацији вршили тако што смо увели посебан параметар \texttt{msg} који смо прослеђивали шаблону. Пошто је ситуација у којој кориснику треба да буду приказане неке једнократне поруке прилично честа, библиотека Flask нуди посебан механизам за то. У питању су такозване „флешоване“ поруке (енг. \emph{flashed messages} - „флеш“ означава бљесак који се на тренутак појави и брзо нестане). Python функција која одговара на HTTP захтев може да постави нову поруку позивом функције \texttt{flash}. Са друге стране, унутар шаблона се листа свих порука може добити помоћу \texttt{get\_flashed\_messages()}. Свака порука је обична ниска карактера, при чему се порукама могу додатно придружити и категорије које корисник дефинише (попут \texttt{"error"}, \texttt{"ok"} и слично), тако што се функцији \texttt{flash} проследе две ниске (прва је текст поруке, а друга је категорија). Тада је поруке унутар шаблона потребно прихватити позивом \texttt{get\_flashed\_messages(with\_categories=True)}, која онда уместо листе порука враћа листу уређених парова где је први елемент категорија, а други текст поруке. Када се користи наслеђивање шаблона, у главном костуру стране се може предвидети неки простор на ком ће се приказивати све флешоване поруке, без обзира на то из које функције оне долазе. На тај начин се шаблони који приказују резултат рада појединачних функција могу ослободити потребе да се баве приказивањем једноструких порука корисницима. Прилагодимо претходну апликацију тако да користи флешоване поруке.
+
+\subsection{Костур HTML стране}
+
+Направићемо костур HTML странице у шаблону \texttt{templates/index.html} и на почетку тела ћемо предвидети приказивање свих флешованих порука:
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Add new customer</title>
+     <style>
+       .msg { border: 1px solid black; }
+       .error { background-color: #fcc; }
+       .ok  { background-color: #cfc; }
+     </style>
+   </head>
+   <body>
+     {% with messages = get_flashed_messages(with_categories=true) %}
+     {% if messages %}
+        <h1>Info</h1>
+        {% for category, message in messages %}
+        <div class="{{ category }} msg">{{ message }}</div>
+        {% endfor %}
+     {% endif %}
+     {% endwith %}     
+
+     {% block content %}
+     {% endblock %}   
+   </body>
+</html>
+\end{lstlisting}
+
+Приметимо да смо употребили наредбу:
+
+\begin{lstlisting}[language=HTML]
+{% with promenljiva = funkcija(...) %}
+   ...
+{% endwith %}
+\end{lstlisting}
+
+Њом постижемо да се вредност функције складишти у наведену променљиву и користи унутар тела те наредбе (у нашем примеру смо на тај начин формирали променљиву која садржи листу свих флешованих порука).
+
+\subsection{Шаблон за формулар за унос података}
+
+У датотеци \texttt{templates/customer.html} дефинишемо централни блок у ком се само приказује формулар за унос података:
+
+\begin{lstlisting}[language=HTML]
+{% extends "index.html" %}
+{% block content %}
+     <h1>Add customer</h1>
+
+     <form method="POST">
+       <table>
+         <tr>
+           <td><label for="first-name">First name:</label></td>
+           <td><input type="text" id="first-name" name="first-name" /></td>
+         </tr>
+         <tr>
+           <td><label for="last-name">Last name:</label></td>
+           <td><input type="text" id="last-name" name="last-name" /></td>
+         </tr>
+         <tr>
+           <td><label for="phone">Phone:</label></td>
+           <td><input type="text" id="phone" name="phone" /></td>
+         </tr>
+         <tr>
+           <td><label for="e-mail">E-mail:</label></td>
+           <td><input type="text" id="e-mail" name="e-mail" /></td>
+         </tr>
+       </table>
+       <input type="submit" value="Add customer" />
+     </form>
+{% endblock %}
+\end{lstlisting}
+
+\subsection{Python апликација са флешованим порукама}
+
+На крају, у самој апликацији флешоване поруке постављамо коришћењем функције \texttt{flash} (наравно, она мора бити увезена у склопу директиве \texttt{import}):
+
+\begin{lstlisting}[language=Python]
+@app.route("/customer", methods=["GET", "POST"])
+def customer():
+    if request.method == 'GET':
+        return render_template("customer.html")
+    else:
+        try:
+            db_conn = get_db()
+            cursor = db_conn.cursor()
+            query = "INSERT INTO Customer ('FirstName', 'LastName', 'Phone', 'Email') VALUES (?, ?, ?, ?)"
+            first_name = request.form['first-name']
+            last_name = request.form['last-name']
+            phone = request.form['phone']
+            email = request.form['e-mail']
+            cursor.execute(query, (first_name, last_name, phone, email))
+            db_conn.commit()
+            flash("Customer was successfully added", "ok")
+            return render_template("customer.html")
+        except:
+            flash("Error adding new customer", "error")
+            return render_template("customer.html")
+\end{lstlisting}
+
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.4\textwidth]{slik.png}
+\end{figure}
+
+
+\section{Валидација података унетих у формулар}
+
+У претходној верзији апликације корисник је у формулар могао да упише било какве податке (па чак и да формулар остави празним) и ти подаци би завршили у бази података. Наравно, ово је веома лоша пракса и квалитетне веб-апликације проверавају елементарну коректност унетих података пре него што их упишу у базу. Поступак провере података унетих у формулар назива се \textbf{валидација формулара}.
+
+\subsection{Клијентска валидација уз помоћ HTML 5}
+
+HTML5 омогућава да се правила коректности формулара задају директно у формулару. На пример:
+
+\begin{itemize}
+    \item Атрибут \texttt{required} осигурава да поље није празно.
+    \item Атрибут \texttt{pattern} одређује регуларни израз који ниска мора да задовољи.
+    \item Атрибути \texttt{minlength} и \texttt{maxlength} ограничавају дужину унетог текста.
+    \item За бројеве се користи \texttt{<input type="number" min="...">}, за мејл \texttt{<input type="email">}, за телефон \texttt{<input type="tel">}.
+\end{itemize}
+
+Пример HTML формулара са валидацијом:
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Add new customer</title>
+     <style>
+       .msg { border: 1px solid black; }
+       input:invalid {
+           background-color: #f55;
+       }
+     </style>
+   </head>
+   <body>
+     <h1>Add customer</h1>
+     <form method="POST" id="customerForm">
+       <table>
+         <tr>
+           <td><label for="first-name">First name:</label></td>
+           <td><input type="text" id="first-name" name="first-name" required /></td>
+         </tr>
+         <tr>
+           <td><label for="last-name">Last name:</label></td>
+           <td><input type="text" id="last-name" name="last-name" required /></td>
+         </tr>
+         <tr>
+           <td><label for="phone">Phone:</label></td>
+           <td><input type="tel" id="phone" name="phone" required /></td>
+         </tr>
+         <tr>
+           <td><label for="e-mail">E-mail:</label></td>
+           <td><input type="email" id="e-mail" name="e-mail" required /></td>
+         </tr>
+       </table>
+       <input type="submit" value="Add customer" />
+     </form>
+   </body>
+</html>
+\end{lstlisting}
+
+\subsection{Клијентска валидација уз помоћ JavaScript-а}
+
+\begin{lstlisting}[language=HTML]
+<script>
+document.forms.customerForm.addEventListener("submit", validateForm);
+
+function validateForm(event) {
+    var form = document.forms.customerForm;
+    var firstName = form.elements["first-name"];
+    var lastName = form.elements["last-name"];
+    var phone = form.elements["phone"];
+    var eMail = form.elements["e-mail"];
+
+    function validateNonEmpty(field) {
+        field.classList.remove("invalid");
+        if (field.value.length == 0) {
+            field.classList.add("invalid");
+            return false;
+        }
+        return true;
+    }
+
+    function validateEMail(field) {
+        field.classList.remove("invalid");
+        const re = /^[a-z0-9+_.-]+@[a-z0-9.-]+$/;
+        if (!re.test(String(field.value).toLowerCase())) {
+            field.classList.add("invalid");
+            return false;
+        }
+        return true;
+    }
+
+    var OK = true;
+    OK = OK && validateNonEmpty(firstName);
+    OK = OK && validateNonEmpty(lastName);
+    OK = OK && validateNonEmpty(phone);
+    OK = OK && validateNonEmpty(eMail) && validateEMail(eMail);
+
+    if (!OK) event.preventDefault();
+}
+</script>
+\end{lstlisting}
+
+\subsection{Серверска валидација у Python-у (Flask)}
+
+\begin{lstlisting}[language=Python]
+@app.route("/customer", methods=["GET", "POST"])
+def customer():
+    if request.method == 'GET':
+        return render_template("customer.html")
+    else:
+        first_name = request.form['first-name']
+        last_name = request.form['last-name']
+        phone = request.form['phone']
+        email = request.form['e-mail']
+
+        error = None
+        if not first_name or not first_name.strip():
+            error = "First name is missing"
+        elif not last_name or not last_name.strip():
+            error = "Last name is missing"
+        elif not phone or not phone.strip():
+            error = "Phone is missing"
+        elif not email or not re.match(r"[a-z0-9+_\.-]+@[a-z0-9\.-]+", email):
+            error = "E-mail is not valid"
+
+        if error:
+            return render_template("customer.html", msg=error)
+
+        try:
+            db_conn = get_db()
+            cursor = db_conn.cursor()
+            query = ("INSERT INTO Customer "
+                     "(FirstName, LastName, Phone, Email) "
+                     "VALUES (?, ?, ?, ?)")
+            cursor.execute(query, (first_name, last_name, phone, email))
+            db_conn.commit()
+            return render_template("customer.html",
+                                   msg="Customer was successfully added")
+        except:
+            return render_template("customer.html",
+                                   msg="Error adding new customer")
+\end{lstlisting}
+
+\noindent
+На овај начин је обезбеђена и клијентска и серверска валидација података, чиме се спречава упис некоректних података у базу.
+
+
+\section{AJAX и асинхрона комуникација са сервером}
+
+До сада су веб-апликације у овом раду биле организоване на традиционалан начин: након пријема захтева, серверска апликација формира комплетну HTML страну и шаље је клијенту, који затим ту страну приказује у прегледачу веба. Том приликом се садржај тренутно отворене странице у потпуности замењује новом страницом.
+
+Савремене веб-апликације често користе другачији приступ, у коме се део података преузима са сервера \textbf{без поновног учитавања целе странице}. Овакав начин рада остварује се помоћу технологије \textbf{AJAX} (енг. \emph{Asynchronous JavaScript and XML}). Иако назив упућује на XML формат, у пракси се данас најчешће користи формат \textbf{JSON} (JavaScript Object Notation).
+
+Основна идеја AJAX-а је да JavaScript код, који се извршава у прегледачу, на основу неке корисничке акције (нпр. уноса текста) шаље HTTP захтев серверу, прима податке и динамички их приказује унутар већ отворене странице.
+
+\subsection*{Пример: динамичка претрага извођача}
+
+У овом примеру приказана је веб-апликација која омогућава претрагу извођача из базе података. Корисник уноси текст у поље за претрагу, а испод тог поља се приказује листа првих десет извођача чије име почиње унетим карактерима.
+
+Апликација има две путање:
+\begin{itemize}
+    \item корену путању \texttt{/}, која приказује HTML страну са пољем за претрагу,
+    \item путању \texttt{/artists}, која прима текст за претрагу као GET параметар и враћа податке у JSON формату.
+\end{itemize}
+
+\subsection*{Основна страна апликације}
+
+Путања \texttt{/} враћа HTML шаблон који садржи поље за унос текста и празну листу у којој ће се приказивати резултати претраге:
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Artists</title>
+  </head>
+  <body>
+    <input type="text" id="Name" />
+    <ul id="Artists"></ul>
+  </body>
+</html>
+\end{lstlisting}
+
+\subsection*{Серверска обрада AJAX захтева}
+
+Серверска функција на путањи \texttt{/artists} прима GET параметар \texttt{name}, врши упит ка бази података и враћа резултат у JSON формату:
+
+\begin{lstlisting}[language=Python]
+@app.route("/artists")
+def artists():
+    name = request.args.get("name")
+    artists = query_db(
+        "SELECT Name FROM Artist WHERE Name LIKE ?",
+        (name + "%",)
+    )
+    return jsonify(artists)
+\end{lstlisting}
+
+За претрагу се користи SQL оператор \texttt{LIKE}, при чему се специјални знак \texttt{\%} додаје вредности параметра. Параметризовани упит обезбеђује заштиту од SQL инјекција, а функција \texttt{jsonify} претвара резултат у JSON формат погодан за употребу у JavaScript-у.
+
+\subsection*{JavaScript и слање AJAX захтева}
+
+JavaScript код реагује на промену садржаја у пољу за унос текста и, када је унето најмање два карактера, шаље AJAX захтев серверу:
+
+\begin{lstlisting}[language=JavaScript]
+var inputName = document.getElementById("Name");
+
+inputName.addEventListener("keyup", function() {
+    if (inputName.value.length >= 2) {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var artists = JSON.parse(xhttp.responseText);
+                var ul = document.getElementById("Artists");
+                ul.innerHTML = "";
+
+                artists.forEach(artist => {
+                    var li = document.createElement("li");
+                    li.innerHTML = artist[0];
+                    ul.append(li);
+                });
+            }
+        };
+
+        const params = new URLSearchParams({name: inputName.value});
+        const url = "{{ url_for('artists') }}?" + params.toString();
+
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+});
+\end{lstlisting}
+
+Након пријема успешног одговора (HTTP статус 200), подаци се претварају из JSON формата у JavaScript структуре података, а затим се динамички приказују у HTML листи. На овај начин се садржај странице ажурира без њеног поновног учитавања.
+
+\subsection*{Предности AJAX приступа}
+
+Коришћењем AJAX технологије постиже се:
+\begin{itemize}
+    \item бржи и интерактивнији рад веб-апликације,
+    \item мањи проток података између клијента и сервера,
+    \item боље корисничко искуство, јер се страна не освежава у целости.
+\end{itemize}
+
+Због ових особина, AJAX представља један од основних механизама савремених веб-апликација и важан је део наставе веб програмирања.
+
+\section{Закључак}
+
+У овом семинарском раду приказани су основни елементи развоја веб-апликација на серверској и клијентској страни, са посебним освртом на њихову примену у настави рачунарства и информатике у средњој школи. Кроз рад су обрађене теме као што су HTTP захтеви, рад са формуларима, колачићима и сесијама, повезивање са базом података, као и основи асинхроне комуникације помоћу AJAX технологије.
+
+Приликом избора примера и начина излагања водило се рачуна о томе да садржај буде прилагођен ученицима, односно да се нови појмови уводе постепено и кроз конкретне и разумљиве ситуације. На тај начин ученици могу да стекну јасну представу о томе како функционише веб-апликација, која је улога сервера, а која клијента, као и како се подаци размењују између њих. Посебно је значајно што ученици кроз практичне примере могу да повежу теоријска знања са реалним применама које су им већ познате из свакодневне употребе веба.
+
+Flask оквир се у том контексту показује као веома погодан за наставу, јер омогућава једноставну имплементацију веб-апликација без сложене конфигурације. Ученици се могу усмерити на разумевање основних концепата веб програмирања, уместо на техничке детаље који би им у почетној фази могли представљати препреку. Поред тога, кроз рад са базама података и параметризованим упитима могу се увести и основни појмови безбедности, што је важан део савременог информатичког образовања.
+
+Садржаји приказани у овом раду могу да послуже као добра основа за реализацију наставних часова или вежби, али и као полазна тачка за даље проширивање градива. У настави је могуће постепено уводити напредније концепте, као што су кориснички налози, управљање сесијама или сложеније клијентско-серверске интеракције. На тај начин ученици не стичу само техничка знања, већ развијају и логичко размишљање и разумевање начина на који функционишу савремене информационе технологије.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{petlja}
+Petlja.org — \emph{Веб програмирање за четврти разред специјализованих ИТ одељења}. Доступно на: \url{https://petlja.org/sr-Latn-RS/kurs/18657/21/6558} (преузето: јануар 2026).
+
+\bibitem{vebp}
+Veb programiranje — математички факултет, Универзитет у Београду. Опис курса, теме и препоручена литература. Доступно на: \url{https://www.vebp.matf.bg.ac.rs/} (преузето: јануар 2026). 
+
+\end{thebibliography}
+
+
+
+\end{document}
+
