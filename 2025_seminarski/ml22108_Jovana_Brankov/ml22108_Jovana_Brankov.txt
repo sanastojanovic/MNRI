@@ -154,7 +154,7 @@ Protokoli na ovom sloju su:
  \textbf{Mrežni sloj} omogućava adresiranje i rutiranje podataka kroz širu mrežu, odnosno određivanje putanje kojom paketi stižu do odredišta.
 
   \textbf{Transportni sloj} obezbeđuje prenos podataka između aplikacija i koristi \textbf{portove} za njihovo razlikovanje. Najvažniji protokoli ovog sloja su TCP i UDP. \textbf{TCP} omogućava pouzdanu komunikaciju uz kontrolu grešaka, dok je \textbf{UDP} brži, ali manje pouzdan i koristi se u aplikacijama u realnom vremenu.
- \textbf{Aplikativni sloj} obuhvata protokole koji su namenjeni konkretnim internet servisima,neki od njih su:
+ \textbf{Aplikativni sloj} obuhvata protokole koji su namenjeni konkretnim internet servisima, neki od njih su:
  \begin{itemize}
 \item HTTP i HTTPS (za preuzimanje sa veb)
 \item POP3 i IMAP (za preuzimanje elektronske pošte)
@@ -338,7 +338,7 @@ HTTPS protokol se sve više koristi jer obezbeđuje poverljivost i sigurnost pod
 \paragraph{Kako se instalira biblioteka Flask?}
 
 
-Instalacija biblioteke Flask je jednostavna i vrši se pomoću alatke \texttt{pip}, koja služi za upravljanje paketima u programskom jeziku Python. Potrebno je pokrenuti komandnu liniju (na primer, unosom\texttt{cmd} u pretragu operativnog sistema).
+Instalacija biblioteke Flask je jednostavna i vrši se pomoću alatke \texttt{pip}, koja služi za upravljanje paketima u programskom jeziku Python. Potrebno je pokrenuti komandnu liniju (na primer, unosom \texttt{cmd} u pretragu operativnog sistema).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.7\textwidth]{sl14.png}
