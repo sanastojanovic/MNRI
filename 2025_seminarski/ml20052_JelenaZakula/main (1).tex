@@ -1,23 +1,25 @@
 \documentclass{beamer}
 \usetheme{Madrid}
+\setbeamertemplate{footline}{}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[serbian]{babel}
+\usepackage{hyperref}
 
 \title{BAZE PODATAKA}
 \author{Jelena Žakula}
-\institute{Prof. Sana Stojanović Đurđević}
+\institute{Metodika nastave računarstva A}
 
 \begin{document}
 
 \begin{frame}
-  \titlepage
+\titlepage
 \end{frame}
 
 \begin{frame}{Rad sa tabelama i veze između njih}
 \begin{itemize}
-    \item Tabele su osnovna komponenta u relacionim bazama podataka.
+    \item Tabele su osnovna komponenta u relacionim bazama podataka. 
     \item Omogućavaju organizaciju i skladištenje podataka.
     \item Olakšavaju upravljanje i dobijanje korisnih informacija.
 \end{itemize}
@@ -34,10 +36,8 @@
 
 \begin{frame}{Primarni i sekundarni ključevi}
 \begin{itemize}
-    \item Primarni ključ: jednoznačno identifikuje svaki slog.
-    \item Može biti prost (jedan atribut) ili složen (više atributa).
+    \item Primarni ključ - jednoznačno identifikuje svaki slog. Može biti prost (jedan atribut) ili složen (više atributa).
     \item Sekundarni ključevi (indeksi) omogućavaju bržu pretragu i sortiranje.
-    \item Veštački ključevi
 \end{itemize}
 \end{frame}
 
@@ -84,19 +84,18 @@ SifraUc & Davalac & Iznos \\
 \begin{itemize}
     \item Ključna uloga za preglednost i pravilnu interpretaciju.
     \item Definisanje tipova podataka, širine kolona i formata prikaza.
-    \item Primena pravila unosa, podrazumevanih vrednosti i maskiranja podataka.
     \item Olakšava čitanje, pretragu i analizu informacija.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Referencijalni integritet}
-\begin{center}
+
 Povezanost tabela ostvaruje se pomoću ključeva:
+\begin{center}
 \bigskip
 \begin{itemize}
-    \item Primarni ključ jedne tabele povezuje se sa stranim ključem druge tabele
-    \item Referencijalni integritet garantuje doslednost podataka
-    \item Svaka vrednost stranog ključa mora postojati kao primarni ključ ili može biti prazna
+    \item Primarni ključ jedne tabele povezuje se sa stranim ključem druge tabele. Svaka vrednost stranog ključa mora postojati kao primarni ključ ili može biti prazna.
+    \item Referencijalni integritet garantuje doslednost podataka.
 \end{itemize}
 
 \bigskip
@@ -107,203 +106,187 @@ Povezanost tabela ostvaruje se pomoću ključeva:
 \begin{frame}{Prednosti referencijalnog integriteta}
 \begin{center}
 \begin{itemize}
-    \item Obezbeđuje logičku ispravnost baze
-    \item Automatski kontroliše unos, izmene i brisanje podataka
-    \item Omogućava kaskadne izmene i kaskadna brisanja
-    \item Olakšava spajanje tabela i formiranje složenih upita
+    \item Obezbeđuje logičku ispravnost baze.
+    \item Automatski kontroliše unos, izmene i brisanje podataka.
+    \item Omogućava kaskadne izmene i kaskadna brisanja.
+    \item Olakšava spajanje tabela i formiranje složenih upita.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Izmene veza između tabela}
+
+Veze se mogu menjati dodavanjem, uklanjanjem ili modifikovanjem:
 \begin{center}
-\textbf{Veze se mogu menjati dodavanjem, uklanjanjem ili modifikovanjem:}
 \bigskip
 \begin{itemize}
-    \item Tipične veze: \textit{one-to-one}, \textit{one-to-many}, \textit{many-to-many}
-    \item Promene mogu biti: dodavanje/uklanjanje stranog ključa, promena tipa veze, redefinisanje pravila referencijalnog integriteta
-    \item Preporuka: planirati izmene unapred i analizirati postojeće podatke
+    \item Tipične veze: \textit{one-to-one}, \textit{one-to-many}, \textit{many-to-many}.
+    \item Promene mogu biti: dodavanje/uklanjanje stranog ključa, promena tipa veze, redefinisanje pravila referencijalnog integriteta.
+    \item Preporuka: planirati izmene unapred i analizirati postojeće podatke.
 \end{itemize}
-
-\bigskip
-\textit{Migracija podataka ili privremena prilagodba strukture može biti potrebna za očuvanje stabilnosti sistema.}
 \end{center}
 \end{frame}
 
 \begin{frame}{Forme (obrasci)}
+
+Forme omogućavaju lakši i pregledniji unos i prikaz podataka u bazi.
 \begin{center}
-\textbf{Forme omogućavaju lakši i pregledniji unos i prikaz podataka u bazi.}
 
 \bigskip
 \begin{itemize}
-    \item Kreiranje pomoću \textit{Wizard}-a (čarobnjaka) ili ručno (\textit{Design view})
-    \item \textit{Wizard} je pogodan za početnike: automatski dodaje kontrole i izgled
-    \item Ručno kreiranje pruža maksimalnu fleksibilnost i prilagođeni vizuelni identitet
+    \item Kreiranje pomoću \textit{Wizard}-a (čarobnjaka) ili ručno (\textit{Design view}).
+    \item \textit{Wizard} je pogodan za početnike: automatski dodaje kontrole i izgled.
+    \item Ručno kreiranje pruža maksimalnu fleksibilnost i prilagođeni vizuelni identitet.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Unos podataka pomoću formi}
+
+Forme služe za unos podataka u bazu bez direktnog rada sa tabelom.
 \begin{center}
-\textbf{Forme služe za unos podataka u bazu bez direktnog rada sa tabelom.}
 
 \bigskip
 \begin{itemize}
-    \item Korisnik unosi vrednosti direktno u polja tabele ili \textit{query}-a
-    \item Kontrole: \textit{text box}, \textit{combo box}, \textit{list box}, \textit{check box}
-    \item Prednost: prikaz samo relevantnih polja i validacija podataka
+    \item Korisnik unosi vrednosti direktno u polja tabele ili \textit{query}-a.
+    \item Kontrole: \textit{text box}, \textit{combo box}, \textit{list box}, \textit{check box}.
+    \item Prednost: prikaz samo relevantnih polja i validacija podataka.
 \end{itemize}
 \end{center}
 \end{frame}
 
 
 \begin{frame}{Specijalne kontrole formi}
+
+Specijalne kontrole olakšavaju rad i navigaciju u bazi:
 \begin{center}
-\textbf{Specijalne kontrole olakšavaju rad i navigaciju u bazi:}
 
 \bigskip
 \begin{itemize}
-    \item \textit{List box} i \textit{combo box}: izbor vrednosti iz liste
-    \item \textit{Command buttons}: izvršavanje akcija (čuvanje, brisanje, otvaranje drugih formi)
-    \item Povećavaju efikasnost i smanjuju mogućnost greške korisnika
+    \item \textit{List box} i \textit{combo box}: izbor vrednosti iz liste.
+    \item \textit{Command buttons}: izvršavanje akcija (čuvanje, brisanje, otvaranje drugih formi).
+    \item Povećavaju efikasnost i smanjuju mogućnost greške korisnika.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Multitabelarne forme}
+
+Omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno.
 \begin{center}
-\textbf{Omogućavaju pregled i unos podataka iz više tabela ili upita istovremeno.}
 
 \bigskip
 \begin{itemize}
-    \item Pogodne za prikaz povezanih podataka (npr. proizvodi i količina po magacinima)
-    \item Zahtevaju pravilno povezivanje kontrola sa izvorom podataka
-    \item Često koriste \textit{subforms} za prikaz podataka iz drugih tabela ili upita
+    \item Pogodne su za prikaz povezanih podataka (npr. proizvodi i količina po magacinima).
+    \item Zahtevaju pravilno povezivanje kontrola sa izvorom podataka.
+    \item Često koriste \textit{subforms} za prikaz podataka iz drugih tabela ili upita.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Pretraživanje podataka u tabeli}
+
+Pretraživanje omogućava brzo pronalaženje željenih slogova.
 \begin{center}
-\textbf{Pretraživanje omogućava brzo pronalaženje željenih slogova.}
 
 \bigskip
 \begin{itemize}
-    \item \textit{Search} funkcija: filtriranje po tekstu, brojevima ili datumu
-    \item \textit{Advanced Filter}: kombinovanje više kriterijuma
-    \item Pravilno indeksiranje ubrzava pronalaženje i optimizuje rad sa velikim bazama
+    \item \textit{Search} funkcija: filtriranje po tekstu, brojevima ili datumu.
+    \item \textit{Advanced Filter}: kombinovanje više kriterijuma.
+    \item Pravilno indeksiranje ubrzava pronalaženje i optimizuje rad sa velikim bazama.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Sortiranje, filtriranje i indeksiranje}
+
+Sortiranje i filtriranje poboljšavaju preglednost i analizu podataka.
 \begin{center}
-\textbf{Sortiranje i filtriranje poboljšavaju preglednost i analizu podataka.}
 
 \bigskip
 \begin{itemize}
-    \item \textit{Sort}: raspoređivanje slogova po rastućem ili opadajućem redosledu
-    \item \textit{Filter}: prikaz samo slogova koji ispunjavaju kriterijume
-    \item \textit{Indeksiranje}: brži pristup podacima po definisanim poljima
-    \item Kombinacija omogućava efikasno izveštavanje i vizuelizaciju
+    \item \textit{Sort}: raspoređivanje slogova po rastućem ili opadajućem redosledu.
+    \item \textit{Filter}: prikaz samo slogova koji ispunjavaju kriterijume.
+    \item \textit{Indeksiranje}: brži pristup podacima po definisanim poljima.
+    \item Kombinacija omogućava efikasno izveštavanje i vizuelizaciju.
 \end{itemize}
 \end{center}
 \end{frame}
 
-\begin{frame}{Upiti u bazama podataka}
-\begin{center}
-\textbf{Upiti omogućavaju pregled, dodavanje, izmenu i brisanje podataka.}
-
-\bigskip
-\begin{itemize}
-    \item Komunikacija sa bazom preko \textit{SQL} jezika
-    \item Omogućava kreiranje baze i tabela, upisivanje, menjanje, pretraživanje i brisanje podataka
-\end{itemize}
-\end{center}
-\end{frame}
 
 \begin{frame}{Osnovne SQL komande}
 \begin{center}
-\textbf{\textit{SQL} komande se dele u tri osnovne grupe:}
 
 \bigskip
 \begin{itemize}
-    \item Komande za definiciju podataka – kreiranje tabela i baze
-    \item Komande za manipulaciju podacima – unos, izmena i brisanje podataka
-    \item Komande za kontrolu pristupa – prava pristupa korisnika
+    \item Komande za definiciju podataka – kreiranje tabela i baze.
+    \item Komande za manipulaciju podacima – unos, izmena i brisanje podataka.
+    \item Komande za kontrolu pristupa – prava pristupa korisnika.
 \end{itemize}
 \end{center}
 \end{frame}
 
 
 \begin{frame}{Set SQL naredbi za kontrolu}
+
+Kontrolne naredbe upravljaju pravima pristupa korisnika:
 \begin{center}
-\textbf{Kontrolne naredbe upravljaju pravima pristupa korisnika:}
 \bigskip
 \begin{itemize}
-\item \textit{GRANT} – dodeljuje prava pristupa
-\item \textit{REVOKE} – oduzima prava pristupa
+\item \textit{GRANT} – dodeljuje prava pristupa;
+\item \textit{REVOKE} – oduzima prava pristupa.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Set SQL naredbi za definiciju}
+
+Definicione naredbe služe za rukovanje objektima baze:
 \begin{center}
-\textbf{Definicione naredbe služe za rukovanje objektima baze:}
 \bigskip
 \begin{itemize}
-\item \textit{CREATE} – kreiranje baze, tabela, pogleda i objekata
-\item \textit{ALTER} – menjanje strukture objekata
-\item \textit{DROP} – brisanje objekata ili baze
+\item \textit{CREATE} – kreiranje baze, tabela, pogleda i objekata;
+\item \textit{ALTER} – menjanje strukture objekata;
+\item \textit{DROP} – brisanje objekata ili baze.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Set SQL naredbi za manipulaciju}
+
+Manipulativne naredbe su najčešće korišćene:
 \begin{center}
-\textbf{Manipulativne naredbe su najčešće korišćene:}
+
 \bigskip
 \begin{itemize}
-\item \textit{SELECT} – čitanje podataka
-\item \textit{INSERT} – unos podataka
-\item \textit{UPDATE} – izmena podataka
-\item \textit{DELETE} – brisanje podataka
+\item \textit{SELECT} – čitanje podataka;
+\item \textit{INSERT} – unos podataka;
+\item \textit{UPDATE} – izmena podataka;
+\item \textit{DELETE} – brisanje podataka.
 \end{itemize}
 \end{center}
 \end{frame}
 
 \begin{frame}{Kreiranje upita u bazama podataka}
 \begin{center}
-\textbf{Upiti se mogu kreirati na dva načina:}
-\bigskip
 \begin{itemize}
-    \item Pomoću čarobnjaka (\textit{Wizard}) – jednostavno, automatski dodaje kontrole i povezuje tabele
-    \item U \textit{Design} modu – precizna kontrola nad izborom tabela, polja i uslova
+    \item Pomoću čarobnjaka (\textit{Wizard}) – jednostavno, automatski dodaje kontrole i povezuje tabele.
+    \item U \textit{Design} modu – precizna kontrola nad izborom tabela, polja i uslova.
 \end{itemize}
-\bigskip
-\textit{Pre kreiranja upita važno je definisati zadatak i podatke koje želimo prikazati.}
 \end{center}
 \end{frame}
 
 \begin{frame}{Pregled rezultata upita}
+
+Rezultati \textit{SQL} upita prikazuju se u tabelarnom obliku:
 \begin{center}
-\textbf{Rezultati \textit{SQL} upita prikazuju se u tabelarnom obliku:}
 \bigskip
 \begin{itemize}
-    \item Omogućava analizu i interpretaciju podataka
-    \item Sortiranje, filtriranje i grupisanje olakšavaju donošenje odluka
-    \item Pomaže u otkrivanju grešaka u upitima i proveri integriteta podataka
+    \item Omogućava analizu i interpretaciju podataka.
+    \item Sortiranje, filtriranje i grupisanje olakšavaju donošenje odluka.
+    \item Pomaže u otkrivanju grešaka u upitima i proveri integriteta podataka.
 \end{itemize}
 \end{center}
-\end{frame}
-
-\begin{frame}{Pretraživanje i \textit{SELECT} upiti}
-\begin{itemize}
-    \item \textit{SELECT} - čitanje podataka iz baze
-    \item \textit{INSERT} - unos novih podataka
-    \item \textit{UPDATE} - izmena postojećih podataka
-    \item \textit{DELETE} - brisanje podataka
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Primer \textit{SELECT} upita: svi učenici}
@@ -337,7 +320,9 @@ id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
 
 \textbf{Upit:}
 \begin{verbatim}
-SELECT id, ime, prezime, pol, datum_rodjenja, razred, odeljenje
+SELECT id, ime, prezime, 
+       pol, datum_rodjenja, 
+       razred, odeljenje
 FROM ucenik;
 \end{verbatim}
 
@@ -363,116 +348,109 @@ id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
 \begin{frame}{Pregled rezultata upita}
 
 \begin{itemize}
-    \item Rezultati se prikazuju u tabelarnom obliku
-    \item Moguće je sortirati, filtrirati i grupisati podatke
-    \item Pregled rezultata pomaže u proveri integriteta i tačnosti podataka
-    \item \textit{SELECT *} čita sve kolone iz tabele
+    \item Rezultati se prikazuju u tabelarnom obliku.
+    \item Moguće je sortirati, filtrirati i grupisati podatke.
+    \item Pregled rezultata pomaže u proveri integriteta i tačnosti podataka.
+    \item \textit{SELECT *} čita sve kolone iz tabele.
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Kreiranje multitabelarnih upita}
 \begin{itemize}
-    \item Omogućavaju povezivanje podataka iz više tabela
-    \item Koriste se operacije: \textit{JOIN}, \textit{INNER JOIN}, \textit{LEFT JOIN}
-    \item Važno pravilno definisati veze između tabela
-    \item Često se kombinuju sa filtriranjem, sortiranjem i grupisanjem
+    \item Omogućavaju povezivanje podataka iz više tabela.
+    \item Koriste se operacije: \textit{JOIN}, \textit{INNER JOIN}, \textit{LEFT JOIN}.
+    \item Važno pravilno definisati veze između tabela.
+    \item Često se kombinuju sa filtriranjem, sortiranjem i grupisanjem.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Izveštaji}
 \begin{itemize}
-    \item Organizovan prikaz podataka iz baza podataka
-    \item Služe za analizu, prezentaciju i štampu
-    \item Mogu sadržati: naslove, oznake, grafike, formatiranje
-    \item Omogućavaju pregled i vizuelizaciju podataka
+    \item Organizovan prikaz podataka iz baza podataka.
+    \item Služe za analizu, prezentaciju i štampu.
+    \item Mogu sadržati: naslove, oznake, grafike, formatiranje.
+    \item Omogućavaju pregled i vizuelizaciju podataka.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Kreiranje izveštaja}
 \begin{itemize}
-    \item Može se koristiti alatka \textit{Report} ili \textit{Report Wizard}
-    \item \textit{Wizard} vodi kroz izbor polja, grupisanje i sortiranje
-    \item Finalni izgled izveštaja može se dodatno prilagoditi u \textit{Layout/Design}
-    \item Izveštaj se može sačuvati i naknadno menjati
+    \item Može se koristiti alatka \textit{Report} ili \textit{Report Wizard}.
+    \item \textit{Wizard} vodi kroz izbor polja, grupisanje i sortiranje.
+    \item Finalni izgled izveštaja može se dodatno prilagoditi u \textit{Layout/Design}.
+    \item Izveštaj se može sačuvati i naknadno menjati.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Pregled izveštaja}
 \begin{itemize}
-    \item \textit{Report View}: privremene promene i kopiranje podataka
-    \item \textit{Layout View}: menjanje dizajna dok se podaci gledaju
-    \item \textit{Print Preview}: prikaz kako će izveštaj izgledati u štampi
+    \item \textit{Report View}: privremene promene i kopiranje podataka.
+    \item \textit{Layout View}: menjanje dizajna dok se podaci gledaju.
+    \item \textit{Print Preview}: prikaz kako će izveštaj izgledati u štampi.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Postavljanje kontrola i izračunavanja}
 \begin{itemize}
-    \item Kontrole omogućavaju strukturiranje i analizu podataka
+    \item Kontrole omogućavaju strukturiranje i analizu podataka.
     \item Tipovi kontrola:
     \begin{itemize}
-        \item \textit{Bound} (povezane) – prikaz vrednosti iz baze, npr. \textit{text box}
-        \item \textit{Unbound} (nepovezane) – statički sadržaji: linije, naslovi, slike
-        \item \textit{Calculated} (izračunate) – koriste izraz umesto polja \\
-        npr. = [Cena] * 0,75
+        \item \textit{Bound} (povezane) – prikaz vrednosti iz baze, npr. \textit{text box};
+        \item \textit{Unbound} (nepovezane) – statički sadržaji: linije, naslovi, slike;
+        \item \textit{Calculated} (izračunate) – koriste izraz umesto polja.
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Postavljanje kontrola u izveštaju}
 \begin{itemize}
-    \item Preporučljivo prvo dodati i rasporediti povezane kontrole (\textit{bound})
-    \item Nepovezane i izračunate kontrole se dodaju naknadno
+    \item Preporučljivo prvo dodati i rasporediti povezane kontrole.
+    \item Nepovezane i izračunate kontrole se dodaju naknadno.
     \item Povezivanje kontrole sa poljem:
     \begin{itemize}
-        \item Prevlačenjem polja iz \textit{Field List}
-        \item Direktnim unosom imena polja u \textit{ControlSource}
+        \item Prevlačenjem polja iz \textit{Field List};
+        \item Direktnim unosom imena polja u \textit{ControlSource}.
     \end{itemize}
-    \item Nepovezana kontrola se može naknadno povezati preko \textit{ControlSource}
-    \item Fleksibilnost omogućava kombinaciju statičkih i dinamičkih elemenata
+    \item Nepovezana kontrola se može naknadno povezati preko \textit{ControlSource}.
+    \item Fleksibilnost omogućava kombinaciju statičkih i dinamičkih elemenata.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Kreiranje multitabelarnih izveštaja}
 \begin{itemize}
-    \item Omogućavaju prikaz podataka iz više tabela ili upita
-    \item Veze između izvora podataka obezbeđuju ispravnu povezanost
-    \item Upotreba podizveštaja (\textit{subreports}) za dodatne detalje
+    \item Omogućavaju prikaz podataka iz više tabela ili upita.
+    \item Veze između izvora podataka obezbeđuju ispravnu povezanost.
+    \item Upotreba podizveštaja za dodatne detalje.
     \item Dizajn treba da bude pregledan:
     \begin{itemize}
-        \item Raspored kolona
-        \item Boje i obrubi
-        \item Vizuelne karakteristike za brzu identifikaciju ključnih podataka
-    \end{itemize}
-    \item Posebno korisno za višedimenzionalne informacije:
-    \begin{itemize}
-        \item Lageri po magacinima
-        \item Prodaja po proizvodima
-        \item Finansijski pokazatelji po odeljenjima
+        \item Raspored kolona;
+        \item Boje i obrubi;
+        \item Vizuelne karakteristike za brzu identifikaciju ključnih podataka.
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Vizuelizacija podataka baze}
 \begin{itemize}
-    \item Omogućava prikaz i interpretaciju informacija iz baze
-    \item Olakšava razumevanje, analizu i donošenje odluka
+    \item Omogućava prikaz i interpretaciju informacija iz baze.
+    \item Olakšava razumevanje, analizu i donošenje odluka.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Komponente za povezivanje aplikacije sa bazom}
 \begin{itemize}
-    \item Omogućavaju uspostavljanje i održavanje veze između aplikacije i baze
+    \item Omogućavaju uspostavljanje i održavanje veze između aplikacije i baze.
     \item .NET komponente:
     \begin{itemize}
-        \item \textit{BindingSource} – posrednik između izvora podataka i kontrola
-        \item \textit{DataTable}, \textit{DataSet}, \textit{DataView} – strukture za sinhronizaciju podataka
+        \item \textit{BindingSource} – posrednik između izvora podataka i kontrola;
+        \item \textit{DataTable}, \textit{DataSet}, \textit{DataView} – strukture za sinhronizaciju podataka.
     \end{itemize}
     \item Vizuelni alati (\textit{Visual Studio}) olakšavaju:
     \begin{itemize}
-        \item Konfigurisanje veze
-        \item Izvršavanje upita
-        \item Upravljanje rezultatima preko \textit{data binding}-a
+        \item Konfigurisanje veze;
+        \item Izvršavanje upita;
+        \item Upravljanje rezultatima preko \textit{data binding}-a.
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -481,24 +459,23 @@ id & ime & prezime & pol & datum\_rodjenja & razred & odeljenje \\
 \begin{itemize}
     \item Kontrole korisničkog interfejsa povezane sa izvorima podataka:
     \begin{itemize}
-        \item \textit{DataGridView} – prikaz više zapisa u tabeli
-        \item \textit{TextBox}, \textit{ComboBox} – prikaz pojedinačnih vrednosti
+        \item \textit{DataGridView} – prikaz više zapisa u tabeli;
+        \item \textit{TextBox}, \textit{ComboBox} – prikaz pojedinačnih vrednosti.
     \end{itemize}
-    \item Promene u vizuelnim kontrolama automatski se propagiraju u bazu
-    \item Omogućava unos, ažuriranje i brisanje podataka bez direktnog \textit{SQL} koda
+    \item Promene u vizuelnim kontrolama automatski se propagiraju u bazu.
+    \item Omogućava unos, ažuriranje i brisanje podataka bez direktnog \textit{SQL} koda.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Komponente za navigaciju u aplikaciji}
 \begin{itemize}
-    \item Omogućavaju kretanje kroz podatke i module aplikacije
+    \item Omogućavaju kretanje kroz podatke i module aplikacije.
     \item Tipične komponente:
     \begin{itemize}
-        \item \textit{MenuStrip}, \textit{ToolStrip}, \textit{Toolbar}, \textit{Navigation Pane}
-        \item Dugmad, kartice (\textit{tabs}), paneli
+        \item \textit{MenuStrip}, \textit{ToolStrip}, \textit{Toolbar}, \textit{Navigation Pane};
+        \item Dugmad, kartice (\textit{tabs}), paneli.
     \end{itemize}
-    \item Primer: \textit{Microsoft Access Navigation Pane} prikazuje sve objekte baze i omogućava brzi pristup
-    \item Poboljšava korisničko iskustvo i olakšava rad sa podacima
+    \item Primer: \textit{Microsoft Access Navigation Pane} prikazuje sve objekte baze i omogućava brzi pristup.
 \end{itemize}
 \end{frame}
 
