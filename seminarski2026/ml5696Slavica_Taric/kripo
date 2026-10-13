@@ -1,1 +1,164 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[serbian]{babel}
+\usepackage[none]{hyphenat}
+\title{Kriptografija, asimetričan sistem}
+\author{Slavica Tarić}
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\section{Uvod}
+Kriptografija je naučna disciplina koja se bavi metodama zaštite podataka i komunikacija transformisanjem čitljivog sadržaja u nečitljiv fromat tako da ga mogu pročitati samo ovlašćene osobe.
+\subsection{Osnovni pojmovi}
+Pre dubljeg ulaza u ovu temu treba se upoznati sa osnovnim pojmovima i njihovim značenjima kako bismo razumeli dalji rad.
+\begin{itemize}
+    \item \textbf{Otvoreni tekst ( IT )} - poruka koju treba poslati ;
+    \item \textbf{Šifrat ( ST )} - šifrovana poruka ;
+    \item \textbf{Šifrovanje} - transformacija otvorenog teksta u šifrat ;
+    \item \textbf{Dešifrovanje} - inverzna transformacija šifrata u otvoreni tekst ;
+    \item \textbf{Kodiranje} - transformacija otvorenog teksta u niza cifara ili bitova ;
+    \item \textbf{Dekodiranje} - inverzna transformacija niza cifara ili bitova u otvoreni tekst ;
+    \item \textbf{Protočna šifra} - transformiše otvoreni tekst simbol po simbol ili najčešće bit po bit ;
+    \item \textbf{Blokovska šifra} - 
+    \item \textbf{Šifra premeštanja} - permutuje slova, znakove, bitove ;
+    \item \textbf{Šifra zamene} - zamenjuje slova, znakove ili bitove drugim, ne menjajući im mesta ;
+    \item \textbf{Kombinovana šifra} - naizmenično primenjuje permutacije i zamene ;
+    \item \textbf{Šifarski sistem} - predstavlja par čiji su elementi algoritam šifrovanja i algoritam dešifrovanja. Ovi elementi gotovo uvek zavise od \textbf{ključa}, posebnog parametra, kojim se u okviru izabranog sistema bira određena šifarska transformacija ;
+    \item \textbf{Simetrični sistem} - sistem gde se za šifrovanje i dešifrovanje uoptrebljava isti tajni ključ ;
+    \item \textbf{Asimetrični sistem ( sistem sa javnim ključem )} - proces u kome se publikuju ključevi za šifrovanje, a čuvaju se ključevi za dešifrovanje ;
+    \item \textbf{Kriptoanaliza} - proces pomoću kog prisluškivač pokušava da transformiše šifrat u otvoren tekst, ne znajući odgovarajući ključ ;
+    \item \textbf{Dekriptiranje} - uspešna kritpoanaliza, makar bila i delimična.
+\end{itemize}
+\section{Istorija kriptografije}
+Tokom istorije, od uvek je postojala potreba da neke poruke ostanu tajne i isključivo između određenih ljudi na višim položajima. Sledećih nekoliko primera predstavlja neke od šifara koje su se koristile. 
+\subsection{Spartanska šifra}
+Spartanska šifra, poznata i kao Skitale, je jedna od najstarijih poznatih načina šifrovanja, koji se koristio u antičkoj Grkčoj, pre svega u Sparti. Sastojala se od štapa određenog prečnika i trake sa slovima koja se obmotavala oko štapa i tako otkrivala šifru. Spada u asimetričan sistem i predstavlja primer transpozicije. Na traci se nalaze slova i od ključne važnosti za odgonetanje šifre je prečnik štapa.
+\subsection{Cezarova šifra}
+Predstavlja šifru zamene. Svako slovo je pomera za $k$ mesta udesno. Najčešće se koristi engleska abeceda gde se redom slova $A, B, ...Z$ numerišu redom 0, 1, ... 25.
+
+
+{
+\centering
+Postupak šifrovanja \par
+}
+$$f(P)=P+k \bmod 26$$ 
+
+{
+\centering
+Postupak dešifrovanja \par
+}
+$$f^{-1}(C)=C-k \bmod 26$$
+
+\subsection{Afina šifra}
+Predstavlja uprošćenu Cezarovu šifru.
+
+{
+\centering
+Šifrovanje \par
+}
+$$f(P)=aP+b \bmod 26$$ 
+{
+\centering
+Dešifrovanje \par
+}
+$$f^{-1}(C)=a^{-1}(C-b) \bmod 26 $$
+\subsection{Jednokratna šifra - One time Pad}
+Poruka $M$ se kodira binarno, ključ $K$ treba da bude iste dužine kao $M$ i binaran.
+$$C=M\oplus K$$
+$$M=C\oplus K$$
+\subsection{Plejferova šifra}+
+
+\section{Osnove teorije brojeva}
+Sa $\mathbb{Z}$ ćemo označiti skup celih brojeva, to jest, $\mathbb{Z} = \{0, \pm 1, \pm 2, \pm 3, ...\}$. Neka elemnti $a,b \in \mathbb{Z}$. Kažemo da broj $a$ deli broj $b$, u oznaci $a|b$, ako je $b=na$ za neki broj $n$, tako da $n\in \mathbb{Z}$. Iz toga sledi da broj $a$ deli broj $b$ $akko$ je $b$ celobrojni umnožak broja $a$.
+
+    Operator $|$ ima sledeće osobine :
+    \begin{enumerate}
+        \item ako $a,b,c $\in \mathbb{Z}$ i $a|b$ \Rightarrow $a$|bc$
+        \item ako $a|b$ i $a|c$ \Rightarrow $a$|b\pm c$
+        \item ako $a|b$ i $a \not| c$ \Rightarrow $a \not| b \pm c$$
+    \end{enumerate}
+Brojevi 2, 3, 5, 7, 11... su prosti brojevi. Osnovna teorema aritmetike kaže da se svaki broj $n \in \mathbb{Z}$, $n>1$ , može na jedinstven način predstaviti kao proizvod prostih brojeva $n=p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_r^{\alpha_r}$,
+gde se sa $\alpha_i$ označavaju pozitivni celi brojevi. Pozitivni delioci broja $n$ su oblika $p_1^{\beta_1}p_2^{\beta_2}p_3^{\beta_3}...p_r^{\beta_r}$
+gde važi 
+$0 $\leq$ \beta_i $\leq$ \alpha_i$ za svako $i=1, 2, 3, ... r$. Iz toga sledi da broj $n$ ima $(\alpha_1 +1)(\alpha_2+1)(\alpha_3+1)...(\alpha_r+1)$ različitih delilaca.
+
+Posledica osnovne teoreme aritmetike je da ako je $p$ prost broj i važi da $p|ab$, to znači da $p|a$ ili $p|b$, međutim ta implikacija ne mora uvek biti tačna.
+\subsection{Najveći zajednički delilac}
+Neka brojevi $a,b\in \mathbb {N_0}$. Najveći zajednički delilac ($NZD$) brojeva $a$  i $b$ , u oznaci $nzd(a,b)$, predstavlja najveći prirodni broj $d$ koji deli brojeve $a$ i $b$. Brojeve $a$ i $b$ faktorizacijom možemo predstaviti na sledeći način $a=p_1^{\alpha_1}p_2^{\alpha_2}p_3^{\alpha_3}...p_r^{\alpha_r}$ i
+$b=p_1^{\beta_1}p_2^{\beta_2}p_3^{\beta_3}...p_r^{\beta_r}$, gde neki od eksponenata mogu biti 0. Tada je $nzd(a,b)=p_1^{\gamma_1}p_2^{\gamma_2}p_3^{\gamma_3}...p_r^{\gamma_r}$, gde $\gamma_i$ predstavlja minimum od $\alpha_i$ i $\beta_i$, to jest $\gamma_i$=min$\{\alpha_i,\beta_i\}$. Za brojeve čiji je $nzd=1$ kažemo da su uzajamno prosti.
+\subsection{Euklidov algoritam}
+Postoje i drugi, efikasni i jednostavni načini izračunavanja NZD-a, a jedan od njih je Euklidov algoritam. Ostatak pri deljenju broja $a$ sa brojem $b$ možemo zapisati kao $a \bmod b$. Neka je $a=qb+r$ i neka važi $0\leq r< b$. Odatle sledi da je $a$ mod $b = r$. Algoritam funkcioniše tako što na mesto broja $a$ dolazi broj $b$, a na mesto broja $b$ dolazi ostatak pri deljenju $a$ sa $b$ to jest vrednost $a$ mod $b$ i tako dalje, a to izgleda ovako :
+$$nzd(a,b)=nzd(b, a \bmod b)= nzd(a \bmod b, b \bmod (a \bmod b))$$
+{
+\centering
+...\par
+}
+Euklidov algoritam se takođe može iskoristiti da se ovaj niz deljenja predstavi kao linearna kombinacija $nzd(a,b)=na+mb$, za brojeve
+$m,n\in Z$. 
+\subsection{Kongruencija}
+Ostatak pri celobrojnom deljenju ili mod označava binarnu operaciju, ali je i oznaka relacije u $Z$ tako što važi da je $a \equiv b\pmod{m}$ ako $m|b-a$. Kongruencija po modulu $m$ jeste relacija ekvivalencije i važi :
+    \begin{enumerate}
+        \item $a \equiv a \pmod{m} $ 
+        \item ako je $a\equiv b \pmod{m}$ \Rightarrow $b\equiv a \pmod{m}$
+        \item ako je $a\equiv b\pmod {m}$ i $b\equiv c\pmod{m}$ \Rightarrow $a\equiv c\pmod {m}$
+    \end{enumerate}
+Relacija $mod m$ razbija sve cele brojeve na $m$ disjunktnih podskupova gde svaki podskup sadrži tačno jednog predstavnika intervala $[0,1,...m-1]$. Skup pomenutih podskupova se označava sa $Z_m$ ili $Z/mZ$, gde $m$ predstavlja broj elemenata skupa.
+Osobine kongruencije su:
+\begin{enumerate}
+    \item \textbf{Sabiranje i množenje u $\mathbb{Z}_m$} - ako je $a\equiv b \pmod{m}$ i $c\equiv d \pmod{m}$ $\Rightarrow$ $a\pm c\equiv b\pm d \pmod{m}$ i $a\cdot c \equiv b\cdot d \pmod{m}$, relacija mod je saglasna sa operacijama $+$, $-$ i $\cdot$.
+    \item \textbf{Promena modula kongruencije} - ako je $a\equiv b \pmod{m}$ i $d|m$ $\Rightarrow$ $m|a-b$ i $d|a-b$ $\Rightarrow$ $a\equiv b\pmod{d}$.
+    \item \textbf{Inverz} - neka element $x\in Z_m$ ima mutiplikativni inverz $(1/x)=x^{-1} \in Z_m$, ako važi $nzd(x,m)=1$, što možemo napisati i kao $1=ax+bm$, a odatle vidimo da je $ax\equiv 1\pmod{m}$. Ako je $nzd(x,m)=d$, $d>1$, ne postoji inverz za $x$ po modulu $m$. Sa $Z_m^{*}$ označavamo skup elemenata $Z_m$ koji imaju inverze. Da bi se našao element $x^{-1}\in Z_m^{*}$ primenjuje se Euklidov algoritam tako da je $nzd(x,m)=1$.
+    \item \textbf{Deljenje u $\mathbb{Z}_m^{*}$} - ako je $a\equiv b\pmod{m}$, $c\equiv d\pmod {m}$ i $nzd(c,m)=1$, sledi da je $ac^{-1}\equiv bd^{-1} \pmod {m}$, to jest, $a/c\equiv b/d\pmod {m}$.
+    \item \textbf{Rešavanje kongruencije} - za date $a,b$ i $m$ treba rešiti kongruenciju $ax\equiv b\pmod{m}$ po $x$. Postoje tri moguća ishoda :
+    \begin{itemize}
+        \item ako je $nzd(a,m)=1$ \Rightarrow $x\equiv a^{-1}b\pmod{m}$ su sva moguća rešenja;
+        \item ako je $b=nzd(a,m)=g$, gde je $g>1$, kongruencija ima rešenja ako $g|b$. Odatle važi da $m|ax-b$, $(m/g)| (a/g)x-(b/g)$ to jest da je $(a/g)x=(b/g)\pmod{m/g}$. Sada je $nzd(a/g,m/g)=1$, rešenja kongruencije su $x\equiv (a/g)^{-1}(b/g)\pmod {m/g}$;
+        \item kongruencija nema rešenja ako $nzd(a,m)=g$, gde $g>1$ i $g\not|b$.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Kineska teorema o ostacima}
+Recimo da su brojevi $m_1, m_2, m_3, \dots, m_r$ u parovima uzajamno prosti prirodni brojevi. Postoji sistem kongruencija tako da važi $x \equiv a_1 \pmod{m_1}$, $x \equiv a_2 \pmod{m_2}$, $x \equiv a_3 \pmod{m_3}$, $\dots$, $x \equiv a_r \pmod{m_r}$ koji ima jedinstveno rešenje po modulu $m = m_1 m_2 m_3 \dots m_r$.
+
+Neka je $m = m_1 m_2 m_3 \dots m_r$ i $b_i \equiv (m/m_i)^{-1} \pmod{m_i}$, gde je $i = 1, 2, 3, \dots, r$. Ti inverzi postoje jer je $\operatorname{nzd}(m/m_i, m_i) = 1$.
+Izraz $a_1(m/m_1)b_1$ ima osobine da je kongruentan sa $a_1$ po modulu $m_1$ i kongruentan sa nulama po ostalim modulima $m_i$, gde je $i \not= 1$. Tako dobijamo izraze sa sličnim osobinama koji zavise od $i$ redom do $i = r$. Na osnovu toga, naš traženi ostatak je $x = a_1(m/m_1)b_1 + a_2(m/m_2)b_2 + a_3(m/m_3)b_3 + \dots + a_r(m/m_r)b_r$.
+\subsection{Ojlerova funkcija \varphi}
+Kažimo da broj $n\in Z_+$ i $Z_n^{*}=\{a \mid  1 \leq a \leq n, nzd(a,n)=1\}$. Skup $Z_n^{*}$ jeste grupa za množenje. Neka je $\varphi(n)=|Z_n^{*}|$. Ako bi $p$ bio prost broj, $\varphi(p)=p-1$, ako bi $r$ bio takav da važi $r\geq 1$ , skup $Z_{p^{r}}^{*}$ možemo dobiti od $Z_{p^{r}}$, izbacivanjem umnoška $p$. Datog umnoška $p$ ima $p^{r}/p$ iz čega sledi $\varphi(p^r)=p^r-p^{r-1}=p^{r-1}(p-1)$, a specijalan slučaj je da je $\varphi(p)=p-1$. 
+
+Vrednost Ojlerove fukncije za ostale prirodne brojeve se može izračunati koristeći da ako $nzd(m,n)=1$ sledi da je$\varphi(mn)=\varphi(m)\varphi(n)$. Koristeći kinesku teoremu o ostacima, za parove $x,y$ ostataka po modulu $m,n$, uzajamno prostih sa tim modulima jednoznačno odgovara proizvoljno  $z \in Z$ po modulu $mn$ takav da $z\equiv x \pmod{m}$ i $z\equiv y\pmod{n}$ $akko$ je istovremeno tačno $nzd(x,m)=1$ i $nzd(z,n)=1$, pa dobijamo $\varphi(mn)=\varphi(m)\varphi(n)$. Da bismo dobili $\varphi(n)$ treba $n$ da rastavimo na proste činioce. Ako je $\prod p_i^{\alpha^i}$, dobijamo $\varphi(n)=p_1^{\alpha_1-1}(p_1-1)...p_r^{\alpha_r-1}(p_r-1)$.
+\subsection{Mala Fermaova teorema}
+Neka je $p$ prost broj i neka $a\in Z$, tada je $a^{p}\equiv a \pmod{p}$. Ako $p\not| a$ \Rightarrow $a^{p-1}\equiv 1 \pmod p$. Zapravo, ako $nzd(a,m)=1$ \Rightarrow $a^{\varphi(m)}\equiv 1 \pmod m$. Skup ostataka $\{ax (mod m) | x \in Z_m^{*}$ je jednak skupu $Z_m^{*}$. Zbog toga važi :
+
+$$ \prod_{x\in \mathbb{Z}_m^{*}} x = \prod_{x\in \mathbb{Z}_m^{*}} ax = a^{\varphi(m)} \prod_{x\in \mathbb{Z}_m^{*}} x $$
+Skraćivanje date kongruencije brojem $ \prod_{x\in \mathbb{Z}_m^{*}} x $, dobija se 
+
+$a^{\varphi}(m)\equiv 1 \pmod m$. 
+
+Ako važi da je $nzd(c,m)=1$ i $a\equiv b \pmod{\varphi(m)}$, gde $a,b\in \mathbb{Z_{\geq 0}}$ \Rightarrow $c^{a} \equiv c^{b} \pmod m$.
+\section{Konačna polja}+
+
+\section{Stepenovanje ponovljenim kvadiranjem}+
+
+\section{Sistem sa javnim ključem}
+Šifarski sistem sa javnim ključem je sistem gde svako zna algoritam šifrovanja ali ne i polinomijalni algoritam za određivanje ključa za dešifrovanje polazeći od ključa šifrovanja. 
+
+Postoje \textbf{jednosmerne funkcije} i neka je $f$ takva funkcija. Ona je definisana na sledeći način $f:X\rightarrow Y$. Odatle znamo da za neko $x\in X$ je lako naći $f(x)$ i to je brzo šifrovanje, ali za neko $y\in Y$ je teže naći $y=f(x)$ i to je sporo dekriptiranje. Ovakve funkcije ne moraju biti invertibilne.
+
+Takođe postoje i \textbf{prividno jednosmerne funkcije}. One predstavljaju invertibilne jednosmerne funkcije $f$, za koje je izračunavanje $f^{-1}$ lako to jest brzo dešifrovanje, za one koji to znaju. Postoje dve najvažnije primene kriptografije sa javnim ključem i to su \textbf{digialni potpis} i \textbf{razmena ključa za simetrični šifarski sistem}.
+\subsection{RSA} +
+
+\subsection{Problem diskretnog logaritma u konačnom polju} +
+\subsection{Protokol usaglašavanja ključa Difi-Helman} +
+\section{Manje korišćeni šifarski sistemi sa javnim ključem} +
+\section{Eliptičke krive} +
+%\section{Potpisi i autentikacija}
+%\section{Faktorizacija}
+%\section{Rešavanje problema diskretnog logaritma u $F_q^{*}$}
+%\maketitle
+
+
+\end{document}
 
